@@ -12,6 +12,10 @@ from commentManager import CommentManager
 import requests as req
 import time
 import re
+import json
+import os
+import random
+import sys
 
 from logger_config import Logger
 from ollama import Client
@@ -24,23 +28,63 @@ ollama = Client(
     }
 )
 
+
+
 OLLAMA_MODEL = "deepseek-v3.1:671b-cloud"  # ✅ Cloud model to use
 
 class CommentScraper():
     def __init__(self, docNum=""):
-        self.options = Options()
-        self.options.add_argument("--headless")
-        self.options.add_argument("--disable-gpu")
-        self.options.add_argument("--no-sandbox")
-        self.options.add_argument("--window-size=1920,1080")
-        self.options.add_argument("--disable-dev-shm-usage")
-        self.driver = webdriver.Chrome(options=self.options)
-        self.wait = WebDriverWait(self.driver, 10)
+        self.driver, self.wait = self.createDriver()
+
         self.links = []
         self.docNum = docNum
         self.logger = Logger(log_folder=f"./logs/collection/{self.docNum}")
         self.commentManager = CommentManager(logger=self.logger, documentID=self.docNum)
-
+        self.last_comment_file = f"./comments/{self.docNum}/last_comment.json"
+        self.last_comment = None
+        self.resume_from_comment = None
+        self.resumed = False
+        if os.path.exists(self.last_comment_file):
+            with open(self.last_comment_file, 'r') as f:
+                data = json.load(f)
+                self.resume_from_comment = data.get('last_comment_id')
+        
+    def createOptions(self):
+        options = Options()
+        # options.add_argument("--headless")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--ignore-certificate-errors")
+        options.add_argument("--disable-blink-features=AutomationControlled")
+    
+        return options
+    
+    def createDriver(self):
+        options = self.createOptions()
+        driver = webdriver.Chrome(options=options)
+        wait = WebDriverWait(driver, 8)
+        driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+        
+        return driver, wait
+        
+    def safeGet(self, url):
+        self.driver.get(url)
+        if "we're sorry, an error has occurred" in self.driver.page_source.lower():
+            if self.last_comment:
+                with open(self.last_comment_file, 'w') as f:
+                    json.dump({'last_comment_id': self.last_comment}, f)
+                self.logger.log(f"Saved last comment {self.last_comment} due to error page.")
+            print("Quota reached or error occurred. Exiting to save progress. Run the script again to resume.")
+            self.driver.quit()
+            sys.exit(0)
+        try:
+            self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "#mainContent")))
+        except TimeoutException:
+            self.logger.log("No container found. Retrying...")
+            self.safeGet(url)
+    
     @staticmethod
     def isRelevant(abstract):
         if len(abstract) < 200:
@@ -64,7 +108,7 @@ class CommentScraper():
 
     def initialize(self):
         self.commentManager.setupFolders()
-        self.driver.get(f"https://www.regulations.gov/search?filter={self.docNum}")
+        self.safeGet(f"https://www.regulations.gov/search?filter={self.docNum}")
         try:
             self.wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".card.card-type-notice")))
         except TimeoutException:
@@ -95,12 +139,13 @@ class CommentScraper():
                 continue
 
         return ids
+        
 
     def scrape(self, docketId, page_number):
             while True:
                 url = base_url = f"https://www.regulations.gov/document/{docketId}/comment?pageNumber={page_number}"
                 self.logger.log(f"Scraping page {page_number}...")
-                self.driver.get(url)
+                self.safeGet(url)
 
                 try:
                     self.wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, "card-type-comment")))
@@ -135,6 +180,18 @@ class CommentScraper():
                         comment_id = data.get("id", "")
                         doc_id = comment_id
 
+                        if self.resume_from_comment and not self.resumed:
+                            if comment_id != self.resume_from_comment:
+                                self.last_comment = comment_id
+                                continue
+                            else:
+                                self.resumed = True
+                                if os.path.exists(self.last_comment_file):
+                                    os.remove(self.last_comment_file)
+                                self.logger.log(f"Resumed after comment {comment_id}")
+                                self.last_comment = comment_id
+                                continue  # resume from next
+
                         cmnt = {
                             "date": posted,
                             "name": commenter,
@@ -142,7 +199,7 @@ class CommentScraper():
                             "url": full_url,
                             "id": doc_id
                         }
-                        
+
                         print(commenter)
                         print(full_url)
                         print(doc_id)
@@ -154,7 +211,7 @@ class CommentScraper():
                         original_window = self.driver.current_window_handle
                         self.driver.switch_to.new_window(WindowTypes.TAB)
 
-                        self.driver.get(full_url)
+                        self.safeGet(full_url)
 
                         self.logger.log(f"Opened URL {full_url}")
 
@@ -173,7 +230,7 @@ class CommentScraper():
                             if relevantAbstract:
                                 attachmentNum += 1
                                 self.logger.log(f"Relevant abstract detected — saving as attachment 1/{numAttachments}")
-                                self.commentManager.createPDF(abstract, posted, commenter, agency, doc_id ,numAttachments=numAttachments, attachmentNum = attachmentNum)
+                                self.commentManager.createPDF(abstract, posted, commenter, agency, doc_id ,numAttachments=numAttachments, attachmentNum = attachmentNum, page=page_number)
 
                             self.logger.log(f"Found {len(attachments)} attachments")
                             
@@ -189,22 +246,35 @@ class CommentScraper():
                                 attachmentNum += 1
                                 
                                 self.logger.log(f"Downloading attachment {attachmentNum}/{numAttachments} from {link}")
-                                self.commentManager.downloadPDF(link, posted, commenter, agency, doc_id, numAttachments=numAttachments, attachmentNum = attachmentNum)
+                                self.commentManager.downloadPDF(link, posted, commenter, agency, doc_id, numAttachments=numAttachments, attachmentNum = attachmentNum, page=page_number)
                             
                             if attachmentNum == 0:
                                 self.logger.log("No PDF attachments found.", level="WARNING")
 
                         except TimeoutException:
+                            print("Failed to load comment page.")
+                            info = self.driver.page_source
+                            print(info)
                             self.logger.log("Failed to load comment page.", level="ERROR")
                             
                         finally:
-                            time.sleep(0.5)
+                            time.sleep(random.uniform(1,3))
                             self.driver.close()
                             self.driver.switch_to.window(original_window)
+
+                        self.last_comment = comment_id
 
                     except NoSuchElementException:
                         continue
                     except Exception as e:
+                        if 'quota' in str(e).lower():
+                            if self.last_comment:
+                                with open(self.last_comment_file, 'w') as f:
+                                    json.dump({'last_comment_id': self.last_comment}, f)
+                                self.logger.log(f"Saved last comment {self.last_comment} due to quota error.")
+                            print("Quota reached. Exiting to save progress. Run the script again to resume.")
+                            self.driver.quit()
+                            sys.exit(0)
                         self.logger.log(f"Error parsing comment: {e}", level="ERROR")
                         continue
 

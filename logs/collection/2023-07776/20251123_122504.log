@@ -1,0 +1,623 @@
+11/23/2025 - 12:25:04 - [INFO] - Logger initialized.
+11/23/2025 - 12:25:04 - [INFO] - Setup folders for ./comments/2023-07776/
+11/23/2025 - 12:25:13 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:25:14 - [INFO] - Scraping page 1...
+11/23/2025 - 12:25:17 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1453
+11/23/2025 - 12:25:17 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.CA779915A7E052BAC357B7C661A7204C.d.11A63B710C3D16099A8F62B07540ACB2.e.10")>]
+11/23/2025 - 12:25:17 - [INFO] - Found 1 attachments
+11/23/2025 - 12:25:17 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1453/attachment_1.pdf
+11/23/2025 - 12:25:17 - [INFO] - Updated metadata.json for NTIA-2023-0005-1453
+11/23/2025 - 12:25:17 - [INFO] - PDF file saved as N__Questions__20230627__NTIA-2023-0005-1453.pdf
+11/23/2025 - 12:25:21 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1139
+11/23/2025 - 12:25:21 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.E54F31205E4E969290EA19E5DDCC916F.d.C804B2E54052BAE0982C8945D8BB89FB.e.11")>]
+11/23/2025 - 12:25:21 - [INFO] - Found 1 attachments
+11/23/2025 - 12:25:21 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1139/attachment_1.pdf
+11/23/2025 - 12:25:21 - [INFO] - Updated metadata.json for NTIA-2023-0005-1139
+11/23/2025 - 12:25:21 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1139.pdf
+11/23/2025 - 12:25:25 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1092
+11/23/2025 - 12:25:25 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.231AFF2A8AADEE2F4E508128E74A169F.d.CD871249C58C6CB474A1CC7E46D4FB6E.e.8")>]
+11/23/2025 - 12:25:26 - [INFO] - Relevant abstract detected — saving as attachment 1/2
+11/23/2025 - 12:25:26 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1092_attachment1.docx
+11/23/2025 - 12:25:28 - [INFO] - Updated metadata.json for NTIA-2023-0005-1092
+11/23/2025 - 12:25:28 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1092_attachment1.pdf
+11/23/2025 - 12:25:28 - [INFO] - Found 1 attachments
+11/23/2025 - 12:25:28 - [INFO] - Downloading attachment 2/2 from https://downloads.regulations.gov/NTIA-2023-0005-1092/attachment_1.pdf
+11/23/2025 - 12:25:28 - [INFO] - Updated metadata.json for NTIA-2023-0005-1092
+11/23/2025 - 12:25:28 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1092_attachment2.pdf
+11/23/2025 - 12:25:32 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1121
+11/23/2025 - 12:25:32 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.66C8B3FFB77A492D793C773ABB4BA02D.d.FCA5B8B1CE348097DAD4AA7AEAC4DB4E.e.11")>]
+11/23/2025 - 12:25:32 - [INFO] - Found 1 attachments
+11/23/2025 - 12:25:32 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1121/attachment_1.pdf
+11/23/2025 - 12:25:32 - [INFO] - Updated metadata.json for NTIA-2023-0005-1121
+11/23/2025 - 12:25:32 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1121.pdf
+11/23/2025 - 12:25:43 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:25:44 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1208
+11/23/2025 - 12:25:44 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.9A6B03DFEB12518B2E89629088378CB8.d.9A8BA55A826C3A825E7708ACE6BF717F.e.15")>]
+11/23/2025 - 12:25:44 - [INFO] - Found 1 attachments
+11/23/2025 - 12:25:44 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1208/attachment_1.pdf
+11/23/2025 - 12:25:44 - [INFO] - Updated metadata.json for NTIA-2023-0005-1208
+11/23/2025 - 12:25:44 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1208.pdf
+11/23/2025 - 12:25:47 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1280
+11/23/2025 - 12:25:47 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.E980B455FBB963A2C3A577868D813DA8.d.B52006D6E6EF3FFF42A265B2866BEC90.e.11")>]
+11/23/2025 - 12:25:47 - [INFO] - Found 1 attachments
+11/23/2025 - 12:25:47 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1280/attachment_1.pdf
+11/23/2025 - 12:25:48 - [INFO] - Updated metadata.json for NTIA-2023-0005-1280
+11/23/2025 - 12:25:48 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1280.pdf
+11/23/2025 - 12:25:51 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1437
+11/23/2025 - 12:25:51 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.712AD2890CA10F6533D74A0758B6D216.d.97BCCE7C0B43D4896BA96366B538C230.e.11")>]
+11/23/2025 - 12:25:51 - [INFO] - Found 1 attachments
+11/23/2025 - 12:25:51 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1437/attachment_1.pdf
+11/23/2025 - 12:25:52 - [INFO] - Updated metadata.json for NTIA-2023-0005-1437
+11/23/2025 - 12:25:52 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1437.pdf
+11/23/2025 - 12:25:54 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1442
+11/23/2025 - 12:25:54 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.B9A2FD23E975042F55884320BFFB4BC5.d.6CC9CAC996CCBD611E35286E6D2105E0.e.5")>]
+11/23/2025 - 12:25:54 - [INFO] - Found 1 attachments
+11/23/2025 - 12:25:54 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1442/attachment_1.pdf
+11/23/2025 - 12:25:54 - [INFO] - Updated metadata.json for NTIA-2023-0005-1442
+11/23/2025 - 12:25:54 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1442.pdf
+11/23/2025 - 12:25:58 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1309
+11/23/2025 - 12:25:58 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.4E2B8714B4B322CF05DB9C7B4F421AA0.d.7723FD02DCD9511D158B65FDD4946811.e.11")>]
+11/23/2025 - 12:25:59 - [INFO] - Found 1 attachments
+11/23/2025 - 12:25:59 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1309/attachment_1.pdf
+11/23/2025 - 12:25:59 - [INFO] - Updated metadata.json for NTIA-2023-0005-1309
+11/23/2025 - 12:25:59 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1309.pdf
+11/23/2025 - 12:26:03 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1322
+11/23/2025 - 12:26:03 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.19B9703FE3787FD4C4F5F761442F65D3.d.82B60737484B28A8C3426ECD608E7642.e.6")>]
+11/23/2025 - 12:26:03 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:03 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1322/attachment_1.pdf
+11/23/2025 - 12:26:03 - [INFO] - Updated metadata.json for NTIA-2023-0005-1322
+11/23/2025 - 12:26:03 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1322.pdf
+11/23/2025 - 12:26:06 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1290
+11/23/2025 - 12:26:06 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.348DF14039701A50417CC33CF0F8F1E6.d.A88865E09320B1FB35D4FE92A22A9F7C.e.11")>]
+11/23/2025 - 12:26:06 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:06 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1290/attachment_1.pdf
+11/23/2025 - 12:26:06 - [INFO] - Updated metadata.json for NTIA-2023-0005-1290
+11/23/2025 - 12:26:06 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1290.pdf
+11/23/2025 - 12:26:16 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:26:17 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1384
+11/23/2025 - 12:26:17 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.73A0A3438FFDE472CA041FB70E7B8278.d.ACF29FF0D89A7C5A5974FF94C75ED4FD.e.14")>]
+11/23/2025 - 12:26:17 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:17 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1384/attachment_1.pdf
+11/23/2025 - 12:26:18 - [INFO] - Updated metadata.json for NTIA-2023-0005-1384
+11/23/2025 - 12:26:18 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1384.pdf
+11/23/2025 - 12:26:21 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1366
+11/23/2025 - 12:26:21 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.6651069CAE6AE13EDB80D4DF6567C45D.d.E7F9B4817CA98D7AF3C34FD272DBB24F.e.8")>]
+11/23/2025 - 12:26:22 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:22 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1366/attachment_1.pdf
+11/23/2025 - 12:26:22 - [INFO] - Updated metadata.json for NTIA-2023-0005-1366
+11/23/2025 - 12:26:22 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1366.pdf
+11/23/2025 - 12:26:26 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1414
+11/23/2025 - 12:26:26 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.43D478A98A9D1C19BB0372BD0AF8F88B.d.65D52AA7561E15CDBC594F473637A2C5.e.11")>]
+11/23/2025 - 12:26:26 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:26 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1414/attachment_1.pdf
+11/23/2025 - 12:26:26 - [INFO] - Updated metadata.json for NTIA-2023-0005-1414
+11/23/2025 - 12:26:26 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1414.pdf
+11/23/2025 - 12:26:29 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1424
+11/23/2025 - 12:26:29 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.2AEB0BF2F0E4C0CC90E9F9BDCB05990D.d.00E6912FD404D0C8DDF08D766F8BFE6E.e.8")>]
+11/23/2025 - 12:26:29 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:29 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1424/attachment_1.pdf
+11/23/2025 - 12:26:30 - [INFO] - Updated metadata.json for NTIA-2023-0005-1424
+11/23/2025 - 12:26:30 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1424.pdf
+11/23/2025 - 12:26:33 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1353
+11/23/2025 - 12:26:33 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.060B4B98F294DB135AD434BF738098C4.d.F00CB60B6CAF72E45B92EE9C87BDDBCF.e.10")>]
+11/23/2025 - 12:26:33 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:33 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1353/attachment_1.pdf
+11/23/2025 - 12:26:34 - [INFO] - Updated metadata.json for NTIA-2023-0005-1353
+11/23/2025 - 12:26:34 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1353.pdf
+11/23/2025 - 12:26:36 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1267
+11/23/2025 - 12:26:36 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.A38018411206A27D0A57889C2F8E403E.d.59866463A50935F12DBBD34C108FA03B.e.7")>]
+11/23/2025 - 12:26:36 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:36 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1267/attachment_1.pdf
+11/23/2025 - 12:26:36 - [INFO] - Updated metadata.json for NTIA-2023-0005-1267
+11/23/2025 - 12:26:36 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1267.pdf
+11/23/2025 - 12:26:39 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1306
+11/23/2025 - 12:26:39 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.0226D92BDDFD063B13B00B9B4014D3D4.d.023B54D5D980EE824E1BB72DEF264F97.e.11")>]
+11/23/2025 - 12:26:40 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:40 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1306/attachment_1.pdf
+11/23/2025 - 12:26:41 - [INFO] - Updated metadata.json for NTIA-2023-0005-1306
+11/23/2025 - 12:26:41 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1306.pdf
+11/23/2025 - 12:26:52 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:26:53 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0005
+11/23/2025 - 12:26:53 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.AA6DC1727BE199C7260FAE87364F5522.d.89382990A7364B84FC409AFF8A08BB46.e.15")>]
+11/23/2025 - 12:26:53 - [INFO] - Found 1 attachments
+11/23/2025 - 12:26:53 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-0005/attachment_1.pdf
+11/23/2025 - 12:26:54 - [INFO] - Updated metadata.json for NTIA-2023-0005-0005
+11/23/2025 - 12:26:54 - [INFO] - PDF file saved as N__NTIA20230005CommentsofPwC__20230615__NTIA-2023-0005-0005.pdf
+11/23/2025 - 12:26:57 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0014
+11/23/2025 - 12:26:57 - [INFO] - Found attachments: []
+11/23/2025 - 12:26:58 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:26:58 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0014.docx
+11/23/2025 - 12:27:03 - [INFO] - Updated metadata.json for NTIA-2023-0005-0014
+11/23/2025 - 12:27:03 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0014.pdf
+11/23/2025 - 12:27:03 - [INFO] - Found 0 attachments
+11/23/2025 - 12:27:07 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0042
+11/23/2025 - 12:27:07 - [INFO] - Found attachments: []
+11/23/2025 - 12:27:08 - [INFO] - Found 0 attachments
+11/23/2025 - 12:27:08 - [WARNING] - No PDF attachments found.
+11/23/2025 - 12:27:10 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0040
+11/23/2025 - 12:27:10 - [INFO] - Found attachments: []
+11/23/2025 - 12:27:11 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:27:11 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0040.docx
+11/23/2025 - 12:27:15 - [INFO] - Updated metadata.json for NTIA-2023-0005-0040
+11/23/2025 - 12:27:15 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0040.pdf
+11/23/2025 - 12:27:15 - [INFO] - Found 0 attachments
+11/23/2025 - 12:27:19 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0029
+11/23/2025 - 12:27:19 - [INFO] - Found attachments: []
+11/23/2025 - 12:27:20 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:27:20 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0029.docx
+11/23/2025 - 12:27:24 - [INFO] - Updated metadata.json for NTIA-2023-0005-0029
+11/23/2025 - 12:27:24 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0029.pdf
+11/23/2025 - 12:27:24 - [INFO] - Found 0 attachments
+11/23/2025 - 12:27:27 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0034
+11/23/2025 - 12:27:27 - [INFO] - Found attachments: []
+11/23/2025 - 12:27:27 - [INFO] - Found 0 attachments
+11/23/2025 - 12:27:27 - [WARNING] - No PDF attachments found.
+11/23/2025 - 12:27:31 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0033
+11/23/2025 - 12:27:31 - [INFO] - Found attachments: []
+11/23/2025 - 12:27:32 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:27:32 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0033.docx
+11/23/2025 - 12:27:36 - [INFO] - Updated metadata.json for NTIA-2023-0005-0033
+11/23/2025 - 12:27:36 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0033.pdf
+11/23/2025 - 12:27:36 - [INFO] - Found 0 attachments
+11/23/2025 - 12:27:39 - [INFO] - Scraping page 2...
+11/23/2025 - 12:27:42 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0047
+11/23/2025 - 12:27:42 - [INFO] - Found attachments: []
+11/23/2025 - 12:27:43 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:27:43 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0047.docx
+11/23/2025 - 12:27:48 - [INFO] - Updated metadata.json for NTIA-2023-0005-0047
+11/23/2025 - 12:27:48 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0047.pdf
+11/23/2025 - 12:27:48 - [INFO] - Found 0 attachments
+11/23/2025 - 12:27:51 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0060
+11/23/2025 - 12:27:51 - [INFO] - Found attachments: []
+11/23/2025 - 12:27:52 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:27:52 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0060.docx
+11/23/2025 - 12:27:54 - [INFO] - Updated metadata.json for NTIA-2023-0005-0060
+11/23/2025 - 12:27:54 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0060.pdf
+11/23/2025 - 12:27:54 - [INFO] - Found 0 attachments
+11/23/2025 - 12:27:58 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0064
+11/23/2025 - 12:27:58 - [INFO] - Found attachments: []
+11/23/2025 - 12:27:59 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:27:59 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0064.docx
+11/23/2025 - 12:28:03 - [INFO] - Updated metadata.json for NTIA-2023-0005-0064
+11/23/2025 - 12:28:03 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0064.pdf
+11/23/2025 - 12:28:03 - [INFO] - Found 0 attachments
+11/23/2025 - 12:28:06 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0058
+11/23/2025 - 12:28:06 - [INFO] - Found attachments: []
+11/23/2025 - 12:28:07 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:28:07 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0058.docx
+11/23/2025 - 12:28:12 - [INFO] - Updated metadata.json for NTIA-2023-0005-0058
+11/23/2025 - 12:28:12 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0058.pdf
+11/23/2025 - 12:28:12 - [INFO] - Found 0 attachments
+11/23/2025 - 12:28:16 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0031
+11/23/2025 - 12:28:16 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.2B9CA1E51B7FE4865BB315A1C05BAFF0.d.839C1D0FD2A9080E5B5609530608C46A.e.10")>]
+11/23/2025 - 12:28:17 - [INFO] - Relevant abstract detected — saving as attachment 1/2
+11/23/2025 - 12:28:17 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0031_attachment1.docx
+11/23/2025 - 12:28:22 - [INFO] - Updated metadata.json for NTIA-2023-0005-0031
+11/23/2025 - 12:28:22 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0031_attachment1.pdf
+11/23/2025 - 12:28:22 - [INFO] - Found 1 attachments
+11/23/2025 - 12:28:22 - [INFO] - Downloading attachment 2/2 from https://downloads.regulations.gov/NTIA-2023-0005-0031/attachment_1.docx
+11/23/2025 - 12:28:28 - [INFO] - Updated metadata.json for NTIA-2023-0005-0031
+11/23/2025 - 12:28:28 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0031_attachment2.docx
+11/23/2025 - 12:28:32 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0015
+11/23/2025 - 12:28:32 - [INFO] - Found attachments: []
+11/23/2025 - 12:28:33 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:28:33 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0015.docx
+11/23/2025 - 12:28:38 - [INFO] - Updated metadata.json for NTIA-2023-0005-0015
+11/23/2025 - 12:28:38 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0015.pdf
+11/23/2025 - 12:28:38 - [INFO] - Found 0 attachments
+11/23/2025 - 12:28:42 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0039
+11/23/2025 - 12:28:42 - [INFO] - Found attachments: []
+11/23/2025 - 12:28:43 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:28:43 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0039.docx
+11/23/2025 - 12:28:48 - [INFO] - Updated metadata.json for NTIA-2023-0005-0039
+11/23/2025 - 12:28:48 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0039.pdf
+11/23/2025 - 12:28:48 - [INFO] - Found 0 attachments
+11/23/2025 - 12:28:53 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0021
+11/23/2025 - 12:28:53 - [INFO] - Found attachments: []
+11/23/2025 - 12:28:54 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:28:54 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0021.docx
+11/23/2025 - 12:28:57 - [INFO] - Updated metadata.json for NTIA-2023-0005-0021
+11/23/2025 - 12:28:57 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0021.pdf
+11/23/2025 - 12:28:57 - [INFO] - Found 0 attachments
+11/23/2025 - 12:29:00 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0055
+11/23/2025 - 12:29:00 - [INFO] - Found attachments: []
+11/23/2025 - 12:29:02 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:29:02 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0055.docx
+11/23/2025 - 12:29:07 - [INFO] - Updated metadata.json for NTIA-2023-0005-0055
+11/23/2025 - 12:29:07 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0055.pdf
+11/23/2025 - 12:29:07 - [INFO] - Found 0 attachments
+11/23/2025 - 12:29:12 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0025
+11/23/2025 - 12:29:12 - [INFO] - Found attachments: []
+11/23/2025 - 12:29:13 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:29:13 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0025.docx
+11/23/2025 - 12:29:15 - [INFO] - Updated metadata.json for NTIA-2023-0005-0025
+11/23/2025 - 12:29:15 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0025.pdf
+11/23/2025 - 12:29:15 - [INFO] - Found 0 attachments
+11/23/2025 - 12:29:20 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0065
+11/23/2025 - 12:29:20 - [INFO] - Found attachments: []
+11/23/2025 - 12:29:21 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:29:21 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0065.docx
+11/23/2025 - 12:29:25 - [INFO] - Updated metadata.json for NTIA-2023-0005-0065
+11/23/2025 - 12:29:25 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0065.pdf
+11/23/2025 - 12:29:25 - [INFO] - Found 0 attachments
+11/23/2025 - 12:29:29 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0056
+11/23/2025 - 12:29:29 - [INFO] - Found attachments: []
+11/23/2025 - 12:29:30 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:29:30 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0056.docx
+11/23/2025 - 12:29:35 - [INFO] - Updated metadata.json for NTIA-2023-0005-0056
+11/23/2025 - 12:29:35 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0056.pdf
+11/23/2025 - 12:29:35 - [INFO] - Found 0 attachments
+11/23/2025 - 12:29:46 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:29:54 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:29:56 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0051
+11/23/2025 - 12:29:56 - [INFO] - Found attachments: []
+11/23/2025 - 12:29:57 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:29:57 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0051.docx
+11/23/2025 - 12:30:01 - [INFO] - Updated metadata.json for NTIA-2023-0005-0051
+11/23/2025 - 12:30:01 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0051.pdf
+11/23/2025 - 12:30:01 - [INFO] - Found 0 attachments
+11/23/2025 - 12:30:13 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:30:15 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0027
+11/23/2025 - 12:30:15 - [INFO] - Found attachments: []
+11/23/2025 - 12:30:16 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:30:16 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0027.docx
+11/23/2025 - 12:30:20 - [INFO] - Updated metadata.json for NTIA-2023-0005-0027
+11/23/2025 - 12:30:20 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0027.pdf
+11/23/2025 - 12:30:20 - [INFO] - Found 0 attachments
+11/23/2025 - 12:30:32 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:30:33 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0044
+11/23/2025 - 12:30:33 - [INFO] - Found attachments: []
+11/23/2025 - 12:30:34 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:30:35 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0044.docx
+11/23/2025 - 12:30:39 - [INFO] - Updated metadata.json for NTIA-2023-0005-0044
+11/23/2025 - 12:30:39 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0044.pdf
+11/23/2025 - 12:30:39 - [INFO] - Found 0 attachments
+11/23/2025 - 12:30:49 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:30:57 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:31:06 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:31:14 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:31:15 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0053
+11/23/2025 - 12:31:15 - [INFO] - Found attachments: []
+11/23/2025 - 12:31:16 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:31:16 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0053.docx
+11/23/2025 - 12:31:21 - [INFO] - Updated metadata.json for NTIA-2023-0005-0053
+11/23/2025 - 12:31:21 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0053.pdf
+11/23/2025 - 12:31:21 - [INFO] - Found 0 attachments
+11/23/2025 - 12:31:32 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:31:33 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0010
+11/23/2025 - 12:31:33 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.E962C48E7A5319F57EE632CAEE1B8D6F.d.781B7C43606A797163CF591E40CA3012.e.12")>]
+11/23/2025 - 12:31:34 - [INFO] - Relevant abstract detected — saving as attachment 1/2
+11/23/2025 - 12:31:34 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0010_attachment1.docx
+11/23/2025 - 12:31:38 - [INFO] - Updated metadata.json for NTIA-2023-0005-0010
+11/23/2025 - 12:31:38 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0010_attachment1.pdf
+11/23/2025 - 12:31:38 - [INFO] - Found 1 attachments
+11/23/2025 - 12:31:38 - [INFO] - Downloading attachment 2/2 from https://downloads.regulations.gov/NTIA-2023-0005-0010/attachment_1.pdf
+11/23/2025 - 12:31:39 - [INFO] - Updated metadata.json for NTIA-2023-0005-0010
+11/23/2025 - 12:31:39 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0010_attachment2.pdf
+11/23/2025 - 12:31:50 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:31:51 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1084
+11/23/2025 - 12:31:52 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.4E64F11C32F1EA796110432440B91120.d.0BF877131A366D89F972DB4A21AC8020.e.15")>]
+11/23/2025 - 12:31:52 - [INFO] - Found 1 attachments
+11/23/2025 - 12:31:52 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1084/attachment_1.docx
+11/23/2025 - 12:31:57 - [INFO] - Updated metadata.json for NTIA-2023-0005-1084
+11/23/2025 - 12:31:57 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1084.docx
+11/23/2025 - 12:32:08 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:32:16 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:32:18 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1078
+11/23/2025 - 12:32:18 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.E2A6536A6871F2367F4651E87DEF3CA0.d.225DB52B84A7B2E093FAA7042778BA39.e.19")>]
+11/23/2025 - 12:32:18 - [INFO] - Found 1 attachments
+11/23/2025 - 12:32:18 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1078/attachment_1.pdf
+11/23/2025 - 12:32:18 - [INFO] - Updated metadata.json for NTIA-2023-0005-1078
+11/23/2025 - 12:32:18 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1078.pdf
+11/23/2025 - 12:32:29 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:32:31 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1042
+11/23/2025 - 12:32:31 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.01A5887A3C74D06A328EF58808513785.d.4D8198088C7A0C72F424614A3F875252.e.16")>]
+11/23/2025 - 12:32:31 - [INFO] - Found 1 attachments
+11/23/2025 - 12:32:31 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1042/attachment_1.pdf
+11/23/2025 - 12:32:31 - [INFO] - Updated metadata.json for NTIA-2023-0005-1042
+11/23/2025 - 12:32:31 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1042.pdf
+11/23/2025 - 12:32:41 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:32:43 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1011
+11/23/2025 - 12:32:43 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.FA121E2032EB5B61A6AB0661210DB7DD.d.0D2AAEF8D1D0351E84F88D2150BFBAB5.e.15")>]
+11/23/2025 - 12:32:44 - [INFO] - Found 1 attachments
+11/23/2025 - 12:32:44 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1011/attachment_1.pdf
+11/23/2025 - 12:32:45 - [INFO] - Updated metadata.json for NTIA-2023-0005-1011
+11/23/2025 - 12:32:45 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1011.pdf
+11/23/2025 - 12:32:55 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:33:03 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:33:11 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:33:13 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0949
+11/23/2025 - 12:33:13 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.F12645C90EFC23189103682B2ED38564.d.A119F4C4FFB1538CA7C6C1EA897C0A20.e.24")>]
+11/23/2025 - 12:33:14 - [INFO] - Relevant abstract detected — saving as attachment 1/2
+11/23/2025 - 12:33:14 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0949_attachment1.docx
+11/23/2025 - 12:33:19 - [INFO] - Updated metadata.json for NTIA-2023-0005-0949
+11/23/2025 - 12:33:19 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0949_attachment1.pdf
+11/23/2025 - 12:33:19 - [INFO] - Found 1 attachments
+11/23/2025 - 12:33:19 - [INFO] - Downloading attachment 2/2 from https://downloads.regulations.gov/NTIA-2023-0005-0949/attachment_1.pdf
+11/23/2025 - 12:33:20 - [INFO] - Updated metadata.json for NTIA-2023-0005-0949
+11/23/2025 - 12:33:20 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0949_attachment2.pdf
+11/23/2025 - 12:33:23 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0998
+11/23/2025 - 12:33:23 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.30737A8A326A1AC0B7F345078BCE650F.d.B8B1C611CA85AF14E5078B86A9A055F4.e.12")>]
+11/23/2025 - 12:33:24 - [INFO] - Relevant abstract detected — saving as attachment 1/2
+11/23/2025 - 12:33:24 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0998_attachment1.docx
+11/23/2025 - 12:33:28 - [INFO] - Updated metadata.json for NTIA-2023-0005-0998
+11/23/2025 - 12:33:28 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0998_attachment1.pdf
+11/23/2025 - 12:33:28 - [INFO] - Found 1 attachments
+11/23/2025 - 12:33:28 - [INFO] - Downloading attachment 2/2 from https://downloads.regulations.gov/NTIA-2023-0005-0998/attachment_1.png
+11/23/2025 - 12:33:28 - [INFO] - Updated metadata.json for NTIA-2023-0005-0998
+11/23/2025 - 12:33:28 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0998_attachment2.png
+11/23/2025 - 12:33:39 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:33:40 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0894
+11/23/2025 - 12:33:40 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.9F0A270F23B6F25C713D9F5BF150CE21.d.ED6C3027286DC9F9C902D514558BA477.e.16")>]
+11/23/2025 - 12:33:41 - [INFO] - Found 1 attachments
+11/23/2025 - 12:33:41 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-0894/attachment_1.pdf
+11/23/2025 - 12:33:41 - [INFO] - Updated metadata.json for NTIA-2023-0005-0894
+11/23/2025 - 12:33:41 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0894.pdf
+11/23/2025 - 12:33:46 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0953
+11/23/2025 - 12:33:46 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.29500B4080C8F136E34A0AB5024B2706.d.88BA1E813F6F2E5A1B5D1A9B45087737.e.12")>]
+11/23/2025 - 12:33:46 - [INFO] - Found 1 attachments
+11/23/2025 - 12:33:46 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-0953/attachment_1.pdf
+11/23/2025 - 12:33:46 - [INFO] - Updated metadata.json for NTIA-2023-0005-0953
+11/23/2025 - 12:33:46 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0953.pdf
+11/23/2025 - 12:33:48 - [INFO] - Scraping page 3...
+11/23/2025 - 12:33:56 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:34:05 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:34:13 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:34:21 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:34:29 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:34:32 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0755
+11/23/2025 - 12:34:32 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.1AB0EFC3DD444430204DFBA00214D602.d.ED94FA85F8B9F0EDD804B2206A28F590.e.8")>]
+11/23/2025 - 12:34:33 - [INFO] - Found 1 attachments
+11/23/2025 - 12:34:33 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-0755/attachment_1.pdf
+11/23/2025 - 12:34:33 - [INFO] - Updated metadata.json for NTIA-2023-0005-0755
+11/23/2025 - 12:34:33 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0755.pdf
+11/23/2025 - 12:34:43 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:34:44 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0817
+11/23/2025 - 12:34:44 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.8526D41D6C90D0E9ACDF36405E1882D1.d.9E630A1FF3B81F13E16BABB1D1A120F5.e.15")>]
+11/23/2025 - 12:34:44 - [INFO] - Found 1 attachments
+11/23/2025 - 12:34:44 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-0817/attachment_1.pdf
+11/23/2025 - 12:34:44 - [INFO] - Updated metadata.json for NTIA-2023-0005-0817
+11/23/2025 - 12:34:44 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0817.pdf
+11/23/2025 - 12:34:49 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0777
+11/23/2025 - 12:34:49 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="ff8f4a957e356b15d05acfc67b6b81e9", element="f.6274EAE0929F12E77D86FAE10E5615C1.d.0C9AB293310513552A20ABFB3A04F701.e.11")>]
+11/23/2025 - 12:34:49 - [INFO] - Found 1 attachments
+11/23/2025 - 12:34:49 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-0777/attachment_1.pdf
+11/23/2025 - 12:34:49 - [INFO] - Updated metadata.json for NTIA-2023-0005-0777
+11/23/2025 - 12:34:49 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0777.pdf
+11/23/2025 - 12:35:00 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:35:09 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:35:17 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:35:25 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:35:26 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0343
+11/23/2025 - 12:35:26 - [INFO] - Found attachments: []
+11/23/2025 - 12:35:27 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:35:27 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0343.docx
+11/23/2025 - 12:35:32 - [INFO] - Updated metadata.json for NTIA-2023-0005-0343
+11/23/2025 - 12:35:32 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0343.pdf
+11/23/2025 - 12:35:33 - [INFO] - Found 0 attachments
+11/23/2025 - 12:35:44 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:35:52 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:36:00 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:36:09 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:36:10 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0361
+11/23/2025 - 12:36:10 - [INFO] - Found attachments: []
+11/23/2025 - 12:36:11 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:36:11 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0361.docx
+11/23/2025 - 12:36:14 - [INFO] - Updated metadata.json for NTIA-2023-0005-0361
+11/23/2025 - 12:36:14 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0361.pdf
+11/23/2025 - 12:36:14 - [INFO] - Found 0 attachments
+11/23/2025 - 12:36:17 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0413
+11/23/2025 - 12:36:17 - [INFO] - Found attachments: []
+11/23/2025 - 12:36:18 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:36:18 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0413.docx
+11/23/2025 - 12:36:22 - [INFO] - Updated metadata.json for NTIA-2023-0005-0413
+11/23/2025 - 12:36:22 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0413.pdf
+11/23/2025 - 12:36:22 - [INFO] - Found 0 attachments
+11/23/2025 - 12:36:33 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:36:41 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:36:49 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:36:58 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:37:06 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:37:14 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:37:23 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:37:31 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:37:39 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:37:47 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:37:56 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:38:04 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:38:12 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:38:21 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:38:29 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:38:37 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:38:39 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0371
+11/23/2025 - 12:38:39 - [INFO] - Found attachments: []
+11/23/2025 - 12:38:42 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:38:42 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0371.docx
+11/23/2025 - 12:38:47 - [INFO] - Updated metadata.json for NTIA-2023-0005-0371
+11/23/2025 - 12:38:47 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0371.pdf
+11/23/2025 - 12:38:47 - [INFO] - Found 0 attachments
+11/23/2025 - 12:38:58 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:39:06 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:39:14 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:39:15 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0344
+11/23/2025 - 12:39:15 - [INFO] - Found attachments: []
+11/23/2025 - 12:39:16 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:39:16 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0344.docx
+11/23/2025 - 12:39:21 - [INFO] - Updated metadata.json for NTIA-2023-0005-0344
+11/23/2025 - 12:39:21 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0344.pdf
+11/23/2025 - 12:39:21 - [INFO] - Found 0 attachments
+11/23/2025 - 12:39:24 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0499
+11/23/2025 - 12:39:24 - [INFO] - Found attachments: []
+11/23/2025 - 12:39:29 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:39:30 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0499.docx
+11/23/2025 - 12:39:34 - [INFO] - Updated metadata.json for NTIA-2023-0005-0499
+11/23/2025 - 12:39:34 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0499.pdf
+11/23/2025 - 12:39:34 - [INFO] - Found 0 attachments
+11/23/2025 - 12:39:44 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:39:45 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0369
+11/23/2025 - 12:39:45 - [INFO] - Found attachments: []
+11/23/2025 - 12:39:46 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:39:46 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0369.docx
+11/23/2025 - 12:39:51 - [INFO] - Updated metadata.json for NTIA-2023-0005-0369
+11/23/2025 - 12:39:51 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0369.pdf
+11/23/2025 - 12:39:51 - [INFO] - Found 0 attachments
+11/23/2025 - 12:40:01 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:40:09 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:40:18 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:40:26 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:40:34 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:40:43 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:40:51 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:40:59 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:41:07 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:41:16 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:41:24 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:41:25 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0348
+11/23/2025 - 12:41:25 - [INFO] - Found attachments: []
+11/23/2025 - 12:41:27 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:41:27 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0348.docx
+11/23/2025 - 12:41:31 - [INFO] - Updated metadata.json for NTIA-2023-0005-0348
+11/23/2025 - 12:41:31 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0348.pdf
+11/23/2025 - 12:41:31 - [INFO] - Found 0 attachments
+11/23/2025 - 12:41:35 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0391
+11/23/2025 - 12:41:35 - [INFO] - Found attachments: []
+11/23/2025 - 12:41:36 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:41:36 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0391.docx
+11/23/2025 - 12:41:41 - [INFO] - Updated metadata.json for NTIA-2023-0005-0391
+11/23/2025 - 12:41:41 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0391.pdf
+11/23/2025 - 12:41:41 - [INFO] - Found 0 attachments
+11/23/2025 - 12:41:52 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:42:01 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:42:09 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:42:10 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0575
+11/23/2025 - 12:42:10 - [INFO] - Found attachments: []
+11/23/2025 - 12:42:11 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:42:11 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0575.docx
+11/23/2025 - 12:42:16 - [INFO] - Updated metadata.json for NTIA-2023-0005-0575
+11/23/2025 - 12:42:16 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0575.pdf
+11/23/2025 - 12:42:16 - [INFO] - Found 0 attachments
+11/23/2025 - 12:42:26 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:42:27 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0354
+11/23/2025 - 12:42:27 - [INFO] - Found attachments: []
+11/23/2025 - 12:42:27 - [INFO] - Found 0 attachments
+11/23/2025 - 12:42:27 - [WARNING] - No PDF attachments found.
+11/23/2025 - 12:42:37 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:42:45 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:42:53 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:42:55 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0577
+11/23/2025 - 12:42:55 - [INFO] - Found attachments: []
+11/23/2025 - 12:42:55 - [INFO] - Found 0 attachments
+11/23/2025 - 12:42:55 - [WARNING] - No PDF attachments found.
+11/23/2025 - 12:42:58 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0527
+11/23/2025 - 12:42:58 - [INFO] - Found attachments: []
+11/23/2025 - 12:42:59 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:42:59 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0527.docx
+11/23/2025 - 12:43:05 - [INFO] - Updated metadata.json for NTIA-2023-0005-0527
+11/23/2025 - 12:43:05 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0527.pdf
+11/23/2025 - 12:43:05 - [INFO] - Found 0 attachments
+11/23/2025 - 12:43:08 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0585
+11/23/2025 - 12:43:08 - [INFO] - Found attachments: []
+11/23/2025 - 12:43:10 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:43:11 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0585.docx
+11/23/2025 - 12:43:15 - [INFO] - Updated metadata.json for NTIA-2023-0005-0585
+11/23/2025 - 12:43:15 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0585.pdf
+11/23/2025 - 12:43:15 - [INFO] - Found 0 attachments
+11/23/2025 - 12:43:26 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:43:35 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:43:43 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:43:51 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:43:59 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:44:08 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:44:16 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:44:24 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:44:32 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:44:41 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:44:49 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:44:57 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:45:06 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:45:14 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:45:15 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0463
+11/23/2025 - 12:45:15 - [INFO] - Found attachments: []
+11/23/2025 - 12:45:16 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:45:16 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0463.docx
+11/23/2025 - 12:45:21 - [INFO] - Updated metadata.json for NTIA-2023-0005-0463
+11/23/2025 - 12:45:21 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0463.pdf
+11/23/2025 - 12:45:21 - [INFO] - Found 0 attachments
+11/23/2025 - 12:45:31 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:45:39 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:45:48 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:45:56 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:45:57 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0474
+11/23/2025 - 12:45:57 - [INFO] - Found attachments: []
+11/23/2025 - 12:45:57 - [INFO] - Found 0 attachments
+11/23/2025 - 12:45:57 - [WARNING] - No PDF attachments found.
+11/23/2025 - 12:46:00 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0372
+11/23/2025 - 12:46:00 - [INFO] - Found attachments: []
+11/23/2025 - 12:46:02 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:46:02 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0372.docx
+11/23/2025 - 12:46:06 - [INFO] - Updated metadata.json for NTIA-2023-0005-0372
+11/23/2025 - 12:46:06 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0372.pdf
+11/23/2025 - 12:46:06 - [INFO] - Found 0 attachments
+11/23/2025 - 12:46:11 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0757
+11/23/2025 - 12:46:11 - [INFO] - Found attachments: []
+11/23/2025 - 12:46:12 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:46:12 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0757.docx
+11/23/2025 - 12:46:17 - [INFO] - Updated metadata.json for NTIA-2023-0005-0757
+11/23/2025 - 12:46:17 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0757.pdf
+11/23/2025 - 12:46:17 - [INFO] - Found 0 attachments
+11/23/2025 - 12:46:27 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:46:35 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:46:43 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:46:52 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:46:53 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0754
+11/23/2025 - 12:46:53 - [INFO] - Found attachments: []
+11/23/2025 - 12:46:54 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:46:54 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0754.docx
+11/23/2025 - 12:46:59 - [INFO] - Updated metadata.json for NTIA-2023-0005-0754
+11/23/2025 - 12:46:59 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0754.pdf
+11/23/2025 - 12:46:59 - [INFO] - Found 0 attachments
+11/23/2025 - 12:47:03 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0552
+11/23/2025 - 12:47:03 - [INFO] - Found attachments: []
+11/23/2025 - 12:47:04 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:47:04 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0552.docx
+11/23/2025 - 12:47:09 - [INFO] - Updated metadata.json for NTIA-2023-0005-0552
+11/23/2025 - 12:47:09 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0552.pdf
+11/23/2025 - 12:47:09 - [INFO] - Found 0 attachments
+11/23/2025 - 12:47:19 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:47:28 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:47:29 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0352
+11/23/2025 - 12:47:29 - [INFO] - Found attachments: []
+11/23/2025 - 12:47:31 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:47:31 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0352.docx
+11/23/2025 - 12:47:36 - [INFO] - Updated metadata.json for NTIA-2023-0005-0352
+11/23/2025 - 12:47:36 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0352.pdf
+11/23/2025 - 12:47:36 - [INFO] - Found 0 attachments
+11/23/2025 - 12:47:47 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:47:56 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:48:04 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:48:05 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0442
+11/23/2025 - 12:48:05 - [INFO] - Found attachments: []
+11/23/2025 - 12:48:06 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 12:48:06 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0442.docx
+11/23/2025 - 12:48:11 - [INFO] - Updated metadata.json for NTIA-2023-0005-0442
+11/23/2025 - 12:48:11 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0442.pdf
+11/23/2025 - 12:48:11 - [INFO] - Found 0 attachments
+11/23/2025 - 12:48:12 - [INFO] - Scraping page 4...
+11/23/2025 - 12:48:20 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:48:29 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:48:37 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:48:45 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:48:54 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:49:02 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:49:10 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:49:18 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:49:27 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:49:35 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:49:43 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:49:51 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:50:00 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:50:08 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:50:16 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:50:24 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:50:33 - [INFO] - No container found. Retrying...
+11/23/2025 - 12:50:41 - [INFO] - No container found. Retrying...

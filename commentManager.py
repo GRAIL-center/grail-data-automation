@@ -88,7 +88,7 @@ class CommentManager:
         with open(f"{self.folderPath}/metadata.json", "w", encoding="utf-8") as f:
             js.dump(data, f)
 
-    def createPDF(self, info, date, commenter, agency, comment_id, numAttachments=0, attachmentNum=0):
+    def createPDF(self, info, date, commenter, agency, comment_id, numAttachments=0, attachmentNum=0, page=1):
         commenter = formatCommenter(commenter)
         filename_base = CommentManager.make_filename(commenter, date, agency, comment_id, logger=self.logger)
 
@@ -119,6 +119,13 @@ class CommentManager:
             "commenter": commenter,
             "agency": agency,
             "comment_id": comment_id
+        }
+        json['lastComment'] = {
+            "date": date,
+            "commenter": commenter,
+            "agency": agency,
+            "comment_id": comment_id,
+            "page": page
         }
 
         self.writeJSON(json)
@@ -176,12 +183,12 @@ class CommentManager:
         else:
             print("⚠️ No embedded PDF found in portfolio.")
 
-    def downloadPDF(self, url, date, commenter, agency, comment_id, numAttachments=0, attachmentNum=0):
-        
+    def downloadPDF(self, url, date, commenter, agency, comment_id, numAttachments=0, attachmentNum=0, page=1, cookies=None):
+
         commenter = formatCommenter(commenter)
-        
-        r = req.get(url)
-        
+        r = req.get(url, cookies=cookies, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'})
+        print(url)
+
         if r.status_code != 200:
             self.logger.log(f"Failed to download {url} ({r.status_code})", level="ERROR")
             return
@@ -197,12 +204,23 @@ class CommentManager:
         with open(f"{self.folderPath}/{fname}.{suffix}", "wb") as f:
             f.write(r.content)
 
+        if suffix == "docx":
+            convert(f"{self.folderPath}/{fname}.docx", f"{self.folderPath}/{fname}.pdf")
+            os.remove(f"{self.folderPath}/{fname}.docx")
+
         json = self.loadJSON()
         json[fname] = {
             "date": date,
             "commenter": commenter,
             "agency": agency,
             "comment_id": comment_id
+        }
+        json['lastComment'] = {
+            "date": date,
+            "commenter": commenter,
+            "agency": agency,
+            "comment_id": comment_id,
+            "page": page
         }
 
         self.writeJSON(json)

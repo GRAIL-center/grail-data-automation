@@ -1,0 +1,66 @@
+11/23/2025 - 11:27:39 - [INFO] - Logger initialized.
+11/23/2025 - 11:27:39 - [INFO] - Setup folders for ./comments/2023-07776/
+11/23/2025 - 11:27:41 - [INFO] - Scraping page 1...
+11/23/2025 - 11:27:44 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1453
+11/23/2025 - 11:27:44 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="20e3b54ba1cd2e3686a201367a546e2f", element="f.7DAEDE72E4533A436ACF31F41E67D148.d.51CD168883B2DAD46CAC95D930FBA737.e.12")>]
+11/23/2025 - 11:27:44 - [INFO] - Found 1 attachments
+11/23/2025 - 11:27:44 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1453/attachment_1.pdf
+11/23/2025 - 11:27:44 - [ERROR] - Failed to download https://downloads.regulations.gov/NTIA-2023-0005-1453/attachment_1.pdf (403)
+11/23/2025 - 11:27:44 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/23/2025 - 11:27:44 - [INFO] - Scraping page 2...
+11/23/2025 - 11:27:47 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0047
+11/23/2025 - 11:27:47 - [INFO] - Found attachments: []
+11/23/2025 - 11:27:48 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 11:27:48 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0047.docx
+11/23/2025 - 11:27:53 - [INFO] - Updated metadata.json for NTIA-2023-0005-0047
+11/23/2025 - 11:27:53 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0047.pdf
+11/23/2025 - 11:27:53 - [INFO] - Found 0 attachments
+11/23/2025 - 11:27:53 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/23/2025 - 11:27:53 - [INFO] - Scraping page 3...
+11/23/2025 - 11:27:56 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0755
+11/23/2025 - 11:27:56 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="20e3b54ba1cd2e3686a201367a546e2f", element="f.AA7F40FF7492FBE8DB35F6D36591315D.d.78713CB73F8328678ED51E6FCE4440AD.e.11")>]
+11/23/2025 - 11:27:56 - [INFO] - Found 1 attachments
+11/23/2025 - 11:27:56 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-0755/attachment_1.pdf
+11/23/2025 - 11:27:56 - [ERROR] - Failed to download https://downloads.regulations.gov/NTIA-2023-0005-0755/attachment_1.pdf (403)
+11/23/2025 - 11:27:56 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/23/2025 - 11:27:56 - [INFO] - Scraping page 4...
+11/23/2025 - 11:27:59 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0417
+11/23/2025 - 11:27:59 - [INFO] - Found attachments: []
+11/23/2025 - 11:28:01 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 11:28:01 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0417.docx
+11/23/2025 - 11:28:05 - [INFO] - Updated metadata.json for NTIA-2023-0005-0417
+11/23/2025 - 11:28:05 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0417.pdf
+11/23/2025 - 11:28:05 - [INFO] - Found 0 attachments
+11/23/2025 - 11:28:05 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/23/2025 - 11:28:05 - [INFO] - Scraping page 5...
+11/23/2025 - 11:28:08 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1149
+11/23/2025 - 11:28:09 - [INFO] - Found attachments: []
+11/23/2025 - 11:28:10 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 11:28:10 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1149.docx
+11/23/2025 - 11:28:14 - [INFO] - Updated metadata.json for NTIA-2023-0005-1149
+11/23/2025 - 11:28:14 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1149.pdf
+11/23/2025 - 11:28:14 - [INFO] - Found 0 attachments
+11/23/2025 - 11:28:14 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/23/2025 - 11:28:14 - [INFO] - Scraping page 6...
+11/23/2025 - 11:28:18 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1382
+11/23/2025 - 11:28:18 - [INFO] - Found attachments: []
+11/23/2025 - 11:28:18 - [INFO] - Found 0 attachments
+11/23/2025 - 11:28:18 - [WARNING] - No PDF attachments found.
+11/23/2025 - 11:28:18 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/23/2025 - 11:28:18 - [INFO] - Scraping page 7...
+11/23/2025 - 11:28:21 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1165
+11/23/2025 - 11:28:21 - [INFO] - Found attachments: []
+11/23/2025 - 11:28:22 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/23/2025 - 11:28:22 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1165.docx
+11/23/2025 - 11:28:26 - [INFO] - Updated metadata.json for NTIA-2023-0005-1165
+11/23/2025 - 11:28:26 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1165.pdf
+11/23/2025 - 11:28:26 - [INFO] - Found 0 attachments
+11/23/2025 - 11:28:26 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/23/2025 - 11:28:26 - [INFO] - Scraping page 8...
+11/23/2025 - 11:28:30 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1311
+11/23/2025 - 11:28:30 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="20e3b54ba1cd2e3686a201367a546e2f", element="f.72DD96565B84015C8128CD2E0936172C.d.74447297FE7E31F73AA710A958F51091.e.11")>]
+11/23/2025 - 11:28:30 - [INFO] - Found 1 attachments
+11/23/2025 - 11:28:30 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1311/attachment_1.pdf
+11/23/2025 - 11:28:30 - [ERROR] - Failed to download https://downloads.regulations.gov/NTIA-2023-0005-1311/attachment_1.pdf (403)
+11/23/2025 - 11:28:30 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/23/2025 - 11:28:30 - [INFO] - Scraping page 9...

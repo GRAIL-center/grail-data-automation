@@ -1,7 +1,6 @@
 from PIL import Image
 import os
 import json
-import re
 import fitz  # PyMuPDF
 from ollama import Client
 import pytesseract
@@ -13,6 +12,8 @@ from commentManager import CommentManager
 from logger_config import Logger
 
 import dotenv
+
+from queryFile import QueryFile
 dotenv.load_dotenv()
 
 
@@ -119,55 +120,6 @@ class CommentAnalysis:
         return text.strip()
 
     @staticmethod
-    def returnPrompt(field_subset: list[str], metadata: dict, context_text: str, relevantInfo="") -> str:
-
-        prompt = f"""
-            You are an AI data extraction assistant. You're job is to research important information about the background behind comments as part of federal RFIs/RFCs.
-
-            Extract ONLY the following fields (in order) from the text and metadata below.
-            Return in this format: [Field]: [Value]
-            No extra explanations or markdown.
-            
-            You MUST fill out the relevant issues addressed and the brief summary. This is REQUIRED.
-            
-            Keep the data as accurate as possible; don't make leaps.
-            
-            Keep in mind the context of this analysis:
-                The following entities are those which have responded to federal RFIs/RFCs related to AI and policy.
-
-            Do NOT use quotes around values.
-            Do NOT return empty or null; use 'N/A' if unknown.
-            Do NOT change the order of fields.
-
-            API Information regarding whether it is a nonprofit.
-            NOTE: 
-                For the API information, remember that this is a mere search of all entities with similar names. 
-                Many of the entities aren't nonprofits and shouldn't be considered.
-                These are just considerations to possibly assist in the field above.
-                
-                When determining organization role, remember to pick one of the following:
-                    - pick one of the following: 
-                        Citizen Engagement, Individual Expression/Specialization, Innovation, Political Advocacy, Service Provision, Social Capital Creation, Products, Services, Government Institution, Citizen, Infastructure
-
-            If it is not an organization but an individual, write N/A for the organization name. You must fill out the type of organization it is through research but if you really can't, you may write N/A.
-
-
-            Fields: {json.dumps(field_subset)}
-
-            Metadata: {json.dumps(metadata)}
-
-            Comment text: {context_text[:5000]}
-
-            {f"""
-            This document is situated within a group of documents as part of one comment in response to a federal RFI/RFC regarding AI policy.
-            Here is the context of all prior documents:
-            {relevantInfo}
-            
-            """ if relevantInfo else ""}"""
-            
-        return prompt
-
-    @staticmethod
     def getBase(file):
         """
         Returns the base filename without attachment suffix or extension
@@ -214,29 +166,44 @@ class CommentAnalysis:
         text = self.extract_text_from_pdf(filePath)
         metadata = self.getMetadata(file)
 
-        prompt = self.returnPrompt(self.env.FIELDS, metadata, text, relevantInfo)
-        chatResponse = self.env.chat(prompt)
-        response = self.interpolateResponse(chatResponse, metadata, file)
+        response = self.interpolateResponse(metadata, file)
         response.append(text[:49000])
         self.env.addSheetRow(response)
         return response
 
-    def interpolateResponse(self, chatResponse, metadata, filename):
-        pattern = r"^[^:]+:\s*(.*)$"
-        arr = [re.match(pattern, line).group(1) for line in chatResponse.splitlines() if re.match(pattern, line)]
-        arr = [v for v in arr if len(v.strip()) > 0]
-        arr = [str(x).strip().replace("\n", " ") or "N/A" for x in arr]
-
-        arr[0] = metadata.get("comment_id", "")
-        arr[1] = filename
-        arr[2] = metadata.get("date", "")
-        arr[3] = metadata.get("commenter", "")
+    def interpolateResponse(self, metadata, filename):
+        arr = []
+        
+        qf = QueryFile(self.docId, filename)
+        naw = "If the data cannot be found, simply write 'N/A' and nothing else."
+        
+        arr.append(metadata.get("comment_id", ""))
+        arr.append(filename)
+        arr.append(metadata.get("date", ""))
+        arr.append(qf.generateAnswer(f"Who is the commenter? Enter only the name. {naw} {metadata.get("commenter", "")}"))
+        arr.append(qf.generateAnswer(f"What is the name of the organization submitting the comment? Enter only the name. {naw}"))
+        
+        if 'n/a' in arr[4]:
+            arr.append("N/A")
+            arr.append("N/A")
+            arr.append("N/A")
+            arr.append("N/A")
+        else:
+            arr.append(qf.generateAnswer(f"What is the type of the organization submitting the comment? Enter only the type. {naw}"))
+            arr.append(qf.generateAnswer(f"What is the 501c Status of the organization submitting the comment? Enter only the status. {naw}"))
+            arr.append(qf.generateAnswer(f"What is the NTEE type of the organization submitting the comment? Enter only the type. {naw}"))
+            arr.append(qf.generateAnswer(f"What is the role of the organization submitting the comment? (select from Citizen Engagement, Individual Expression/Specialization, Innovation, Political Advocacy, Service Provision, Social Capital Creation, Products, Services, Government Institution, Citizen, Infastructure) Enter only the role. {naw}"))
+            
+        arr.append(qf.generateAnswer(f"What is the contact information of the comment's creators? Enter only the contact information. {naw}"))
+        arr.append(qf.generateAnswer(f"What are some relevant keywords related to the comment? Enter only the keywords in this format: a, b, c, d."))
+        arr.append(qf.generateAnswer(f"What is the summary of the comment? Enter only the summary in 1-2 brief sentences."))
+        arr.append(qf.generateAnswer(f"What are some relevant issues addressed in the comment? Enter only the issues in this format: a, b, c, d."))
 
         return arr
 
 
 if __name__ == "__main__":
-    docNum = "2021-10861"
-    env = Environment(os.getenv("OLLAMA_KEY"), os.getenv("GOOGLE_SHEET_URL"), sheetNum=3)
+    docNum = "2023-07776"
+    env = Environment(os.getenv("OLLAMA_KEY"), os.getenv("GOOGLE_SHEET_URL"), sheetNum=4)
     analyzer = CommentAnalysis(env, docNum)
     analyzer.extractFolder()

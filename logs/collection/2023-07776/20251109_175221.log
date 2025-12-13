@@ -1,0 +1,872 @@
+11/09/2025 - 17:52:21 - [INFO] - Logger initialized.
+11/09/2025 - 17:52:21 - [INFO] - Setup folders for ./comments/2023-07776/
+11/09/2025 - 17:52:30 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:52:31 - [INFO] - Scraping page 1...
+11/09/2025 - 17:52:35 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1453
+11/09/2025 - 17:52:35 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="e947bec251121057a55a6a491cc47f29", element="f.F4725ED25A5B69F60F550DA37C45FF65.d.9CB9E83650EDE977BC867ECB66DA6221.e.11")>]
+11/09/2025 - 17:52:35 - [INFO] - Found 1 attachments
+11/09/2025 - 17:52:35 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1453/attachment_1.pdf
+11/09/2025 - 17:52:35 - [INFO] - Updated metadata.json for NTIA-2023-0005-1453
+11/09/2025 - 17:52:35 - [INFO] - PDF file saved as NTIA__Questions__20230627__NTIA-2023-0005-1453.pdf
+11/09/2025 - 17:52:35 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:52:35 - [INFO] - Scraping page 2...
+11/09/2025 - 17:52:44 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:52:52 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1453
+11/09/2025 - 17:52:52 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="e947bec251121057a55a6a491cc47f29", element="f.A27E2EF749F98A7A427A2A99CFA9EB6C.d.E282D67A25A896187584C6A8D9ADB1F9.e.12")>]
+11/09/2025 - 17:52:52 - [INFO] - Found 1 attachments
+11/09/2025 - 17:52:52 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1453/attachment_1.pdf
+11/09/2025 - 17:52:52 - [INFO] - Updated metadata.json for NTIA-2023-0005-1453
+11/09/2025 - 17:52:52 - [INFO] - PDF file saved as NTIA__Questions__20230627__NTIA-2023-0005-1453.pdf
+11/09/2025 - 17:52:52 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:52:52 - [INFO] - Scraping page 3...
+11/09/2025 - 17:52:59 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0755
+11/09/2025 - 17:52:59 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="e947bec251121057a55a6a491cc47f29", element="f.A083D1138E0B59FBFE2A728841A022CB.d.FFB34DA82974CBB3431544C1BC303B0A.e.10")>]
+11/09/2025 - 17:52:59 - [INFO] - Found 1 attachments
+11/09/2025 - 17:52:59 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-0755/attachment_1.pdf
+11/09/2025 - 17:52:59 - [INFO] - Updated metadata.json for NTIA-2023-0005-0755
+11/09/2025 - 17:52:59 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0755.pdf
+11/09/2025 - 17:52:59 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:52:59 - [INFO] - Scraping page 4...
+11/09/2025 - 17:53:07 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:53:16 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:53:24 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:53:32 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:53:43 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:53:51 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:53:52 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0417
+11/09/2025 - 17:53:52 - [INFO] - Found attachments: []
+11/09/2025 - 17:53:54 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:53:54 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0417.docx
+11/09/2025 - 17:53:58 - [INFO] - Updated metadata.json for NTIA-2023-0005-0417
+11/09/2025 - 17:53:58 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0417.pdf
+11/09/2025 - 17:53:58 - [INFO] - Found 0 attachments
+11/09/2025 - 17:53:58 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:53:58 - [INFO] - Scraping page 5...
+11/09/2025 - 17:54:10 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:54:11 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1149
+11/09/2025 - 17:54:11 - [INFO] - Found attachments: []
+11/09/2025 - 17:54:12 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:54:12 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1149.docx
+11/09/2025 - 17:54:16 - [INFO] - Updated metadata.json for NTIA-2023-0005-1149
+11/09/2025 - 17:54:16 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1149.pdf
+11/09/2025 - 17:54:16 - [INFO] - Found 0 attachments
+11/09/2025 - 17:54:16 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:54:17 - [INFO] - Scraping page 6...
+11/09/2025 - 17:54:25 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:54:33 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:54:41 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:54:52 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:54:53 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1382
+11/09/2025 - 17:54:53 - [INFO] - Found attachments: []
+11/09/2025 - 17:54:53 - [INFO] - Found 0 attachments
+11/09/2025 - 17:54:53 - [WARNING] - No PDF attachments found.
+11/09/2025 - 17:54:53 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:54:53 - [INFO] - Scraping page 7...
+11/09/2025 - 17:55:04 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:55:12 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:55:14 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1165
+11/09/2025 - 17:55:14 - [INFO] - Found attachments: []
+11/09/2025 - 17:55:15 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:55:15 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1165.docx
+11/09/2025 - 17:55:19 - [INFO] - Updated metadata.json for NTIA-2023-0005-1165
+11/09/2025 - 17:55:19 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1165.pdf
+11/09/2025 - 17:55:19 - [INFO] - Found 0 attachments
+11/09/2025 - 17:55:19 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:55:19 - [INFO] - Scraping page 8...
+11/09/2025 - 17:55:27 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:55:31 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1311
+11/09/2025 - 17:55:31 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="e947bec251121057a55a6a491cc47f29", element="f.DEE5E128BCFF382F2529D5BB4F6CBBAF.d.40B4D4C50F3D66955435D9BFFC7BB2A9.e.8")>]
+11/09/2025 - 17:55:31 - [INFO] - Found 1 attachments
+11/09/2025 - 17:55:31 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1311/attachment_1.pdf
+11/09/2025 - 17:55:31 - [INFO] - Updated metadata.json for NTIA-2023-0005-1311
+11/09/2025 - 17:55:31 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1311.pdf
+11/09/2025 - 17:55:31 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:55:31 - [INFO] - Scraping page 9...
+11/09/2025 - 17:55:40 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:55:50 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:55:52 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1206
+11/09/2025 - 17:55:52 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="e947bec251121057a55a6a491cc47f29", element="f.EEA514CDD69F86DCD45607115704A8C1.d.8D1C00889EBA53CCA31BACC3D040B88D.e.36")>]
+11/09/2025 - 17:55:53 - [INFO] - Found 1 attachments
+11/09/2025 - 17:55:53 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1206/attachment_1.pdf
+11/09/2025 - 17:55:53 - [INFO] - Updated metadata.json for NTIA-2023-0005-1206
+11/09/2025 - 17:55:53 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1206.pdf
+11/09/2025 - 17:55:53 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:55:53 - [INFO] - Scraping page 10...
+11/09/2025 - 17:55:57 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0176
+11/09/2025 - 17:55:57 - [INFO] - Found attachments: []
+11/09/2025 - 17:55:58 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:55:58 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0176.docx
+11/09/2025 - 17:56:01 - [INFO] - Updated metadata.json for NTIA-2023-0005-0176
+11/09/2025 - 17:56:01 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0176.pdf
+11/09/2025 - 17:56:01 - [INFO] - Found 0 attachments
+11/09/2025 - 17:56:01 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:56:01 - [INFO] - Scraping page 11...
+11/09/2025 - 17:56:05 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0321
+11/09/2025 - 17:56:05 - [INFO] - Found attachments: []
+11/09/2025 - 17:56:05 - [INFO] - Found 0 attachments
+11/09/2025 - 17:56:05 - [WARNING] - No PDF attachments found.
+11/09/2025 - 17:56:05 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:56:05 - [INFO] - Scraping page 12...
+11/09/2025 - 17:56:13 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:56:22 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:56:30 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:56:41 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:56:42 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0082
+11/09/2025 - 17:56:42 - [INFO] - Found attachments: []
+11/09/2025 - 17:56:47 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:56:47 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0082.docx
+11/09/2025 - 17:56:52 - [INFO] - Updated metadata.json for NTIA-2023-0005-0082
+11/09/2025 - 17:56:52 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0082.pdf
+11/09/2025 - 17:56:52 - [INFO] - Found 0 attachments
+11/09/2025 - 17:56:52 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:56:52 - [INFO] - Scraping page 13...
+11/09/2025 - 17:56:56 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0092
+11/09/2025 - 17:56:56 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="e947bec251121057a55a6a491cc47f29", element="f.483B5DEC35FD0A50ACE3853CF92346A1.d.E0E0D16F9DBC9393BB980DFECC832A32.e.12")>]
+11/09/2025 - 17:56:56 - [INFO] - Found 1 attachments
+11/09/2025 - 17:56:56 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-0092/attachment_1.pdf
+11/09/2025 - 17:56:56 - [INFO] - Updated metadata.json for NTIA-2023-0005-0092
+11/09/2025 - 17:56:56 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0092.pdf
+11/09/2025 - 17:56:56 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:56:56 - [INFO] - Scraping page 14...
+11/09/2025 - 17:57:04 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:57:08 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0424
+11/09/2025 - 17:57:08 - [INFO] - Found attachments: []
+11/09/2025 - 17:57:11 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:57:11 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0424.docx
+11/09/2025 - 17:57:16 - [INFO] - Updated metadata.json for NTIA-2023-0005-0424
+11/09/2025 - 17:57:16 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0424.pdf
+11/09/2025 - 17:57:16 - [INFO] - Found 0 attachments
+11/09/2025 - 17:57:16 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:57:16 - [INFO] - Scraping page 15...
+11/09/2025 - 17:57:21 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0739
+11/09/2025 - 17:57:21 - [INFO] - Found attachments: []
+11/09/2025 - 17:57:22 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:57:22 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0739.docx
+11/09/2025 - 17:57:26 - [INFO] - Updated metadata.json for NTIA-2023-0005-0739
+11/09/2025 - 17:57:26 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0739.pdf
+11/09/2025 - 17:57:26 - [INFO] - Found 0 attachments
+11/09/2025 - 17:57:26 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:57:26 - [INFO] - Scraping page 16...
+11/09/2025 - 17:57:31 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0954
+11/09/2025 - 17:57:31 - [INFO] - Found attachments: []
+11/09/2025 - 17:57:32 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:57:32 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0954.docx
+11/09/2025 - 17:57:36 - [INFO] - Updated metadata.json for NTIA-2023-0005-0954
+11/09/2025 - 17:57:36 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0954.pdf
+11/09/2025 - 17:57:36 - [INFO] - Found 0 attachments
+11/09/2025 - 17:57:36 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:57:36 - [INFO] - Scraping page 17...
+11/09/2025 - 17:57:41 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0732
+11/09/2025 - 17:57:41 - [INFO] - Found attachments: []
+11/09/2025 - 17:57:42 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:57:42 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0732.docx
+11/09/2025 - 17:57:44 - [INFO] - Updated metadata.json for NTIA-2023-0005-0732
+11/09/2025 - 17:57:44 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0732.pdf
+11/09/2025 - 17:57:44 - [INFO] - Found 0 attachments
+11/09/2025 - 17:57:44 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:57:44 - [INFO] - Scraping page 18...
+11/09/2025 - 17:57:47 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0993
+11/09/2025 - 17:57:47 - [INFO] - Found attachments: []
+11/09/2025 - 17:57:48 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:57:48 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0993.docx
+11/09/2025 - 17:57:53 - [INFO] - Updated metadata.json for NTIA-2023-0005-0993
+11/09/2025 - 17:57:53 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0993.pdf
+11/09/2025 - 17:57:53 - [INFO] - Found 0 attachments
+11/09/2025 - 17:57:53 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:57:53 - [INFO] - Scraping page 19...
+11/09/2025 - 17:58:01 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:58:09 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:58:18 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:58:26 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:58:34 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:58:42 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:58:47 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0650
+11/09/2025 - 17:58:47 - [INFO] - Found attachments: []
+11/09/2025 - 17:58:48 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:58:48 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0650.docx
+11/09/2025 - 17:58:53 - [INFO] - Updated metadata.json for NTIA-2023-0005-0650
+11/09/2025 - 17:58:53 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0650.pdf
+11/09/2025 - 17:58:53 - [INFO] - Found 0 attachments
+11/09/2025 - 17:58:53 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:58:53 - [INFO] - Scraping page 20...
+11/09/2025 - 17:59:04 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:59:05 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1019
+11/09/2025 - 17:59:05 - [INFO] - Found attachments: []
+11/09/2025 - 17:59:05 - [INFO] - Found 0 attachments
+11/09/2025 - 17:59:05 - [WARNING] - No PDF attachments found.
+11/09/2025 - 17:59:05 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:59:05 - [INFO] - Scraping page 21...
+11/09/2025 - 17:59:08 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0767
+11/09/2025 - 17:59:08 - [INFO] - Found attachments: []
+11/09/2025 - 17:59:09 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:59:09 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0767.docx
+11/09/2025 - 17:59:14 - [INFO] - Updated metadata.json for NTIA-2023-0005-0767
+11/09/2025 - 17:59:14 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0767.pdf
+11/09/2025 - 17:59:14 - [INFO] - Found 0 attachments
+11/09/2025 - 17:59:14 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:59:14 - [INFO] - Scraping page 22...
+11/09/2025 - 17:59:22 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:59:31 - [INFO] - No container found. Retrying...
+11/09/2025 - 17:59:33 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-0054
+11/09/2025 - 17:59:33 - [INFO] - Found attachments: []
+11/09/2025 - 17:59:34 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:59:34 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0054.docx
+11/09/2025 - 17:59:39 - [INFO] - Updated metadata.json for NTIA-2023-0005-0054
+11/09/2025 - 17:59:39 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-0054.pdf
+11/09/2025 - 17:59:39 - [INFO] - Found 0 attachments
+11/09/2025 - 17:59:39 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:59:39 - [INFO] - Scraping page 23...
+11/09/2025 - 17:59:42 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1169
+11/09/2025 - 17:59:42 - [INFO] - Found attachments: []
+11/09/2025 - 17:59:43 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 17:59:43 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1169.docx
+11/09/2025 - 17:59:48 - [INFO] - Updated metadata.json for NTIA-2023-0005-1169
+11/09/2025 - 17:59:48 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1169.pdf
+11/09/2025 - 17:59:48 - [INFO] - Found 0 attachments
+11/09/2025 - 17:59:48 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 17:59:48 - [INFO] - Scraping page 24...
+11/09/2025 - 17:59:56 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:00:04 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:00:08 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1288
+11/09/2025 - 18:00:08 - [INFO] - Found attachments: []
+11/09/2025 - 18:00:09 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 18:00:09 - [INFO] - DOCX file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1288.docx
+11/09/2025 - 18:00:13 - [INFO] - Updated metadata.json for NTIA-2023-0005-1288
+11/09/2025 - 18:00:13 - [INFO] - PDF file saved as N__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1288.pdf
+11/09/2025 - 18:00:13 - [INFO] - Found 0 attachments
+11/09/2025 - 18:00:13 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 18:00:13 - [INFO] - Scraping page 25...
+11/09/2025 - 18:00:22 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:00:30 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:00:33 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1162
+11/09/2025 - 18:00:33 - [INFO] - Found attachments: []
+11/09/2025 - 18:00:34 - [INFO] - Relevant abstract detected — saving as attachment 1/1
+11/09/2025 - 18:00:34 - [INFO] - DOCX file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1162.docx
+11/09/2025 - 18:00:39 - [INFO] - Updated metadata.json for NTIA-2023-0005-1162
+11/09/2025 - 18:00:39 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1162.pdf
+11/09/2025 - 18:00:39 - [INFO] - Found 0 attachments
+11/09/2025 - 18:00:39 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 18:00:39 - [INFO] - Scraping page 26...
+11/09/2025 - 18:00:47 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:00:56 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:01:04 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:01:14 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:01:15 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1129
+11/09/2025 - 18:01:15 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="e947bec251121057a55a6a491cc47f29", element="f.A9BEC9F0A0A69B69CFF7B089E106822D.d.2620FD36542E2ACE14DD5E2827A6F3D1.e.15")>]
+11/09/2025 - 18:01:15 - [INFO] - Found 1 attachments
+11/09/2025 - 18:01:15 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1129/attachment_1.pdf
+11/09/2025 - 18:01:16 - [INFO] - Updated metadata.json for NTIA-2023-0005-1129
+11/09/2025 - 18:01:16 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1129.pdf
+11/09/2025 - 18:01:16 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 18:01:16 - [INFO] - Scraping page 27...
+11/09/2025 - 18:01:24 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:01:32 - [INFO] - No container found. Retrying...
+11/09/2025 - 18:01:35 - [INFO] - Opened URL https://www.regulations.gov/comment/NTIA-2023-0005-1277
+11/09/2025 - 18:01:35 - [INFO] - Found attachments: [<selenium.webdriver.remote.webelement.WebElement (session="e947bec251121057a55a6a491cc47f29", element="f.43E85B8BD8F4E69EF95664A16525ADE2.d.93C1E9E3ABD12C2AD0D47CEEE7B62B60.e.11")>]
+11/09/2025 - 18:01:35 - [INFO] - Found 1 attachments
+11/09/2025 - 18:01:36 - [INFO] - Downloading attachment 1/1 from https://downloads.regulations.gov/NTIA-2023-0005-1277/attachment_1.pdf
+11/09/2025 - 18:01:36 - [INFO] - Updated metadata.json for NTIA-2023-0005-1277
+11/09/2025 - 18:01:36 - [INFO] - PDF file saved as NTIA__CommentonFRDoc202307776__20230615__NTIA-2023-0005-1277.pdf
+11/09/2025 - 18:01:36 - [ERROR] - Error parsing comment: name 'random' is not defined
+11/09/2025 - 18:01:36 - [INFO] - Scraping page 28...
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [ERROR] - Error parsing comment: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=142.0.7444.60)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7f5b47a05
+	0x7ff7f5b47a60
+	0x7ff7f58c16ad
+	0x7ff7f5898e01
+	0x7ff7f594a0be
+	0x7ff7f596b222
+	0x7ff7f590b068
+	0x7ff7f590be93
+	0x7ff7f5e029a0
+	0x7ff7f5dfce20
+	0x7ff7f5e1cc15
+	0x7ff7f5b6309e
+	0x7ff7f5b6ad8f
+	0x7ff7f5b50be4
+	0x7ff7f5b50d9f
+	0x7ff7f5b367f8
+	0x7ffa448c259d
+	0x7ffa45b2af78
+
+11/09/2025 - 18:01:40 - [INFO] - Scraping page 29...
