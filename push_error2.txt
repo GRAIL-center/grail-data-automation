@@ -1,0 +1,26 @@
+﻿remote: error: GH013: Repository rule violations found for refs/heads/update-comment-fallback.        
+remote: 
+remote: - GITHUB PUSH PROTECTION        
+remote:   ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö        
+remote:     Resolve the following violations before pushing again        
+remote: 
+remote:     - Push cannot contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn how to resolve a blocked push        
+remote:      https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push        
+remote:             
+remote:             
+remote:       ΓÇöΓÇö Google Cloud Service Account Credentials ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö        
+remote:        locations:        
+remote:          - commit: 0fbac5978eaf6a4c168d686c5cb35d0c047383c0        
+remote:            path: service_account.json:1        
+remote:             
+remote:        (?) To push, remove secret from commit(s) or follow this URL to allow the secret.        
+remote:        https://github.com/GRAIL-center/grail-data-automation/security/secret-scanning/unblock-secret/3B2zLiTI796Ensqgcn2UbJl9JDR        
+remote:             
+remote: 
+remote: 
+To https://github.com/GRAIL-center/grail-data-automation
+ ! [remote rejected] update-comment-fallback -> update-comment-fallback (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/GRAIL-center/grail-data-automation'
