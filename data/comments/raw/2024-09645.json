@@ -1,0 +1,2054 @@
+[
+  {
+    "id": "DOT-OST-2024-0049-0018",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-20T13:28:38Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Stephanie Vail-Muse",
+      "objectId": "09000064865c0f89",
+      "postedDate": "2024-06-20T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0018"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0018"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0011",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-10T17:26:05Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Afolabi Adeniyi",
+      "objectId": "09000064865a734b",
+      "postedDate": "2024-06-10T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0011"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0011"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0079",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-25T11:49:40Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Intel Corporation",
+      "objectId": "0900006486604d7f",
+      "postedDate": "2024-07-25T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0079"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0079"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0078",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-24T19:50:24Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Huntridge Labs, LLC (SDVOSB)",
+      "objectId": "090000648660484f",
+      "postedDate": "2024-07-24T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0078"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0078"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0077",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-24T19:49:07Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Autonomous Vehicle Industry Association",
+      "objectId": "090000648660482c",
+      "postedDate": "2024-07-24T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0077"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0077"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0073",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-16T12:44:13Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Advocates for Highway and Auto Safety",
+      "objectId": "09000064865f06a5",
+      "postedDate": "2024-07-16T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0073"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0073"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0076",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-24T18:29:10Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from RTX Technology Research Center",
+      "objectId": "0900006486604af6",
+      "postedDate": "2024-07-24T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0076"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0076"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0060",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T19:47:45Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Deloitte Consulting LLP",
+      "objectId": "09000064865d7b9e",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0060"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0060"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0062",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T20:34:23Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from New Jersey Transit Corporation (“NJ TRANSIT”)",
+      "objectId": "09000064865d7cce",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0062"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0062"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0068",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-03T12:01:18Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Virginia Tech Transportation Institute",
+      "objectId": "09000064865d8318",
+      "postedDate": "2024-07-03T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0068"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0068"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0046",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-03T14:33:47Z",
+      "highlightedContent": "",
+      "withdrawn": true,
+      "agencyId": "DOT",
+      "title": "Comment from Booz Allen Hamilton Inc.",
+      "objectId": "09000064865d5ea2",
+      "postedDate": "2024-07-02T00:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0046"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0046"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0031",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-28T14:21:35Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from American Society of Civil Engineers",
+      "objectId": "09000064865d0e15",
+      "postedDate": "2024-06-28T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0031"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0031"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0041",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-01T19:00:38Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from TCG Inc.",
+      "objectId": "09000064865d556a",
+      "postedDate": "2024-07-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0041"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0041"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0039",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T12:23:24Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from The Ohio State University",
+      "objectId": "09000064865d4c6d",
+      "postedDate": "2024-07-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0039"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0039"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0050",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T13:41:31Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Hayden AI",
+      "objectId": "09000064865d5ffc",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0050"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0050"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0047",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T13:41:29Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Gecko Robotics",
+      "objectId": "09000064865d5eb7",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0047"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0047"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0049",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T13:41:31Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from SONDA USA INC",
+      "objectId": "09000064865d5c04",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0049"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0049"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0054",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T15:32:48Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Consortium of three universities (UC Irvine, U. of Arizona, U. at Albany)",
+      "objectId": "09000064865d6fc1",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0054"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0054"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0015",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-18T12:03:04Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Kant AI Solutions LLC",
+      "objectId": "09000064865bbde1",
+      "postedDate": "2024-06-18T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0015"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0015"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0014",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-17T14:49:44Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Anonymous",
+      "objectId": "09000064865b7fbc",
+      "postedDate": "2024-06-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0014"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0014"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0021",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-21T16:33:20Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Ensense AI",
+      "objectId": "09000064865c32ab",
+      "postedDate": "2024-06-21T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0021"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0021"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0029",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-26T19:56:06Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Merlin Labs, Inc.",
+      "objectId": "09000064865cb6be",
+      "postedDate": "2024-06-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0029"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0029"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0030",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-27T12:57:41Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Alexandre Gomes de Siqueira",
+      "objectId": "09000064865cdd45",
+      "postedDate": "2024-06-27T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0030"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0030"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0082",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-30T12:57:56Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Pacific Northwest Transportation Consortium (PacTrans), USDOT University Transportation Center for Federal Region 10",
+      "objectId": "090000648660b283",
+      "postedDate": "2024-07-30T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0082"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0082"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0101",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T21:05:47Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Cintra",
+      "objectId": "09000064866137eb",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0101"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0101"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0105",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-02T11:52:41Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from DiploAI",
+      "objectId": "0900006486613e66",
+      "postedDate": "2024-08-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0105"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0105"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0091",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T14:42:46Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Exodigo",
+      "objectId": "0900006486612eb1",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0091"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0091"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0092",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T15:32:58Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Consortium for Constituents with Disabilities (CCD) Transportation Task Force",
+      "objectId": "0900006486612f55",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0092"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0092"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0094",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T17:40:16Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Airlines for America",
+      "objectId": "09000064866134a2",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0094"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0094"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0089",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T12:09:53Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Institute of Transportation Engineers",
+      "objectId": "0900006486611a70",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0089"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0089"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0090",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T14:12:56Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Association for Uncrewed Vehicle Systems International (AUVSI)",
+      "objectId": "0900006486612dd4",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0090"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0090"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0099",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T18:57:59Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Alliance for Automotive Innovation",
+      "objectId": "0900006486613ad3",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0099"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0099"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0008",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-05-15T16:22:46Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from nPlan ltd",
+      "objectId": "090000648656727e",
+      "postedDate": "2024-05-15T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0008"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0008"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0004",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-05-13T12:02:26Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from State Healthcare",
+      "objectId": "090000648655a0c8",
+      "postedDate": "2024-05-13T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0004"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0004"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0007",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-05-13T12:02:28Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from State Healthcare",
+      "objectId": "090000648655bf91",
+      "postedDate": "2024-05-13T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0007"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0007"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0009",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-05-21T14:44:30Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Mitchell Berger",
+      "objectId": "09000064865717d6",
+      "postedDate": "2024-05-21T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0009"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0009"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0002",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-05-10T19:03:31Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Facundo Colinet",
+      "objectId": "0900006486559e67",
+      "postedDate": "2024-05-10T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0002"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0002"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0006",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-05-13T12:02:28Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Bob Fix",
+      "objectId": "090000648655ae1a",
+      "postedDate": "2024-05-13T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0006"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0006"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0005",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-05-13T12:02:27Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Lansing Nye-Madden",
+      "objectId": "090000648655a28a",
+      "postedDate": "2024-05-13T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0005"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0005"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0080",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-25T20:13:33Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Supernal LLC",
+      "objectId": "09000064866061dc",
+      "postedDate": "2024-07-25T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0080"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0080"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0086",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-30T19:37:59Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from MetroLab Network",
+      "objectId": "090000648660ea36",
+      "postedDate": "2024-07-30T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0086"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0086"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0087",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-31T16:43:43Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Resensys LLC",
+      "objectId": "090000648660f8fc",
+      "postedDate": "2024-07-31T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0087"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0087"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0084",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-30T12:58:55Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Cambridge Consultants Inc.",
+      "objectId": "090000648660d1ed",
+      "postedDate": "2024-07-30T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0084"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0084"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0109",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-02T11:52:43Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Shyla Patera",
+      "objectId": "0900006486614374",
+      "postedDate": "2024-08-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0109"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0109"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0110",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-02T11:52:44Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Owner-Operator Independent Drivers Association (OOIDA)",
+      "objectId": "0900006486614557",
+      "postedDate": "2024-08-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0110"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0110"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0107",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-02T11:52:42Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from ACT - The App Association",
+      "objectId": "0900006486613e77",
+      "postedDate": "2024-08-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0107"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0107"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0104",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-02T11:52:40Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Leidos",
+      "objectId": "0900006486613e41",
+      "postedDate": "2024-08-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0104"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0104"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0102",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-02T11:52:39Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from United Spinal Association",
+      "objectId": "0900006486613dd4",
+      "postedDate": "2024-08-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0102"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0102"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0026",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-26T13:24:04Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Metron, Inc.",
+      "objectId": "09000064865ca101",
+      "postedDate": "2024-06-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0026"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0026"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0027",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-26T18:15:12Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from TechFocus LLC",
+      "objectId": "09000064865caccf",
+      "postedDate": "2024-06-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0027"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0027"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0074",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-22T18:44:32Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Applied Intuition, Inc.",
+      "objectId": "09000064865ff739",
+      "postedDate": "2024-07-22T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0074"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0074"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0017",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-20T12:05:30Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from US Ignite",
+      "objectId": "09000064865c09ab",
+      "postedDate": "2024-06-20T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0017"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0017"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0020",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-21T15:49:31Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Humatics Corporation",
+      "objectId": "09000064865c2eb6",
+      "postedDate": "2024-06-21T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0020"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0020"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0057",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T17:45:17Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from The Port Authority of New York & New Jersey",
+      "objectId": "09000064865d760f",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0057"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0057"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0063",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T20:49:37Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Axon Enterprise, Inc.",
+      "objectId": "09000064865d7d1e",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0063"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0063"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0059",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T19:17:26Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Ito World",
+      "objectId": "09000064865d7b63",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0059"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0059"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0069",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-03T12:01:19Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from ENSCO, Inc",
+      "objectId": "09000064865d866d",
+      "postedDate": "2024-07-03T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0069"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0069"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0012",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-14T12:14:54Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from HAAS Alert",
+      "objectId": "09000064865b4806",
+      "postedDate": "2024-06-14T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0012"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0012"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0037",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-01T19:00:36Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Beyond Lucid Technologies, Inc. (www.BeyondLucid.com)",
+      "objectId": "09000064865d45b0",
+      "postedDate": "2024-07-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0037"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0037"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0036",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-01T19:00:35Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Trimble Inc",
+      "objectId": "09000064865d305d",
+      "postedDate": "2024-07-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0036"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0036"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0053",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T15:31:53Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Illinois Hispanic Chamber of Commerce",
+      "objectId": "09000064865d6f65",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0053"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0053"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0055",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T15:50:43Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from UCLA Mobility Lab - Mobility Systems Team",
+      "objectId": "09000064865d6fec",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0055"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0055"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0034",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-28T15:01:19Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from MITRE Corporation",
+      "objectId": "09000064865d0ed8",
+      "postedDate": "2024-06-28T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0034"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0034"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0033",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-28T14:59:04Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Arcadis",
+      "objectId": "09000064865d0ec1",
+      "postedDate": "2024-06-28T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0033"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0033"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0051",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T13:41:32Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from University of Minnesota, Twin Cities",
+      "objectId": "09000064865d6446",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0051"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0051"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0048",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T13:41:30Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Richard Govada Joshua",
+      "objectId": "09000064865d5f86",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0048"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0048"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0043",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T13:41:27Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Southwest Research Institute",
+      "objectId": "09000064865d5d7e",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0043"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0043"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0066",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-03T12:01:17Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Samsara Inc.",
+      "objectId": "09000064865d81a5",
+      "postedDate": "2024-07-03T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0066"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0066"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0038",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-10T11:52:02Z",
+      "highlightedContent": "",
+      "withdrawn": true,
+      "agencyId": "DOT",
+      "title": "Comment from The Ohio State University",
+      "objectId": "09000064865d4b05",
+      "postedDate": "2024-07-01T00:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0038"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0038"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0058",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T17:45:18Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Trenchant Analytics LLC",
+      "objectId": "09000064865d7636",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0058"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0058"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0061",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T19:49:07Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Microsoft",
+      "objectId": "09000064865d7bef",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0061"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0061"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0064",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-03T12:01:16Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Bentley Systems",
+      "objectId": "09000064865d7dd6",
+      "postedDate": "2024-07-03T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0064"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0064"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0065",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-03T12:01:17Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Yasamin Moghaddas",
+      "objectId": "09000064865d81a2",
+      "postedDate": "2024-07-03T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0065"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0065"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0067",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-03T12:01:18Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from University of California, Davis",
+      "objectId": "09000064865d823c",
+      "postedDate": "2024-07-03T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0067"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0067"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0071",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-05T18:57:09Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from University of Denver",
+      "objectId": "09000064865dd1fd",
+      "postedDate": "2024-07-05T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0071"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0071"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0040",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-01T19:00:37Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Cyber Florida: The Florida Center for Cybersecurity",
+      "objectId": "09000064865d4c7b",
+      "postedDate": "2024-07-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0040"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0040"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0042",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-01T19:00:39Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Noblis",
+      "objectId": "09000064865d5941",
+      "postedDate": "2024-07-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0042"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0042"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0045",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T13:41:28Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from University of California, Berkeley - PATH",
+      "objectId": "09000064865d5e27",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0045"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0045"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0044",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T13:41:28Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from SAS Institute Inc.",
+      "objectId": "09000064865d5e1b",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0044"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0044"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0052",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T14:44:36Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Booz Allen Hamilton Inc.",
+      "objectId": "09000064865d6eb3",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0052"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0052"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0070",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-03T17:31:12Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from The Future of Privacy Forum",
+      "objectId": "09000064865da6e2",
+      "postedDate": "2024-07-03T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0070"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0070"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0032",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-28T14:52:00Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from GridMatrix",
+      "objectId": "09000064865d0e9e",
+      "postedDate": "2024-06-28T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0032"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0032"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0056",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-02T17:14:08Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from American Road & Transportation Builders Association",
+      "objectId": "09000064865d7545",
+      "postedDate": "2024-07-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0056"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0056"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0072",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-08T20:08:49Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from GE Aerospace",
+      "objectId": "09000064865e028b",
+      "postedDate": "2024-07-08T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0072"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0072"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0075",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-24T11:52:19Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from The USDOT UTC CYBER-CARE Center",
+      "objectId": "0900006486603824",
+      "postedDate": "2024-07-24T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0075"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0075"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0085",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-30T18:22:14Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from The Patient Helpline",
+      "objectId": "090000648660e4be",
+      "postedDate": "2024-07-30T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0085"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0085"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0081",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-26T19:07:35Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Michelin Mobility Intelligence",
+      "objectId": "0900006486607677",
+      "postedDate": "2024-07-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0081"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0081"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0088",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-31T17:57:26Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Dell Federal Systems L.P. (\"Dell\")",
+      "objectId": "090000648661093a",
+      "postedDate": "2024-07-31T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0088"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0088"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0003",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-05-10T20:28:46Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Joshua Legler",
+      "objectId": "090000648655a16b",
+      "postedDate": "2024-05-10T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0003"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0003"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0010",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-05-24T13:36:35Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Subhadip Kumar",
+      "objectId": "090000648658006d",
+      "postedDate": "2024-05-24T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0010"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0010"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0013",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-14T20:08:52Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Texas Department of Transportation",
+      "objectId": "09000064865b724e",
+      "postedDate": "2024-06-14T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0013"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0013"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0022",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-24T12:11:35Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from narendra narukulla",
+      "objectId": "09000064865c45e2",
+      "postedDate": "2024-06-24T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0022"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0022"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0024",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-24T19:28:58Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Kyle Visner",
+      "objectId": "09000064865c6244",
+      "postedDate": "2024-06-24T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0024"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0024"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0016",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-20T11:58:19Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Jeff Ban",
+      "objectId": "09000064865bea27",
+      "postedDate": "2024-06-20T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0016"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0016"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0019",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-20T20:20:22Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Geographic Paradigm Computing, Inc.",
+      "objectId": "09000064865c1ab6",
+      "postedDate": "2024-06-20T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0019"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0019"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0025",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-25T21:09:24Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Callentis Consulting Group",
+      "objectId": "09000064865c8d3d",
+      "postedDate": "2024-06-25T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0025"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0025"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0023",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-24T15:52:32Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from American Council of the Blind",
+      "objectId": "09000064865c5868",
+      "postedDate": "2024-06-24T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0023"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0023"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0028",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-06-26T19:29:15Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from University of California, Los Angeles (UCLA)",
+      "objectId": "09000064865cb4c7",
+      "postedDate": "2024-06-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0028"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0028"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0083",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-07-30T12:58:25Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from University of Arizona",
+      "objectId": "090000648660beb7",
+      "postedDate": "2024-07-30T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0083"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0083"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0096",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T17:40:17Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Michael W.",
+      "objectId": "09000064866134f0",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0096"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0096"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0095",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T17:40:16Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Air Line Pilots Association, Int'l",
+      "objectId": "09000064866134e8",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0095"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0095"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0093",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T17:40:15Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Viva",
+      "objectId": "09000064866133c2",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0093"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0093"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0097",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T17:53:42Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from MEMA",
+      "objectId": "09000064866139db",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0097"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0097"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0098",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T18:00:28Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from ITS America",
+      "objectId": "09000064866139ff",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0098"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0098"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0100",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-01T19:17:35Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Ankura Consulting Group, LLC",
+      "objectId": "090000648661365b",
+      "postedDate": "2024-08-01T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0100"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0100"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0108",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-02T11:52:43Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from New York State Metropolitan Transportation Authority (MTA)",
+      "objectId": "0900006486613e92",
+      "postedDate": "2024-08-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0108"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0108"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0103",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-02T11:52:40Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Coalition for Safe and Secure Technology",
+      "objectId": "0900006486613e33",
+      "postedDate": "2024-08-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0103"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0103"
+  },
+  {
+    "id": "DOT-OST-2024-0049-0106",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-08-02T11:52:42Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "DOT",
+      "title": "Comment from Small UAV Coalition",
+      "objectId": "0900006486613e6d",
+      "postedDate": "2024-08-02T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/DOT-OST-2024-0049-0106"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/DOT-OST-2024-0049-0106"
+  }
+]

@@ -1,0 +1,382 @@
+[
+  {
+    "id": "PTO-P-2024-0026-0008",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-26T17:12:47Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Association of University Technology Managers, Inc. (AUTM)",
+      "objectId": "0900006486725fcd",
+      "postedDate": "2024-09-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0008"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0008"
+  },
+  {
+    "id": "PTO-P-2024-0026-0010",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-26T17:17:05Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Lori  Pressman",
+      "objectId": "0900006486727b8c",
+      "postedDate": "2024-09-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0010"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0010"
+  },
+  {
+    "id": "PTO-P-2024-0026-0022",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-21T12:36:32Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Exhaustless Inc.",
+      "objectId": "09000064867d24a1",
+      "postedDate": "2024-10-21T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0022"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0022"
+  },
+  {
+    "id": "PTO-P-2024-0026-0019",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-17T15:56:31Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Martin Snyder",
+      "objectId": "09000064867d23b2",
+      "postedDate": "2024-10-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0019"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0019"
+  },
+  {
+    "id": "PTO-P-2024-0026-0005",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-26T17:05:41Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by International Business Machines Corporation",
+      "objectId": "09000064866fef4a",
+      "postedDate": "2024-09-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0005"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0005"
+  },
+  {
+    "id": "PTO-P-2024-0026-0006",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-26T17:06:35Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Benjamin Keim",
+      "objectId": "09000064866ff0ed",
+      "postedDate": "2024-09-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0006"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0006"
+  },
+  {
+    "id": "PTO-P-2024-0026-0016",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-17T15:51:30Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by American Intellectual Property Law Association",
+      "objectId": "09000064867d2254",
+      "postedDate": "2024-10-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0016"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0016"
+  },
+  {
+    "id": "PTO-P-2024-0026-0018",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-17T15:53:08Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by PhRMA (Pharmaceutical Research and Manufacturers of America)",
+      "objectId": "09000064867d22d0",
+      "postedDate": "2024-10-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0018"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0018"
+  },
+  {
+    "id": "PTO-P-2024-0026-0015",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-17T15:48:23Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by ACT | The App Association",
+      "objectId": "09000064867d215e",
+      "postedDate": "2024-10-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0015"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0015"
+  },
+  {
+    "id": "PTO-P-2024-0026-0020",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-17T16:12:14Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Askeladden L.L.C.",
+      "objectId": "09000064867d24d9",
+      "postedDate": "2024-10-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0020"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0020"
+  },
+  {
+    "id": "PTO-P-2024-0026-0002",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-04T13:00:40Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Brian Chau",
+      "objectId": "09000064866ac80a",
+      "postedDate": "2024-09-04T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0002"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0002"
+  },
+  {
+    "id": "PTO-P-2024-0026-0004",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-26T17:03:44Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by AMAZON.COM, INC.",
+      "objectId": "09000064866fde84",
+      "postedDate": "2024-09-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0004"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0004"
+  },
+  {
+    "id": "PTO-P-2024-0026-0007",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-26T17:08:16Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Anonymous",
+      "objectId": "090000648671aed4",
+      "postedDate": "2024-09-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0007"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0007"
+  },
+  {
+    "id": "PTO-P-2024-0026-0009",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-26T17:14:05Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Council for Innovation Promotion",
+      "objectId": "0900006486727963",
+      "postedDate": "2024-09-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0009"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0009"
+  },
+  {
+    "id": "PTO-P-2024-0026-0011",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-26T17:35:05Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Anonymous",
+      "objectId": "090000648676c4a2",
+      "postedDate": "2024-09-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0011"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0011"
+  },
+  {
+    "id": "PTO-P-2024-0026-0012",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-09-26T17:37:07Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Pindrop Security",
+      "objectId": "090000648676d825",
+      "postedDate": "2024-09-26T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0012"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0012"
+  },
+  {
+    "id": "PTO-P-2024-0026-0017",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-17T15:52:22Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by HTIA",
+      "objectId": "09000064867d228e",
+      "postedDate": "2024-10-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0017"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0017"
+  },
+  {
+    "id": "PTO-P-2024-0026-0013",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-17T15:45:37Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Neo IP",
+      "objectId": "09000064867d0ea4",
+      "postedDate": "2024-10-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0013"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0013"
+  },
+  {
+    "id": "PTO-P-2024-0026-0014",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-17T15:46:23Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by Intellectual Property Owners Association",
+      "objectId": "09000064867d19a2",
+      "postedDate": "2024-10-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0014"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0014"
+  },
+  {
+    "id": "PTO-P-2024-0026-0021",
+    "type": "comments",
+    "attributes": {
+      "documentType": "Public Submission",
+      "lastModifiedDate": "2024-10-17T16:13:06Z",
+      "highlightedContent": "",
+      "withdrawn": false,
+      "agencyId": "PTO",
+      "title": "Comment by SankerIP",
+      "objectId": "09000064867d29eb",
+      "postedDate": "2024-10-17T04:00:00Z"
+    },
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/PTO-P-2024-0026-0021"
+    },
+    "origin": "doc_number",
+    "comment_url": "https://regulations.gov/comment/PTO-P-2024-0026-0021"
+  }
+]

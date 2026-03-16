@@ -1,0 +1,5 @@
+notice_collection_settings:
+  maxNotices: 5
+  docketType: "NOTICE"
+  order: "relevance"
+  startDate: "2021-01-01"

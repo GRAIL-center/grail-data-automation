@@ -1,0 +1,22 @@
+notice_search_terms:
+    default_terms: [
+        "artificial intelligence", "algorithm", "artificial general intelligence",
+        "artificial narrow intelligence", "chat-based generative pre-trained transformer",
+        "transformer models", "self-attention mechanism", "computer vision",
+        "critical ai", "data", "training data", "hallucination",
+        "human-centered perspective", "intelligence augmentation",
+        "intelligent tutoring systems", "adaptive learning",
+        "interpretable machine learning", "black boxes", "machine learning",
+        "neural networks", "deep learning", "natural language processing",
+        "robots", "explainable machine learning", "foundation models",
+        "automated decision-making", "ai", "ai systems", "ai technologies",
+        "ai tools", "ai applications", "ai software", "ai algorithms",
+        "ai regulation", "ai policy"
+    ]
+
+    search_terms: [
+        "request for ", "rfi", "rfc", "seeks comment", "seeking comment",
+        "comments requested", "public comment", "nprm", "proposed rule",
+        "notice of proposed rulemaking", "notice of", "extension of comment",
+        "request for information"
+    ]
