@@ -1,0 +1,52 @@
+ai:
+  provider: openrouter
+  model: openai/gpt-4.1-mini
+  timeout_seconds: 60
+  temperature: 0.2
+  validation_retries: 1
+
+  fallback:
+    provider: ollama
+    model: llama3.1:latest
+    timeout_seconds: 90
+
+  openrouter:
+    api_key_env: OPENROUTER_API_KEY
+    base_url: https://openrouter.ai/api/v1
+    # Cloud calls can safely run in parallel.
+    max_concurrent_calls: 8
+
+  ollama:
+    base_url: http://localhost:11434
+    # Local models commonly serialize generation; this prevents worker timeouts
+    # caused by four prompts competing for one GPU/CPU model at once.
+    max_concurrent_calls: 1
+
+notice_search_terms:
+    default_terms: [
+        "artificial intelligence", "algorithm", "artificial general intelligence",
+        "artificial narrow intelligence", "chat-based generative pre-trained transformer",
+        "transformer models", "self-attention mechanism", "computer vision",
+        "critical ai", "data", "training data", "hallucination",
+        "human-centered perspective", "intelligence augmentation",
+        "intelligent tutoring systems", "adaptive learning",
+        "interpretable machine learning", "black boxes", "machine learning",
+        "neural networks", "deep learning", "natural language processing",
+        "robots", "explainable machine learning", "foundation models",
+        "automated decision-making", "ai", "ai systems", "ai technologies",
+        "ai tools", "ai applications", "ai software", "ai algorithms",
+        "ai regulation", "ai policy"
+    ]
+
+    search_terms: [
+        "request for ", "rfi", "rfc", "seeks comment", "seeking comment",
+        "comments requested", "public comment", "nprm", "proposed rule",
+        "notice of proposed rulemaking", "notice of", "extension of comment",
+        "request for information"
+    ]
+
+notice_collection_settings:
+  maxNotices: 5
+  docketType: "NOTICE"
+  order: "relevance"
+  startDate: "2021-01-01"
