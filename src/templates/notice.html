@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}GRAIL · {{ document_number }}{% endblock %}
+{% block content %}
+<section class="page-intro record-intro">
+  <p class="eyebrow">{{ document_number }}</p>
+  <h1>{{ notice.metadata.title }}</h1>
+  <p>{{ notice.metadata.abstract }}</p>
+  <div class="action-row">
+    {% if notice.metadata.html_url %}
+      <a class="button" href="{{ notice.metadata.html_url }}" target="_blank" rel="noreferrer">Open Federal Register</a>
+    {% endif %}
+    <form action="{{ url_for('run_comments') }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+      <input type="hidden" name="fr_document_number" value="{{ document_number }}">
+      <button class="button primary" type="submit">Analyze all comments</button>
+    </form>
+  </div>
+</section>
+
+<section class="notice-metrics">
+  <div><span>Confidence</span><strong>{{ notice.analysis.review.overall_confidence }}</strong></div>
+  <div><span>Review</span><strong>{{ 'Required' if notice.analysis.review.required else 'Clear' }}</strong></div>
+  <div><span>Relevance</span><strong>{{ notice.discovery.relevance.score }}</strong></div>
+  <div><span>Deadline</span><strong>{{ notice.metadata.comments_close_on or 'Unknown' }}</strong></div>
+</section>
+
+<section class="analysis-grid">
+  {% set labels = {
+    'brief_summary': 'Brief summary',
+    'relevant_topics': 'Relevant topics',
+    'agency_objectives': 'Agency objectives',
+    'questions_for_commenters': 'Questions for commenters',
+    'affected_stakeholders': 'Affected stakeholders',
+    'key_requirements_or_proposals': 'Key requirements or proposals'
+  } %}
+  {% for field, label in labels.items() %}
+    <article class="analysis-card">
+      <div class="analysis-heading">
+        <h2>{{ label }}</h2>
+        {% set meta = notice.analysis.field_metadata[field] %}
+        {% if meta.review_required %}<span class="pill warn">Review</span>{% endif %}
+      </div>
+      {% set raw = notice.analysis[field] %}
+      {% set items = [raw] if field == 'brief_summary' else raw %}
+      {% if items %}
+        <ul>
+          {% for item in items if item.value %}
+            <li>
+              <strong>{{ item.value }}</strong>
+              <blockquote>{{ item.evidence }}</blockquote>
+              <small>Confidence {{ item.confidence }}{% if item.inferred %} · inferred{% endif %}</small>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="muted">No supported finding.</p>
+      {% endif %}
+    </article>
+  {% endfor %}
+</section>
+
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">Source of truth</p>
+      <h2>Analysis record</h2>
+    </div>
+    <span class="mono">{{ analysis_path }}</span>
+  </div>
+  <pre class="json-view">{{ notice|tojson(indent=2) }}</pre>
+</section>
+{% endblock %}

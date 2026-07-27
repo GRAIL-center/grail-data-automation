@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}GRAIL · {{ job.workflow|title }} job{% endblock %}
+{% block head %}
+  {% if job.status in ['queued', 'running'] %}
+    <meta http-equiv="refresh" content="3">
+  {% endif %}
+{% endblock %}
+{% block content %}
+<section class="page-intro">
+  <p class="eyebrow">{{ job.workflow }} workflow</p>
+  <h1>Job {{ job.status|replace('_', ' ') }}</h1>
+  <p class="mono">{{ job.run_id }}</p>
+</section>
+
+<section class="job-status-card">
+  <div class="job-state">
+    <span class="activity-ring {{ 'active' if job.status in ['queued', 'running'] else '' }}" aria-hidden="true"></span>
+    <div>
+      <span class="pill status-{{ job.status }}">{{ job.status|replace('_', ' ') }}</span>
+      <h2>
+        {% if job.status == 'queued' %}Waiting for a worker
+        {% elif job.status == 'running' %}The pipeline is working
+        {% elif job.status == 'failed' %}The job stopped
+        {% else %}The job is finished{% endif %}
+      </h2>
+    </div>
+  </div>
+  <dl class="metadata-list">
+    <div><dt>Created</dt><dd>{{ job.created_at }}</dd></div>
+    <div><dt>Started</dt><dd>{{ job.started_at or '—' }}</dd></div>
+    <div><dt>Finished</dt><dd>{{ job.finished_at or '—' }}</dd></div>
+  </dl>
+</section>
+
+{% if job.error %}
+  <section class="error-card">
+    <strong>{{ job.error.error_type }}</strong>
+    <p>{{ job.error.error }}</p>
+  </section>
+{% endif %}
+
+{% if job.result %}
+  <section class="panel">
+    <div class="panel-heading">
+      <div>
+        <p class="eyebrow">Outcome</p>
+        <h2>Run summary</h2>
+      </div>
+      {% if job.result.manifest_path %}
+        <a class="text-link" href="{{ url_for('run_detail', run_id=job.run_id) }}">Open manifest →</a>
+      {% endif %}
+    </div>
+    <pre class="json-view">{{ job.result|tojson(indent=2) }}</pre>
+  </section>
+{% endif %}
+
+<a class="button" href="{{ url_for('dashboard') }}">← Back to workflows</a>
+{% endblock %}

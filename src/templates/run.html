@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}GRAIL · Run {{ run_id }}{% endblock %}
+{% block content %}
+<section class="page-intro">
+  <p class="eyebrow">Run manifest</p>
+  <h1>{{ run.workflow|default('comment analysis')|replace('_', ' ')|title }}</h1>
+  <p class="mono">{{ run_id }}</p>
+  <span class="pill status-{{ run.status }}">{{ run.status|default('unknown')|replace('_', ' ') }}</span>
+</section>
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">Reproducible record</p>
+      <h2>Manifest contents</h2>
+    </div>
+    <span class="mono">{{ manifest_path }}</span>
+  </div>
+  <pre class="json-view">{{ run|tojson(indent=2) }}</pre>
+</section>
+{% endblock %}

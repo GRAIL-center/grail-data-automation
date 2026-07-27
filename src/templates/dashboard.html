@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+{% block title %}GRAIL · Workflows{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">Connected regulatory workflow</p>
+    <h1>Discover the notice. Trace the comment. Keep the evidence.</h1>
+    <p class="hero-copy">
+      Search Federal Register opportunities, analyze public comments, and move
+      from discovery to evidence-backed output without leaving this workspace.
+    </p>
+  </div>
+  <div class="hero-metric">
+    <span>{{ notices|length }}</span>
+    <small>notices in the latest batch</small>
+  </div>
+</section>
+
+<section class="status-strip" aria-label="System readiness">
+  {% for label, ready in environment.items() %}
+    <div class="status-item">
+      <span class="status-dot {{ 'ready' if ready else 'missing' }}" aria-hidden="true"></span>
+      <span>{{ label }}</span>
+      <strong>{{ 'ready' if ready else 'not configured' }}</strong>
+    </div>
+  {% endfor %}
+</section>
+
+<section class="section-heading">
+  <div>
+    <p class="eyebrow">Run a workflow</p>
+    <h2>Choose where to enter the pipeline</h2>
+  </div>
+  <a class="text-link" href="{{ url_for('settings') }}">Edit defaults in config.yaml →</a>
+</section>
+
+<section class="workflow-grid">
+  <article class="workflow-card accent-teal">
+    <div class="card-number">01</div>
+    <h3>Discover notices</h3>
+    <p>Search, score, download, and analyze relevant Federal Register notices.</p>
+    <form action="{{ url_for('run_notices') }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+      <label>
+        Query overrides
+        <textarea name="query_terms" rows="3" placeholder="One term per line; blank uses config.yaml"></textarea>
+      </label>
+      <div class="field-pair">
+        <label>
+          Maximum notices
+          <input name="max_notices" type="number" min="1" value="{{ config.notices.search.max_results }}">
+        </label>
+        <label>
+          Workers
+          <input name="workers" type="number" min="1" value="{{ config.notices.processing.max_workers }}">
+        </label>
+      </div>
+      <label class="check-row">
+        <input name="skip_ai" type="checkbox">
+        <span>Collect only; skip notice AI analysis</span>
+      </label>
+      <label class="check-row">
+        <input name="configured_sheet" type="checkbox" {% if config.notices.output.export_to_sheet %}checked{% endif %}>
+        <span>Export to configured notice sheet</span>
+      </label>
+      <button class="button primary" type="submit">Run notice discovery</button>
+    </form>
+  </article>
+
+  <article class="workflow-card accent-orange">
+    <div class="card-number">02</div>
+    <h3>Analyze comments</h3>
+    <p>Collect every comment for one notice, extract attachments, and build traceable fields.</p>
+    <form action="{{ url_for('run_comments') }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+      <label>
+        Federal Register document number
+        <input name="fr_document_number" required pattern="\d{4}-\d{4,6}" placeholder="2026-08281">
+      </label>
+      <div class="field-pair">
+        <label>
+          Workers
+          <input name="workers" type="number" min="1" value="{{ config.pipeline.max_workers }}">
+        </label>
+        <label>
+          Review threshold
+          <input name="review_threshold" type="number" min="0" max="1" step="0.01" value="{{ config.pipeline.review_threshold }}">
+        </label>
+      </div>
+      <label class="check-row">
+        <input name="configured_sheet" type="checkbox" {% if config.comments.output.export_to_sheet %}checked{% endif %}>
+        <span>Export to configured comment sheet</span>
+      </label>
+      <button class="button primary" type="submit">Run comment analysis</button>
+    </form>
+  </article>
+
+  <article class="workflow-card accent-violet">
+    <div class="card-number">01 → 02</div>
+    <h3>Run end to end</h3>
+    <p>Discover notices, then hand the highest-ranked results directly to comment analysis.</p>
+    <form action="{{ url_for('run_workflow') }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+      <div class="field-pair">
+        <label>
+          Discover up to
+          <input name="max_notices" type="number" min="1" value="{{ config.notices.search.max_results }}">
+        </label>
+        <label>
+          Analyze top
+          <input name="analyze_top" type="number" min="1" value="1" required>
+        </label>
+      </div>
+      <div class="callout">
+        Comment analysis can make many model calls. “Analyze top” is deliberately explicit.
+      </div>
+      <label class="check-row">
+        <input name="skip_notice_ai" type="checkbox">
+        <span>Skip notice AI and proceed using relevance scores</span>
+      </label>
+      <label class="check-row">
+        <input name="configured_sheet" type="checkbox"
+          {% if config.notices.output.export_to_sheet or config.comments.output.export_to_sheet %}checked{% endif %}>
+        <span>Export notices and per-notice comment tabs</span>
+      </label>
+      <button class="button primary" type="submit">Run connected workflow</button>
+    </form>
+  </article>
+</section>
+
+<section class="content-grid">
+  <div class="panel panel-wide">
+    <div class="panel-heading">
+      <div>
+        <p class="eyebrow">Latest discovery batch</p>
+        <h2>Candidate notices</h2>
+      </div>
+      <span class="count-badge">{{ notices|length }}</span>
+    </div>
+    {% if notices %}
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Notice</th>
+              <th>Agency</th>
+              <th>Deadline</th>
+              <th>Score</th>
+              <th>Review</th>
+              <th><span class="sr-only">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for notice in notices %}
+              <tr>
+                <td>
+                  <a class="record-title" href="{{ url_for('notice_detail', document_number=notice['FR Document Number']) }}">
+                    {{ notice.Title }}
+                  </a>
+                  <small>{{ notice['FR Document Number'] }}</small>
+                </td>
+                <td>{{ notice.Agency or '—' }}</td>
+                <td>{{ notice['Comments Close On'] or 'Unknown' }}</td>
+                <td><span class="score">{{ notice['Relevance Score'] }}</span></td>
+                <td>
+                  <span class="pill {{ 'warn' if notice['Review Required'] else 'ok' }}">
+                    {{ 'Review' if notice['Review Required'] else 'Clear' }}
+                  </span>
+                </td>
+                <td>
+                  <form action="{{ url_for('run_comments') }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="fr_document_number" value="{{ notice['FR Document Number'] }}">
+                    <input type="hidden" name="notice_title" value="{{ notice.Title }}">
+                    <button class="button compact" type="submit">Analyze comments</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <strong>No notice batch yet.</strong>
+        <span>Run notice discovery to populate the handoff queue.</span>
+      </div>
+    {% endif %}
+  </div>
+
+  <aside class="panel">
+    <div class="panel-heading">
+      <div>
+        <p class="eyebrow">Live activity</p>
+        <h2>Web jobs</h2>
+      </div>
+    </div>
+    {% if jobs %}
+      <ol class="job-list">
+        {% for job in jobs %}
+          <li>
+            <a href="{{ url_for('job_detail', job_id=job.job_id) }}">
+              <span class="pill status-{{ job.status }}">{{ job.status|replace('_', ' ') }}</span>
+              <strong>{{ job.workflow|title }}</strong>
+              <small>{{ job.run_id }}</small>
+            </a>
+          </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <div class="empty-state compact-empty">No jobs started in this session.</div>
+    {% endif %}
+  </aside>
+</section>
+
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">Persistent history</p>
+      <h2>Recent runs</h2>
+    </div>
+  </div>
+  {% if recent_runs %}
+    <div class="run-grid">
+      {% for run in recent_runs %}
+        <a class="run-card" href="{{ url_for('run_detail', run_id=run.run_id) }}">
+          <span class="pill status-{{ run.status }}">{{ run.status|replace('_', ' ') }}</span>
+          <strong>{{ run.workflow|replace('_', ' ')|title }}</strong>
+          <small>{{ run.run_id }}</small>
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state compact-empty">Completed run manifests will appear here.</div>
+  {% endif %}
+</section>
+{% endblock %}

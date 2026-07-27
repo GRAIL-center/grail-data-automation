@@ -1,0 +1,134 @@
+# GRAIL configuration (version 2)
+#
+# Keep secrets in .env, not in this file. Environment-variable names below tell
+# the program where to look for credentials and optional Google Sheet URLs.
+version: 2
+
+application:
+  artifact_root: downloads
+  log_dir: logs
+  service_account_file: service_account.json
+  # Optional shared workbook fallback. NOTICE_SHEET_URL and COMMENT_SHEET_URL
+  # can still point to different workbooks; when either is blank this is used.
+  sheet_url_env: GRAIL_SHEET_URL
+
+ai:
+  provider: openrouter
+  model: openai/gpt-4.1-mini
+  timeout_seconds: 60
+  temperature: 0.2
+  validation_retries: 1
+
+  fallback:
+    provider: ollama
+    model: llama3.1:latest
+    timeout_seconds: 90
+
+  # Independent extraction for field-by-field agreement reporting. Each model
+  # adds calls and cost, so comparison is disabled until explicitly enabled.
+  comparison:
+    enabled: false
+    models:
+      - provider: ollama
+        model: llama3.1:latest
+        timeout_seconds: 90
+
+  openrouter:
+    api_key_env: OPENROUTER_API_KEY
+    base_url: https://openrouter.ai/api/v1
+    # Cloud calls can safely run in parallel.
+    max_concurrent_calls: 8
+
+  ollama:
+    base_url: http://localhost:11434
+    # Local models commonly serialize generation; this prevents worker timeouts
+    # caused by four prompts competing for one GPU/CPU model at once.
+    max_concurrent_calls: 1
+
+pipeline:
+  max_workers: 4
+  review_threshold: 0.75
+  log_level: INFO
+
+notices:
+  search:
+    # Each query is sent to the Federal Register API. Keep this list focused;
+    # topic_terms below can be broader because those are evaluated locally.
+    query_terms:
+      - artificial intelligence
+      - machine learning
+      - automated decision-making
+      - algorithmic systems
+
+    # Deterministic relevance scoring looks for these phrases in the title,
+    # abstract, action, and agency metadata.
+    topic_terms:
+      - artificial intelligence
+      - machine learning
+      - automated decision-making
+      - algorithm
+      - foundation model
+      - generative AI
+
+    # These identify opportunities where an agency is actively requesting input.
+    action_terms:
+      - request for information
+      - request for comment
+      - comments requested
+      - proposed rule
+      - notice of proposed rulemaking
+      - seeks comment
+
+    exclude_terms: []
+    start_date: "2025-01-01"
+    end_date: null
+    document_types:
+      - NOTICE
+      - PRORULE
+    order: newest
+    per_page: 50
+    max_pages_per_query: 1
+    max_results: 25
+    minimum_topic_matches: 1
+    require_action_term: false
+    only_open_for_comment: false
+
+  processing:
+    fetch_full_text: true
+    ai_analysis: true
+    max_text_characters: 60000
+    max_workers: 4
+    request_timeout_seconds: 30
+    request_retries: 3
+    review_threshold: 0.75
+
+  output:
+    sheet_url_env: NOTICE_SHEET_URL
+    export_to_sheet: false
+    # Blank means the workbook's first tab. Set a title to select/create it.
+    worksheet_name: ""
+    # Safe reruns append only FR document numbers not already in the notice tab.
+    deduplicate_by_fr_document: true
+    batch_size: 500
+
+comments:
+  output:
+    sheet_url_env: COMMENT_SHEET_URL
+    export_to_sheet: false
+    # A dedicated tab is created or reused for every notice.
+    # Keep {fr_document_number} first so title changes reuse the same tab.
+    worksheet_title_template: "{fr_document_number} - {notice_title}"
+    # update refreshes corrected reruns in place; skip preserves existing rows;
+    # append allows duplicate Comment IDs.
+    existing_comment_action: update
+    batch_size: 500
+
+web:
+  # The interface is intentionally local by default; change the host only when
+  # you have added appropriate network access controls.
+  host: 127.0.0.1
+  port: 5000
+  debug: false
+  background_workers: 2
+  recent_run_limit: 20
+  secret_key_env: GRAIL_WEB_SECRET

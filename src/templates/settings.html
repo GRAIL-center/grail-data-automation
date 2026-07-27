@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}GRAIL · Settings{% endblock %}
+{% block content %}
+<section class="page-intro">
+  <p class="eyebrow">Validated configuration</p>
+  <h1>Edit config.yaml</h1>
+  <p>
+    Changes are parsed and fully validated before they replace the active file.
+    The previous valid version is kept as <code>config.yaml.bak</code>, and the
+    change hashes are recorded without storing secrets.
+  </p>
+</section>
+
+<form class="config-editor" method="post" action="{{ url_for('settings') }}">
+  <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+  <div class="editor-toolbar">
+    <span>{{ config_path }}</span>
+    <button class="button primary" type="submit">Validate and save</button>
+  </div>
+  <label class="sr-only" for="yaml_text">YAML configuration</label>
+  <textarea id="yaml_text" name="yaml_text" spellcheck="false" rows="42">{{ yaml_text }}</textarea>
+</form>
+
+<section class="settings-notes">
+  <article>
+    <h2>Search efficiently</h2>
+    <p><code>query_terms</code> cause API requests. Keep them focused. Broader <code>topic_terms</code> are evaluated locally and do not add requests.</p>
+  </article>
+  <article>
+    <h2>Control cost</h2>
+    <p>Use <code>max_results</code>, worker limits, and model comparison settings to bound AI calls and processing time.</p>
+  </article>
+  <article>
+    <h2>Keep secrets separate</h2>
+    <p>Store keys and sheet URLs in <code>.env</code>. This file should contain only the corresponding environment-variable names.</p>
+  </article>
+</section>
+{% endblock %}
