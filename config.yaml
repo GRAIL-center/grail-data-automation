@@ -46,7 +46,7 @@ notice_search_terms:
     ]
 
 notice_collection_settings:
-  maxNotices: 5
-  docketType: "NOTICE"
+  max_notices: 5
+  docket_type: "NOTICE"
   order: "relevance"
-  startDate: "2021-01-01"
+  start_date: "2021-01-01"
