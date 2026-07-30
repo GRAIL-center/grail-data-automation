@@ -29,7 +29,12 @@
 
                 <section class="field">
                     <label for="order">Order</label>
-                    <input id="order" name="order" type="text" value="{{ notice_settings.get('order', '') }}" required>
+                    <select id="order" class="order-select" name="order" required>
+                        <option value="relevance" {{ 'selected' if notice_settings.get('order', 'relevance') == 'relevance' else '' }}>Relevance</option>
+                        <option value="newest" {{ 'selected' if notice_settings.get('order') == 'newest' else '' }}>Newest first</option>
+                        <option value="oldest" {{ 'selected' if notice_settings.get('order') == 'oldest' else '' }}>Oldest first</option>
+                        <option value="executive_order_number" {{ 'selected' if notice_settings.get('order') == 'executive_order_number' else '' }}>Executive order number</option>
+                    </select>
                 </section>
 
                 <section class="field">

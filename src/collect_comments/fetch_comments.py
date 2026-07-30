@@ -296,6 +296,7 @@ def getCommentsForDocument(
     object_id: str,
 ) -> list[JsonDict]:
     comments: dict[str, JsonDict] = {}
+    total = 0
 
     for page_number in range(1, MAX_PAGES + 1):
         payload = requestJSON(
@@ -329,10 +330,15 @@ def getCommentsForDocument(
         if len(comments) >= total or len(page) < PAGE_SIZE:
             return list(comments.values())
 
-    raise RuntimeError(
-        f"Comment search for {object_id} exceeded the "
-        "Regulations.gov 5,000-result pagination limit."
+    logger.warning(
+        "Comment search for %s reached the Regulations.gov 5,000-result "
+        "pagination limit; processing the %d comments retrieved out of %d "
+        "reported comments.",
+        object_id,
+        len(comments),
+        total,
     )
+    return list(comments.values())
 
 
 def getComments(fr_doc_number: str) -> list[JsonDict]:

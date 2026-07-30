@@ -5,12 +5,14 @@ import logging
 import queue
 import threading
 import uuid
+from pathlib import Path
 
 import flask
+import yaml
 
 from src.collect_comments.fetch_comments import processComments
 from src.collect_notices.collect import collectNotices
-from src.services.config import loadNoticeConfig
+from src.services.config import CONFIG_PATH, loadNoticeConfig
 
 app = flask.Flask(__name__, template_folder="../templates")
 commentRuns: dict[str, dict] = {}
@@ -181,9 +183,38 @@ def streamCommentLogs(runId: str):
     )
 
 
-@app.route("/settings")
+@app.route("/settings", methods=["GET", "POST"])
 def settings():
-    return flask.render_template("settings.html")
+    configPath = Path(CONFIG_PATH)
+    configText = configPath.read_text(encoding="utf-8")
+    saveMessage = ""
+    saveError = ""
+
+    if flask.request.method == "POST":
+        configText = flask.request.form.get("config_yaml", "")
+
+        try:
+            configData = yaml.safe_load(configText)
+        except yaml.YAMLError as error:
+            saveError = f"Config was not saved: invalid YAML ({error})."
+        else:
+            if not isinstance(configData, dict):
+                saveError = "Config was not saved: the top-level YAML value must be a mapping."
+            else:
+                temporaryPath = configPath.with_name(f"{configPath.name}.tmp")
+                try:
+                    temporaryPath.write_text(configText, encoding="utf-8")
+                    temporaryPath.replace(configPath)
+                    saveMessage = "config.yaml saved successfully."
+                except OSError as error:
+                    saveError = f"Config was not saved: {error}."
+
+    return flask.render_template(
+        "settings.html",
+        config_text=configText,
+        save_message=saveMessage,
+        save_error=saveError,
+    )
 
 
 def main() -> None:

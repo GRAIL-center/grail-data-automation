@@ -3,7 +3,37 @@
 {% block title %}Settings{% endblock %}
 
 {% block content %}
-<div class="grid two-column">
-    TBA
-</div>
+<section class="settings-shell">
+    <section class="notice-heading">
+        <p class="notice-title">Settings</p>
+        <p class="muted">Edit the application configuration. Changes are validated before they replace config.yaml.</p>
+    </section>
+
+    {% if save_message %}
+    <p class="settings-message success">{{ save_message }}</p>
+    {% endif %}
+
+    {% if save_error %}
+    <p class="settings-message error">{{ save_error }}</p>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('settings') }}">
+        <section class="card">
+            <section class="section-heading">
+                <p class="section-title">config.yaml</p>
+                <p class="muted">Use valid YAML. Environment variables and API keys remain in .env.</p>
+            </section>
+
+            <section class="field">
+                <label for="config_yaml">Configuration</label>
+                <textarea id="config_yaml" class="config-editor" name="config_yaml" spellcheck="false" rows="28" required>{{ config_text }}</textarea>
+            </section>
+        </section>
+
+        <section class="card settings-actions">
+            <p class="muted">Saving updates the configuration used by future collection runs.</p>
+            <button class="run-button" type="submit">Save configuration</button>
+        </section>
+    </form>
+</section>
 {% endblock %}
