@@ -39,21 +39,22 @@ import json
 import logging
 import mimetypes
 import os
-from plistlib import load
 import re
 import shutil
 import subprocess
 from email.message import Message
 from html.parser import HTMLParser
 from pathlib import Path
+from plistlib import load
 from typing import Any
 from urllib.parse import unquote, urlparse
 
+import docx
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from src.services.config import loadRegKey
 
+from src.services.config import loadRegKey
 
 REGULATIONS_API_URL = "https://api.regulations.gov/v4"
 OUTPUT_ROOT = Path("comments")
@@ -73,7 +74,6 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # API helpers
 # ---------------------------------------------------------------------------
-
 
 
 def buildSession(api_key: str | None = None) -> requests.Session:
@@ -163,6 +163,7 @@ def fetchCommentPayload(
 # General helpers
 # ---------------------------------------------------------------------------
 
+
 def sanitizeFilename(filename: str) -> str:
     """Return a Windows-safe filename."""
     filename = Path(unquote(filename)).name
@@ -246,6 +247,7 @@ def validURL(value: Any) -> str | None:
 # Attachment discovery and download
 # ---------------------------------------------------------------------------
 
+
 def findAttachmentURLs(value: Any) -> list[str]:
     """Recursively find likely file URLs inside attachment metadata."""
     urls: list[str] = []
@@ -254,26 +256,22 @@ def findAttachmentURLs(value: Any) -> list[str]:
         for key, child in value.items():
             normalized_key = key.lower()
 
-            looks_like_file_url = (
-                normalized_key
-                in {
-                    "fileurl",
-                    "downloadurl",
-                    "attachmenturl",
-                    "contenturl",
-                    "href",
-                    "url",
-                }
-                or (
-                    "url" in normalized_key
-                    and any(
-                        word in normalized_key
-                        for word in (
-                            "file",
-                            "download",
-                            "attachment",
-                            "content",
-                        )
+            looks_like_file_url = normalized_key in {
+                "fileurl",
+                "downloadurl",
+                "attachmenturl",
+                "contenturl",
+                "href",
+                "url",
+            } or (
+                "url" in normalized_key
+                and any(
+                    word in normalized_key
+                    for word in (
+                        "file",
+                        "download",
+                        "attachment",
+                        "content",
                     )
                 )
             )
@@ -320,11 +318,7 @@ def extractAttachmentCandidates(
         if not isinstance(attributes, dict):
             continue
 
-        attachment_id = (
-            str(resource.get("id"))
-            if resource.get("id")
-            else None
-        )
+        attachment_id = str(resource.get("id")) if resource.get("id") else None
 
         attachment_name = firstNonempty(
             attributes,
@@ -340,11 +334,7 @@ def extractAttachmentCandidates(
         if isinstance(file_formats, dict):
             format_records = [file_formats]
         elif isinstance(file_formats, list):
-            format_records = [
-                item
-                for item in file_formats
-                if isinstance(item, dict)
-            ]
+            format_records = [item for item in file_formats if isinstance(item, dict)]
         else:
             format_records = []
 
@@ -459,21 +449,22 @@ def filenameFromResponse(
     filename = candidate.get("filename")
 
     if not filename:
-        filename = Path(
-            urlparse(str(candidate.get("url") or "")).path
-        ).name
+        filename = Path(urlparse(str(candidate.get("url") or "")).path).name
 
     filename = sanitizeFilename(filename)
 
     if not Path(filename).suffix:
-        content_type = response.headers.get(
-            "Content-Type",
-            "",
-        ).split(";", maxsplit=1)[0].strip()
+        content_type = (
+            response.headers.get(
+                "Content-Type",
+                "",
+            )
+            .split(";", maxsplit=1)[0]
+            .strip()
+        )
 
-        extension = (
-            extensionFromFormat(candidate.get("format"))
-            or extensionFromFormat(content_type)
+        extension = extensionFromFormat(candidate.get("format")) or extensionFromFormat(
+            content_type
         )
 
         filename = f"{filename}{extension}"
@@ -497,9 +488,7 @@ def downloadAttachment(
         raise ValueError("Attachment has no download URL.")
 
     parsed_url = urlparse(url)
-    is_regulations_download = (
-        parsed_url.hostname == "downloads.regulations.gov"
-    )
+    is_regulations_download = parsed_url.hostname == "downloads.regulations.gov"
 
     request_headers = {
         "Referer": "https://www.regulations.gov/",
@@ -511,11 +500,7 @@ def downloadAttachment(
         ),
         "Sec-Fetch-Dest": "document",
         "Sec-Fetch-Mode": "navigate",
-        "Sec-Fetch-Site": (
-            "same-site"
-            if is_regulations_download
-            else "cross-site"
-        ),
+        "Sec-Fetch-Site": ("same-site" if is_regulations_download else "cross-site"),
     }
 
     def makeRequest() -> requests.Response:
@@ -529,10 +514,7 @@ def downloadAttachment(
 
     response = makeRequest()
 
-    if (
-        response.status_code == 403
-        and is_regulations_download
-    ):
+    if response.status_code == 403 and is_regulations_download:
         response.close()
 
         try:
@@ -581,6 +563,7 @@ def downloadAttachment(
 # PDF extraction with selective OCR
 # ---------------------------------------------------------------------------
 
+
 def pageMarker(page_number: int, text: str) -> str:
     return f"--- PAGE {page_number} ---\n{text.strip()}"
 
@@ -595,10 +578,7 @@ def needsOCR(
 
     normalized = "".join(text.split())
 
-    return (
-        len(normalized) / page_count
-        < minimum_characters_per_page
-    )
+    return len(normalized) / page_count < minimum_characters_per_page
 
 
 def configureTesseract() -> Any:
@@ -648,9 +628,7 @@ def ocrPDFPage(page: Any, dpi: int = OCR_DPI) -> str:
         alpha=False,
     )
 
-    with Image.open(
-        io.BytesIO(pixmap.tobytes("png"))
-    ) as source_image:
+    with Image.open(io.BytesIO(pixmap.tobytes("png"))) as source_image:
         image = ImageOps.grayscale(source_image)
         image = ImageOps.autocontrast(image)
 
@@ -686,14 +664,11 @@ def extractPDFText(
             start=1,
         ):
             native_text = page.get_text("text").strip()
-            native_character_count = len(
-                "".join(native_text.split())
-            )
+            native_character_count = len("".join(native_text.split()))
 
             should_ocr = (
                 OCR_ALL_PDF_PAGES
-                or native_character_count
-                < minimum_characters_per_page
+                or native_character_count < minimum_characters_per_page
             )
 
             selected_text = native_text
@@ -703,18 +678,14 @@ def extractPDFText(
 
                 try:
                     ocr_text = ocrPDFPage(page, dpi)
-                    ocr_character_count = len(
-                        "".join(ocr_text.split())
-                    )
+                    ocr_character_count = len("".join(ocr_text.split()))
 
                     # Prefer OCR for scanned/sparse pages. For digital PDFs,
                     # only replace native text when OCR recovered at least as
                     # much meaningful content.
                     if ocr_text and (
-                        native_character_count
-                        < minimum_characters_per_page
-                        or ocr_character_count
-                        >= native_character_count
+                        native_character_count < minimum_characters_per_page
+                        or ocr_character_count >= native_character_count
                     ):
                         selected_text = ocr_text
                         ocr_pages.append(page_number)
@@ -761,6 +732,7 @@ def extractPDFText(
 # Other attachment extractors
 # ---------------------------------------------------------------------------
 
+
 class HTMLTextExtractor(HTMLParser):
     BLOCK_TAGS = {
         "address",
@@ -804,11 +776,7 @@ class HTMLTextExtractor(HTMLParser):
     def getText(self) -> str:
         text = html.unescape("".join(self.parts))
 
-        return "\n".join(
-            line.strip()
-            for line in text.splitlines()
-            if line.strip()
-        )
+        return "\n".join(line.strip() for line in text.splitlines() if line.strip())
 
 
 def extractDOCXText(path: Path) -> str:
@@ -828,18 +796,11 @@ def extractDOCXText(path: Path) -> str:
         start=1,
     ):
         rows = [
-            "\t".join(
-                cell.text.strip()
-                for cell in row.cells
-            )
-            for row in table.rows
+            "\t".join(cell.text.strip() for cell in row.cells) for row in table.rows
         ]
 
         if rows:
-            sections.append(
-                f"--- TABLE {table_number} ---\n"
-                + "\n".join(rows)
-            )
+            sections.append(f"--- TABLE {table_number} ---\n" + "\n".join(rows))
 
     return "\n\n".join(sections).strip()
 
@@ -885,9 +846,7 @@ def extractImageText(path: Path) -> str:
 def extractLegacyDOCText(path: Path) -> str:
     """Use antiword for old .doc files when it is installed."""
     if not shutil.which("antiword"):
-        raise RuntimeError(
-            "Legacy .doc extraction requires the antiword program."
-        )
+        raise RuntimeError("Legacy .doc extraction requires the antiword program.")
 
     result = subprocess.run(
         ["antiword", str(path)],
@@ -905,9 +864,7 @@ def extractXLSXText(path: Path) -> str:
     try:
         from openpyxl import load_workbook
     except ImportError as exc:
-        raise RuntimeError(
-            "XLSX extraction requires openpyxl."
-        ) from exc
+        raise RuntimeError("XLSX extraction requires openpyxl.") from exc
 
     workbook = load_workbook(
         path,
@@ -921,19 +878,13 @@ def extractXLSXText(path: Path) -> str:
             rows: list[str] = []
 
             for row in worksheet.iter_rows(values_only=True):
-                values = [
-                    "" if value is None else str(value)
-                    for value in row
-                ]
+                values = ["" if value is None else str(value) for value in row]
 
                 if any(value.strip() for value in values):
                     rows.append("\t".join(values))
 
             if rows:
-                sections.append(
-                    f"--- SHEET: {worksheet.title} ---\n"
-                    + "\n".join(rows)
-                )
+                sections.append(f"--- SHEET: {worksheet.title} ---\n" + "\n".join(rows))
     finally:
         workbook.close()
 
@@ -944,9 +895,7 @@ def extractPPTXText(path: Path) -> str:
     try:
         from pptx import Presentation
     except ImportError as exc:
-        raise RuntimeError(
-            "PPTX extraction requires python-pptx."
-        ) from exc
+        raise RuntimeError("PPTX extraction requires python-pptx.") from exc
 
     presentation = Presentation(str(path))
     slides: list[str] = []
@@ -963,10 +912,7 @@ def extractPPTXText(path: Path) -> str:
             if text and str(text).strip():
                 parts.append(str(text).strip())
 
-        slides.append(
-            f"--- SLIDE {slide_number} ---\n"
-            + "\n".join(parts)
-        )
+        slides.append(f"--- SLIDE {slide_number} ---\n" + "\n".join(parts))
 
     return "\n\n".join(slides).strip()
 
@@ -1028,15 +974,13 @@ def extractAttachmentText(path: Path) -> dict[str, Any]:
     if suffix == ".pptx":
         return {"text": extractPPTXText(path)}
 
-    raise ValueError(
-        f"Unsupported attachment type: "
-        f"{suffix or '[no extension]'}"
-    )
+    raise ValueError(f"Unsupported attachment type: {suffix or '[no extension]'}")
 
 
 # ---------------------------------------------------------------------------
 # Public function
 # ---------------------------------------------------------------------------
+
 
 def textSection(title: str, text: str) -> str:
     return f"===== {title} =====\n{text.strip()}"
@@ -1075,9 +1019,7 @@ def getCommentText(comment_id: str) -> str:
     if not isinstance(attributes, dict):
         attributes = {}
 
-    inline_text = html.unescape(
-        str(attributes.get("comment") or "")
-    ).strip()
+    inline_text = html.unescape(str(attributes.get("comment") or "")).strip()
 
     (comment_folder / "comment_body.txt").write_text(
         inline_text,
@@ -1087,13 +1029,9 @@ def getCommentText(comment_id: str) -> str:
     sections: list[str] = []
 
     if inline_text:
-        sections.append(
-            textSection("INLINE COMMENT", inline_text)
-        )
+        sections.append(textSection("INLINE COMMENT", inline_text))
 
-    attachment_candidates = extractAttachmentCandidates(
-        payload
-    )
+    attachment_candidates = extractAttachmentCandidates(payload)
     attachment_results: list[dict[str, Any]] = []
 
     # Do not send the Regulations.gov API key to attachment hosts.
@@ -1123,9 +1061,7 @@ def getCommentText(comment_id: str) -> str:
                     number,
                 )
                 result["downloaded_file"] = str(
-                    downloaded_path.relative_to(
-                        comment_folder
-                    )
+                    downloaded_path.relative_to(comment_folder)
                 )
             except Exception as exc:
                 result["download_error"] = str(exc)
@@ -1133,12 +1069,8 @@ def getCommentText(comment_id: str) -> str:
                 continue
 
             try:
-                extraction = extractAttachmentText(
-                    downloaded_path
-                )
-                attachment_text = str(
-                    extraction.get("text") or ""
-                ).strip()
+                extraction = extractAttachmentText(downloaded_path)
+                attachment_text = str(extraction.get("text") or "").strip()
 
                 extracted_path = uniquePath(
                     extracted_folder,
@@ -1150,21 +1082,16 @@ def getCommentText(comment_id: str) -> str:
                 )
 
                 result["extracted_text_file"] = str(
-                    extracted_path.relative_to(
-                        comment_folder
-                    )
+                    extracted_path.relative_to(comment_folder)
                 )
                 result["extraction_details"] = {
-                    key: value
-                    for key, value in extraction.items()
-                    if key != "text"
+                    key: value for key, value in extraction.items() if key != "text"
                 }
 
                 if attachment_text:
                     sections.append(
                         textSection(
-                            f"ATTACHMENT {number}: "
-                            f"{downloaded_path.name}",
+                            f"ATTACHMENT {number}: {downloaded_path.name}",
                             attachment_text,
                         )
                     )
@@ -1193,16 +1120,12 @@ def getCommentText(comment_id: str) -> str:
         {
             "comment_id": comment_id,
             "inline_comment_present": bool(inline_text),
-            "attachment_candidates_found": len(
-                attachment_candidates
-            ),
+            "attachment_candidates_found": len(attachment_candidates),
             "attachments_downloaded": sum(
-                item["downloaded_file"] is not None
-                for item in attachment_results
+                item["downloaded_file"] is not None for item in attachment_results
             ),
             "attachments_extracted": sum(
-                item["extracted_text_file"] is not None
-                for item in attachment_results
+                item["extracted_text_file"] is not None for item in attachment_results
             ),
             "attachments": attachment_results,
         },
@@ -1214,8 +1137,4 @@ def getCommentText(comment_id: str) -> str:
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
 
-    print(
-        getCommentText(
-            "FNS-2021-0038-0050"
-        )
-    )
+    print(getCommentText("FNS-2021-0038-0050"))

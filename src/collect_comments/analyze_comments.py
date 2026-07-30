@@ -3,6 +3,7 @@
 from comment_schema import CommentSchema
 from src.services.ai_client import AIClient
 from src.collect_comments.retrieve_comment_body import getCommentText
+from src.collect_comments.process_comment_text import processCommentText
 
 client = AIClient()
 
@@ -107,5 +108,8 @@ def analyzeComment(metadata: dict):
     fillMetadata(metadata, comment)
     analyzeMetadata(metadata, comment)
 
-    bodyText = getCommentText(metadata.get("commentId", ""))
+    bodyText = getCommentText(metadata.get("id", ""))
     comment.comment_text = bodyText
+
+    res = processCommentText(text=bodyText, metadata=metadata)
+    print(res)

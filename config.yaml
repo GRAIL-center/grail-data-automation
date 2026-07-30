@@ -22,6 +22,16 @@ ai:
     # caused by four prompts competing for one GPU/CPU model at once.
     max_concurrent_calls: 1
 
+  research:
+    engine: auto
+    max_results: 5
+    max_tool_calls: 6
+    max_result_chars: 16000
+    search_context_size: medium
+    timeout_seconds: 30
+    ollama_api_key_env: OLLAMA_API_KEY
+    force_ollama_initial_search: true
+
 notice_search_terms:
     default_terms: [
         "artificial intelligence", "algorithm", "artificial general intelligence",

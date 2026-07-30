@@ -15,9 +15,14 @@ from typing import Any
 from urllib.parse import urlparse
 
 import requests
+from dotenv import load_dotenv
 from openai import APIConnectionError, APIError, OpenAI, RateLimitError
 
 from .config import loadAISettings
+
+# Load variables from the nearest .env file without overriding values
+# already present in the process environment.
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
@@ -94,9 +99,7 @@ class AIClient:
         )
 
         self._clients: dict[tuple[str, str, str], OpenAI] = {}
-        self._validation_retries = max(
-            0, int(self.config.get("validation_retries", 1))
-        )
+        self._validation_retries = max(0, int(self.config.get("validation_retries", 1)))
 
         research = self.config.get("research", {})
         research = research if isinstance(research, dict) else {}
@@ -110,9 +113,7 @@ class AIClient:
             2_000, int(research.get("max_result_chars", 16_000))
         )
         self._research_engine = str(research.get("engine", "auto"))
-        self._research_context_size = str(
-            research.get("search_context_size", "medium")
-        )
+        self._research_context_size = str(research.get("search_context_size", "medium"))
         self._research_timeout = float(research.get("timeout_seconds", 30))
         self._ollama_web_key_env = str(
             research.get("ollama_api_key_env", "OLLAMA_API_KEY")
@@ -123,9 +124,7 @@ class AIClient:
 
     # Provider setup ----------------------------------------------------
 
-    def _build_provider_config(
-        self, section: Mapping[str, Any]
-    ) -> ProviderConfig:
+    def _build_provider_config(self, section: Mapping[str, Any]) -> ProviderConfig:
         provider = str(section["provider"]).strip().lower()
         if provider not in {"openrouter", "ollama"}:
             raise ValueError(f"Unsupported provider: {provider}")
@@ -137,31 +136,21 @@ class AIClient:
 
         if provider == "openrouter":
             base_url = str(
-                provider_settings.get(
-                    "base_url", "https://openrouter.ai/api/v1"
-                )
+                provider_settings.get("base_url", "https://openrouter.ai/api/v1")
             ).rstrip("/")
-            key_env = str(
-                provider_settings.get("api_key_env", "OPENROUTER_API_KEY")
-            )
+            key_env = str(provider_settings.get("api_key_env", "OPENROUTER_API_KEY"))
         else:
             base_url = str(
-                provider_settings.get(
-                    "base_url", "http://localhost:11434/v1"
-                )
+                provider_settings.get("base_url", "http://localhost:11434/v1")
             ).rstrip("/")
             if not base_url.endswith("/v1"):
                 base_url += "/v1"
-            key_env = str(
-                provider_settings.get("api_key_env", "OLLAMA_API_KEY")
-            )
+            key_env = str(provider_settings.get("api_key_env", "OLLAMA_API_KEY"))
 
         headers: dict[str, str] = {}
         if provider == "openrouter":
             if provider_settings.get("http_referer"):
-                headers["HTTP-Referer"] = str(
-                    provider_settings["http_referer"]
-                )
+                headers["HTTP-Referer"] = str(provider_settings["http_referer"])
             if provider_settings.get("app_title"):
                 headers["X-Title"] = str(provider_settings["app_title"])
 
@@ -169,7 +158,7 @@ class AIClient:
             provider=provider,
             model=str(section["model"]),
             base_url=base_url,
-            api_key=os.environ.get(key_env),
+            api_key=os.getenv(key_env),
             timeout=float(section.get("timeout_seconds", 60)),
             temperature=float(section.get("temperature", 0.2)),
             max_concurrent_calls=max(
@@ -306,21 +295,87 @@ class AIClient:
         **kwargs: Any,
     ) -> dict[str, Any]:
         last_error: Exception | None = None
+        previous_response = ""
+
+        schema_text = (
+            json.dumps(schema, ensure_ascii=False, indent=2)
+            if schema is not None
+            else None
+        )
+
+        working_prompt = prompt
+
+        if schema_text:
+            working_prompt += f"""
+
+    Return exactly one JSON object matching this template:
+
+    {schema_text}
+
+    Requirements:
+    - Include every key from the template.
+    - Preserve the exact key names and capitalization.
+    - Use null when a scalar value cannot be determined.
+    - Use [] when a list value cannot be determined.
+    - Use {{}} when an object value cannot be determined.
+    - Do not include Markdown or any text outside the JSON object.
+    """
+
         for attempt in range(self._validation_retries + 1):
             try:
                 text = self.generate_text(
-                    prompt,
+                    working_prompt,
                     response_format={"type": "json_object"},
                     **kwargs,
                 )
+
+                previous_response = text
                 result = self._parse_json(text)
+
                 if schema is not None:
                     self._validate_template(result, schema)
+
                 return result
-            except (json.JSONDecodeError, TypeError, ValueError) as error:
+
+            except (
+                json.JSONDecodeError,
+                TypeError,
+                ValueError,
+            ) as error:
                 last_error = error
-                if attempt < self._validation_retries:
-                    logger.warning("Invalid JSON; retrying")
+
+                if attempt >= self._validation_retries:
+                    break
+
+                logger.warning(
+                    "JSON generation attempt %d failed: %s",
+                    attempt + 1,
+                    error,
+                )
+
+                working_prompt = f"""Your previous response failed validation.
+
+    Validation error:
+    {error}
+
+    Previous response:
+    {previous_response[:8000]}
+
+    Original task:
+    {prompt}
+    """
+
+                if schema_text:
+                    working_prompt += f"""
+
+    Return a corrected JSON object matching this exact template:
+
+    {schema_text}
+
+    Include every key exactly as written. Use null, [], or {{}} for fields that
+    cannot be determined. Return only the JSON object.
+    """
+
         raise last_error or RuntimeError("Failed to generate valid JSON")
 
     def generate_stream(
@@ -526,17 +581,15 @@ class AIClient:
                         else {"error": f"Unknown tool: {call.function.name}"}
                     )
                 except Exception as error:
-                    result = {
-                        "error": f"{error.__class__.__name__}: {error}"
-                    }
+                    result = {"error": f"{error.__class__.__name__}: {error}"}
                 calls_used += 1
                 conversation.append(
                     {
                         "role": "tool",
                         "tool_call_id": call_id,
-                        "content": json.dumps(
-                            result, ensure_ascii=False, default=str
-                        )[: self._research_max_chars],
+                        "content": json.dumps(result, ensure_ascii=False, default=str)[
+                            : self._research_max_chars
+                        ],
                     }
                 )
 
@@ -599,9 +652,7 @@ class AIClient:
         **kwargs: Any,
     ) -> str:
         if cfg.provider == "openrouter":
-            return self._research_openrouter(
-                cfg, messages, search_query, **kwargs
-            )
+            return self._research_openrouter(cfg, messages, search_query, **kwargs)
         return self._research_ollama(cfg, messages, search_query, **kwargs)
 
     def _research_openrouter(
@@ -678,9 +729,7 @@ class AIClient:
         calls_used = 0
 
         if self._force_ollama_initial_search:
-            query = search_query or self._default_search_query(
-                messages[-1]["content"]
-            )
+            query = search_query or self._default_search_query(messages[-1]["content"])
             result = self._ollama_web_search(query)
             conversation.append(
                 {
@@ -750,7 +799,7 @@ class AIClient:
             return content
 
     def _ollama_web_key(self) -> str:
-        key = os.environ.get(self._ollama_web_key_env, "").strip()
+        key = os.getenv(self._ollama_web_key_env, "").strip()
         if not key:
             raise ResearchError(
                 f"{self._ollama_web_key_env} is required for Ollama web research"
@@ -798,9 +847,7 @@ class AIClient:
             response.raise_for_status()
             result = response.json()
         except (requests.RequestException, ValueError) as error:
-            raise ResearchError(
-                f"Ollama {endpoint} failed: {error}"
-            ) from error
+            raise ResearchError(f"Ollama {endpoint} failed: {error}") from error
         if not isinstance(result, dict):
             raise ResearchError(f"Ollama {endpoint} returned invalid JSON")
         return result
@@ -948,9 +995,7 @@ Required JSON template:
                 raise ValueError(f"{path} must be an object")
             missing = [key for key in template if key not in value]
             if missing:
-                raise ValueError(
-                    f"{path} missing keys: {', '.join(missing)}"
-                )
+                raise ValueError(f"{path} missing keys: {', '.join(missing)}")
             for key, child in template.items():
                 cls._validate_template(value[key], child, f"{path}.{key}")
         elif isinstance(template, list) and not isinstance(value, list):
@@ -982,8 +1027,8 @@ Required JSON template:
 Confirm every result refers to the same person.
 
 Person: {person_name}
-Organization hint: {organization or 'unknown'}
-Context: {context or 'none'}
+Organization hint: {organization or "unknown"}
+Context: {context or "none"}
 
 Never infer an email from an organization's email pattern. Do not return home
 addresses, personal phone numbers, or unrelated personal accounts.

@@ -52,7 +52,7 @@
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field
-
+import json
 
 class CommentSchema(BaseModel):
     # identity
