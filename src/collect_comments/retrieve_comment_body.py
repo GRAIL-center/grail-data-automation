@@ -1,11 +1,11 @@
 """Fetch a Regulations.gov comment and its complete body text.
 
 Public function:
-    getCommentText(comment_id: str) -> str
+    getCommentText(comment_id: str, fr_number: str) -> str
 
 For each comment, this file creates:
 
-    comments/<comment_id>/
+    data/<fr_number>/<comment_id>/
         metadata.json
         comment_body.txt
         full_comment.txt
@@ -42,6 +42,7 @@ import os
 import re
 import shutil
 import subprocess
+import uuid
 from email.message import Message
 from html.parser import HTMLParser
 from pathlib import Path
@@ -57,10 +58,11 @@ from urllib3.util.retry import Retry
 from src.services.config import loadRegKey
 
 REGULATIONS_API_URL = "https://api.regulations.gov/v4"
-OUTPUT_ROOT = Path("comments")
+DATA_ROOT = Path(__file__).resolve().parents[2] / "data"
 
 TIMEOUT = 60
 DOWNLOAD_CHUNK_SIZE = 1024 * 1024
+MAX_ATTACHMENT_BYTES = 50 * 1024 * 1024
 OCR_DPI = 300
 MINIMUM_CHARACTERS_PER_PAGE = 100
 OCR_ALL_PDF_PAGES = True
@@ -547,12 +549,30 @@ def downloadAttachment(
             ),
         )
 
-        with destination.open("wb") as output:
-            for chunk in response.iter_content(
-                chunk_size=DOWNLOAD_CHUNK_SIZE,
-            ):
-                if chunk:
+        content_length = response.headers.get("Content-Length")
+        if content_length and int(content_length) > MAX_ATTACHMENT_BYTES:
+            raise ValueError(
+                f"Attachment exceeds the {MAX_ATTACHMENT_BYTES // (1024 * 1024)} MB limit."
+            )
+
+        bytes_written = 0
+        try:
+            with destination.open("wb") as output:
+                for chunk in response.iter_content(
+                    chunk_size=DOWNLOAD_CHUNK_SIZE,
+                ):
+                    if not chunk:
+                        continue
+
+                    bytes_written += len(chunk)
+                    if bytes_written > MAX_ATTACHMENT_BYTES:
+                        raise ValueError(
+                            f"Attachment exceeds the {MAX_ATTACHMENT_BYTES // (1024 * 1024)} MB limit."
+                        )
                     output.write(chunk)
+        except Exception:
+            destination.unlink(missing_ok=True)
+            raise
 
         return destination
     finally:
@@ -659,11 +679,10 @@ def extractPDFText(
     native_pages_used: list[int] = []
 
     with pymupdf.open(str(pdf_path)) as document:
-        for page_number, page in enumerate(
-            document,
-            start=1,
-        ):
-            native_text = page.get_text("text").strip()
+        for page_number in range(len(document)):
+            page = document[page_number]
+            page_number += 1
+            native_text = str(page.get_text("text")).strip()
             native_character_count = len("".join(native_text.split()))
 
             should_ocr = (
@@ -986,155 +1005,196 @@ def textSection(title: str, text: str) -> str:
     return f"===== {title} =====\n{text.strip()}"
 
 
-def getCommentText(comment_id: str) -> str:
-    """Download and return the complete inline and attachment comment text."""
+def commentFolder(fr_number: str, comment_id: str) -> Path:
+    safe_fr_number = sanitizeFilename(fr_number)
+    safe_comment_id = sanitizeFilename(comment_id)
+
+    if not safe_fr_number or not safe_comment_id:
+        raise ValueError("Federal Register number and comment ID are required.")
+
+    return DATA_ROOT / safe_fr_number / safe_comment_id
+
+
+def loadCompletedCommentText(comment_folder: Path) -> str | None:
+    manifest_path = comment_folder / "manifest.json"
+    text_path = comment_folder / "full_comment.txt"
+
+    if not manifest_path.is_file() or not text_path.is_file():
+        return None
+
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+    if not isinstance(manifest, dict) or not manifest.get("complete"):
+        return None
+
+    return text_path.read_text(encoding="utf-8")
+
+
+def replaceCommentFolder(staging_folder: Path, comment_folder: Path) -> None:
+    backup_folder = comment_folder.with_name(
+        f".{comment_folder.name}.backup-{uuid.uuid4().hex}"
+    )
+
+    if comment_folder.exists():
+        comment_folder.replace(backup_folder)
+
+    try:
+        staging_folder.replace(comment_folder)
+    except Exception:
+        if backup_folder.exists():
+            backup_folder.replace(comment_folder)
+        raise
+    else:
+        if backup_folder.exists():
+            shutil.rmtree(backup_folder)
+
+
+def getCommentText(comment_id: str, fr_number: str) -> str:
+    """Download a comment into data/<FR number>/<comment ID> and return its text."""
     comment_id = comment_id.strip()
+    fr_number = fr_number.strip()
 
     if not comment_id:
         raise ValueError("Comment ID cannot be empty.")
+    if not fr_number:
+        raise ValueError("Federal Register number cannot be empty.")
 
-    comment_folder = OUTPUT_ROOT / sanitizeFilename(comment_id)
+    comment_folder = commentFolder(fr_number, comment_id)
+    cached_text = loadCompletedCommentText(comment_folder)
+    if cached_text is not None:
+        logger.info("Reusing downloaded comment %s from %s", comment_id, comment_folder)
+        return cached_text
 
-    # A rerun should replace the old output instead of producing duplicate
-    # attachment_2, attachment_3, and other archaeological layers.
-    if comment_folder.exists():
-        shutil.rmtree(comment_folder)
-
-    attachments_folder = comment_folder / "attachments"
-    extracted_folder = comment_folder / "extracted"
-
+    comment_folder.parent.mkdir(parents=True, exist_ok=True)
+    staging_folder = comment_folder.with_name(
+        f".{comment_folder.name}.staging-{uuid.uuid4().hex}"
+    )
+    attachments_folder = staging_folder / "attachments"
+    extracted_folder = staging_folder / "extracted"
     attachments_folder.mkdir(parents=True)
     extracted_folder.mkdir(parents=True)
 
-    with buildSession(loadRegKey()) as api_session:
-        payload = fetchCommentPayload(
-            api_session,
-            comment_id,
+    try:
+        with buildSession(loadRegKey()) as api_session:
+            payload = fetchCommentPayload(api_session, comment_id)
+
+        writeJSON(staging_folder / "metadata.json", payload)
+
+        attributes = payload["data"].get("attributes", {})
+        if not isinstance(attributes, dict):
+            attributes = {}
+
+        inline_text = html.unescape(str(attributes.get("comment") or "")).strip()
+        (staging_folder / "comment_body.txt").write_text(
+            inline_text,
+            encoding="utf-8",
         )
 
-    writeJSON(comment_folder / "metadata.json", payload)
+        sections: list[str] = []
+        if inline_text:
+            sections.append(textSection("INLINE COMMENT", inline_text))
 
-    attributes = payload["data"].get("attributes", {})
+        attachment_candidates = extractAttachmentCandidates(payload)
+        attachment_results: list[dict[str, Any]] = []
 
-    if not isinstance(attributes, dict):
-        attributes = {}
-
-    inline_text = html.unescape(str(attributes.get("comment") or "")).strip()
-
-    (comment_folder / "comment_body.txt").write_text(
-        inline_text,
-        encoding="utf-8",
-    )
-
-    sections: list[str] = []
-
-    if inline_text:
-        sections.append(textSection("INLINE COMMENT", inline_text))
-
-    attachment_candidates = extractAttachmentCandidates(payload)
-    attachment_results: list[dict[str, Any]] = []
-
-    # Do not send the Regulations.gov API key to attachment hosts.
-    with buildSession() as download_session:
-        for number, candidate in enumerate(
-            attachment_candidates,
-            start=1,
-        ):
-            result: dict[str, Any] = {
-                "number": number,
-                "attachment_id": candidate.get("attachment_id"),
-                "label": candidate.get("label"),
-                "url": candidate.get("url"),
-                "format": candidate.get("format"),
-                "downloaded_file": None,
-                "extracted_text_file": None,
-                "download_error": None,
-                "extraction_error": None,
-                "extraction_details": {},
-            }
-
-            try:
-                downloaded_path = downloadAttachment(
-                    download_session,
-                    candidate,
-                    attachments_folder,
-                    number,
-                )
-                result["downloaded_file"] = str(
-                    downloaded_path.relative_to(comment_folder)
-                )
-            except Exception as exc:
-                result["download_error"] = str(exc)
-                attachment_results.append(result)
-                continue
-
-            try:
-                extraction = extractAttachmentText(downloaded_path)
-                attachment_text = str(extraction.get("text") or "").strip()
-
-                extracted_path = uniquePath(
-                    extracted_folder,
-                    f"{downloaded_path.name}.txt",
-                )
-                extracted_path.write_text(
-                    attachment_text,
-                    encoding="utf-8",
-                )
-
-                result["extracted_text_file"] = str(
-                    extracted_path.relative_to(comment_folder)
-                )
-                result["extraction_details"] = {
-                    key: value for key, value in extraction.items() if key != "text"
+        # Do not send the Regulations.gov API key to attachment hosts.
+        with buildSession() as download_session:
+            for number, candidate in enumerate(attachment_candidates, start=1):
+                result: dict[str, Any] = {
+                    "number": number,
+                    "attachment_id": candidate.get("attachment_id"),
+                    "label": candidate.get("label"),
+                    "url": candidate.get("url"),
+                    "format": candidate.get("format"),
+                    "downloaded_file": None,
+                    "extracted_text_file": None,
+                    "download_error": None,
+                    "extraction_error": None,
+                    "extraction_details": {},
                 }
 
-                if attachment_text:
-                    sections.append(
-                        textSection(
-                            f"ATTACHMENT {number}: {downloaded_path.name}",
-                            attachment_text,
-                        )
+                try:
+                    downloaded_path = downloadAttachment(
+                        download_session,
+                        candidate,
+                        attachments_folder,
+                        number,
                     )
-            except Exception as exc:
-                result["extraction_error"] = str(exc)
+                    result["downloaded_file"] = str(
+                        downloaded_path.relative_to(staging_folder)
+                    )
+                except Exception as exc:
+                    result["download_error"] = str(exc)
+                    attachment_results.append(result)
+                    continue
 
-            attachment_results.append(result)
+                try:
+                    extraction = extractAttachmentText(downloaded_path)
+                    attachment_text = str(extraction.get("text") or "").strip()
+                    extracted_path = uniquePath(
+                        extracted_folder,
+                        f"{downloaded_path.name}.txt",
+                    )
+                    extracted_path.write_text(attachment_text, encoding="utf-8")
+                    result["extracted_text_file"] = str(
+                        extracted_path.relative_to(staging_folder)
+                    )
+                    result["extraction_details"] = {
+                        key: value for key, value in extraction.items() if key != "text"
+                    }
 
-    if not sections:
-        sections.append(
-            textSection(
-                "COMMENT",
-                "[No inline or extractable attachment text found.]",
+                    if attachment_text:
+                        sections.append(
+                            textSection(
+                                f"ATTACHMENT {number}: {downloaded_path.name}",
+                                attachment_text,
+                            )
+                        )
+                except Exception as exc:
+                    result["extraction_error"] = str(exc)
+
+                attachment_results.append(result)
+
+        if not sections:
+            sections.append(
+                textSection(
+                    "COMMENT",
+                    "[No inline or extractable attachment text found.]",
+                )
             )
+
+        full_text = "\n\n".join(sections).strip()
+        (staging_folder / "full_comment.txt").write_text(full_text, encoding="utf-8")
+        writeJSON(
+            staging_folder / "manifest.json",
+            {
+                "storage_version": 1,
+                "complete": True,
+                "fr_number": fr_number,
+                "comment_id": comment_id,
+                "inline_comment_present": bool(inline_text),
+                "attachment_candidates_found": len(attachment_candidates),
+                "attachments_downloaded": sum(
+                    item["downloaded_file"] is not None for item in attachment_results
+                ),
+                "attachments_extracted": sum(
+                    item["extracted_text_file"] is not None for item in attachment_results
+                ),
+                "attachments": attachment_results,
+            },
         )
-
-    full_text = "\n\n".join(sections).strip()
-
-    (comment_folder / "full_comment.txt").write_text(
-        full_text,
-        encoding="utf-8",
-    )
-
-    writeJSON(
-        comment_folder / "manifest.json",
-        {
-            "comment_id": comment_id,
-            "inline_comment_present": bool(inline_text),
-            "attachment_candidates_found": len(attachment_candidates),
-            "attachments_downloaded": sum(
-                item["downloaded_file"] is not None for item in attachment_results
-            ),
-            "attachments_extracted": sum(
-                item["extracted_text_file"] is not None for item in attachment_results
-            ),
-            "attachments": attachment_results,
-        },
-    )
-
-    return full_text
+        replaceCommentFolder(staging_folder, comment_folder)
+        logger.info("Downloaded comment %s to %s", comment_id, comment_folder)
+        return full_text
+    except Exception:
+        shutil.rmtree(staging_folder, ignore_errors=True)
+        raise
 
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
 
-    print(getCommentText("FNS-2021-0038-0050"))
+    print(getCommentText("FNS-2021-0038-0050", "2021-00000"))

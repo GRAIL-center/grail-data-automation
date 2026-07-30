@@ -108,7 +108,10 @@ def analyzeComment(metadata: dict):
     fillMetadata(metadata, comment)
     analyzeMetadata(metadata, comment)
 
-    bodyText = getCommentText(metadata.get("id", ""))
+    artifact_identifier = str(
+        comment.fr_doc_number or metadata.get("docketId") or "unassigned"
+    )
+    bodyText = getCommentText(metadata.get("id", ""), artifact_identifier)
     comment.comment_text = bodyText
 
     res = processCommentText(text=bodyText, metadata=metadata)

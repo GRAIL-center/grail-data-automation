@@ -10,6 +10,8 @@ from src.services.config import loadNoticeConfig, loadNoticeSheetUrl
 from src.services.sheets import addRow, getExistingFRIDs, setupGoogleSheets
 
 logger = logging.getLogger(__name__)
+REQUEST_TIMEOUT = 30
+
 
 
 def extractCommentDate(text: str) -> str | None:
@@ -66,7 +68,9 @@ def getBodyInfo(docId: str):
         or (None, None) if extraction fails.
     """
     url = f"https://www.federalregister.gov/api/v1/documents/{docId}.json?fields[]=body_html_url"
-    res = req.get(url).json()
+    res = req.get(url, timeout=REQUEST_TIMEOUT)
+    res.raise_for_status()
+    res = res.json()
 
     # retrieve soup
     bodyUrl = res.get("body_html_url")
@@ -74,7 +78,7 @@ def getBodyInfo(docId: str):
         logger.error("No body URL found for docId: %s", docId)
         return None, None
 
-    bodyRes = req.get(bodyUrl)
+    bodyRes = req.get(bodyUrl, timeout=REQUEST_TIMEOUT)
 
     if bodyRes.status_code != 200:
         logger.error("Failed to retrieve body for docId: %s", docId)
@@ -148,7 +152,7 @@ def processNotice(notice: dict):
     commentUrl = f"https://www.federalregister.gov/api/v1/documents/{docNum}.json?fields[]=comments_close_on"
     commentsCloseOn = None
     try:
-        commentData = req.get(commentUrl).json()
+        commentData = req.get(commentUrl, timeout=REQUEST_TIMEOUT).json()
         commentsCloseOn = commentData.get("comments_close_on")
         if not commentsCloseOn:
             logger.warning("No comments close on found for docId: %s", docNum)
@@ -178,7 +182,7 @@ def processNotice(notice: dict):
             logger.error("Failed to summarize docId: %s", docNum, exc_info=e)
             summary = "Summary unavailable."
 
-    commentEndDate = commentsCloseOn or extractCommentDate(bodyText) or "N/A"
+    commentEndDate = commentsCloseOn or extractCommentDate(bodyText or "") or "N/A"
 
     return [
         notice.get("title", ""),
@@ -216,7 +220,7 @@ def scrapeNotices(
         )
 
         try:
-            res = req.get(url)
+            res = req.get(url, timeout=REQUEST_TIMEOUT)
             res.raise_for_status()
             data = res.json()
             notices = data.get("results", [])
@@ -300,8 +304,15 @@ def collectNotices(user_settings=None, user_terms=None):
     # Combine default_terms and search_terms into a single flat list
     allTerms = []
     if SEARCH_TERMS_DATA:
-        allTerms.extend(SEARCH_TERMS_DATA.get("default_terms", []) or [])
-        allTerms.extend(SEARCH_TERMS_DATA.get("search_terms", []) or [])
+        configured_terms = (
+            (SEARCH_TERMS_DATA.get("default_terms", []) or [])
+            + (SEARCH_TERMS_DATA.get("search_terms", []) or [])
+        )
+        allTerms.extend(
+            str(term).strip().lower()
+            for term in configured_terms
+            if str(term).strip()
+        )
 
     logger.info("Starting notice collection with %d search terms", len(allTerms))
 

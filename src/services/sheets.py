@@ -27,7 +27,7 @@ def getRowCount(worksheet: gs.Worksheet) -> int:
         logger.warning("No values found in worksheet %s", worksheet.title)
         return 0
 
-    return sum(bool(value.strip()) for value in values[1:])
+    return sum(bool(str(value).strip()) for value in values[1:])
 
 
 def getExistingFRIDs(worksheet: gs.Worksheet) -> set[str]:
@@ -41,13 +41,14 @@ def getExistingFRIDs(worksheet: gs.Worksheet) -> set[str]:
     if len(values) <= 1:
         return set()
 
-    return {value.strip() for value in values[1:] if value.strip()}
+    return {str(value).strip() for value in values[1:] if str(value).strip()}
 
 
 def addRow(worksheet: gs.Worksheet, values: Sequence[Any]) -> None:
     worksheet.append_row(
         list(values),
-        value_input_option="USER_ENTERED",
+        value_input_option=gs.utils.ValueInputOption.user_entered,
+        table_range="A1",
     )
 
 
@@ -60,7 +61,8 @@ def addRows(
 
     worksheet.append_rows(
         [list(row) for row in rows],
-        value_input_option="USER_ENTERED",
+        value_input_option=gs.utils.ValueInputOption.user_entered,
+        table_range="A1",
     )
 
 

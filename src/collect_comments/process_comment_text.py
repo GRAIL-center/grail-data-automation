@@ -1,11 +1,16 @@
 from __future__ import annotations
 
 import json
+import logging
+from collections.abc import Mapping
 from copy import deepcopy
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any
 
 from src.services.ai_client import generate_json, research_comment_fields
+
+logger = logging.getLogger(__name__)
+
 
 COMMENT_SCHEMA: dict[str, Any] = {
     "Comment ID": None,
@@ -135,13 +140,26 @@ Comment text:
 {cleaned_text}
 """
 
-    analyzed = generate_json(
-        analysis_prompt,
-        schema=TEXT_ANALYSIS_SCHEMA,
-        provider=provider,
-        allow_fallback=allow_fallback,
-        temperature=0,
-    )
+    enrichment_notes: list[str] = []
+
+    try:
+        analyzed = generate_json(
+            analysis_prompt,
+            schema=TEXT_ANALYSIS_SCHEMA,
+            provider=provider,
+            allow_fallback=allow_fallback,
+            temperature=0,
+        )
+        if not isinstance(analyzed, Mapping):
+            raise TypeError("AI text analysis must return an object")
+        analyzed = dict(analyzed)
+    except Exception as error:
+        logger.warning(
+            "AI text analysis failed; preserving source data for this comment: %s",
+            error,
+        )
+        analyzed = {}
+        enrichment_notes.append("AI text analysis was unavailable.")
 
     researched: dict[str, Any] = {}
     if research:
@@ -152,12 +170,23 @@ Comment text:
             # web-research prompt absurdly large.
             "Comment Text Excerpt": cleaned_text[:12_000],
         }
-        researched = research_comment_fields(
-            research_record,
-            schema=RESEARCH_SCHEMA,
-            provider=provider,
-            allow_fallback=allow_fallback,
-        )
+        try:
+            researched = research_comment_fields(
+                research_record,
+                schema=RESEARCH_SCHEMA,
+                provider=provider,
+                allow_fallback=allow_fallback,
+            )
+            if not isinstance(researched, Mapping):
+                raise TypeError("AI research must return an object")
+            researched = dict(researched)
+        except Exception as error:
+            logger.warning(
+                "AI research failed; preserving source data for this comment: %s",
+                error,
+            )
+            researched = {}
+            enrichment_notes.append("AI research enrichment was unavailable.")
 
     result = deepcopy(COMMENT_SCHEMA)
 
@@ -166,6 +195,9 @@ Comment text:
     _fill_missing(result, researched)
     _fill_missing(result, analyzed)
     _overwrite_present(result, normalized_metadata)
+
+    if enrichment_notes and _is_missing(result["Research Notes"]):
+        result["Research Notes"] = " ".join(enrichment_notes)
 
     # Never let a model rewrite or truncate the source text.
     result["Full Text"] = cleaned_text

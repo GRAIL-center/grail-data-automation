@@ -12,6 +12,7 @@ import yaml
 
 from src.collect_comments.fetch_comments import processComments
 from src.collect_notices.collect import collectNotices
+from src.services.ai_client import reset_client
 from src.services.config import CONFIG_PATH, loadNoticeConfig
 
 app = flask.Flask(__name__, template_folder="../templates")
@@ -205,6 +206,7 @@ def settings():
                 try:
                     temporaryPath.write_text(configText, encoding="utf-8")
                     temporaryPath.replace(configPath)
+                    reset_client()
                     saveMessage = "config.yaml saved successfully."
                 except OSError as error:
                     saveError = f"Config was not saved: {error}."

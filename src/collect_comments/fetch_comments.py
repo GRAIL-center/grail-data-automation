@@ -35,6 +35,7 @@ REGULATIONS_API_URL = "https://api.regulations.gov/v4"
 PAGE_SIZE = 250
 MAX_PAGES = 20
 TIMEOUT = 30
+MAX_SHEET_CELL_CHARS = 49_000
 
 JsonDict = dict[str, Any]
 
@@ -49,6 +50,9 @@ DASH_TRANSLATION = str.maketrans(
 
 def normalizeFRNumber(value: Any) -> str:
     return str(value or "").translate(DASH_TRANSLATION).strip().upper()
+
+
+
 
 
 def requestJSON(
@@ -140,6 +144,20 @@ def getRegulationsDocuments(
     session: requests.Session,
     fr_number: str,
 ) -> list[JsonDict]:
+    if not re.fullmatch(r"\d{4}-\d+", fr_number):
+        docket_documents = getDocuments(
+            session,
+            {"filter[docketId]": fr_number},
+        )
+
+        if docket_documents:
+            logger.info(
+                "Found %d Regulations.gov documents for docket %s",
+                len(docket_documents),
+                fr_number,
+            )
+            return dedupeDocuments(docket_documents)
+
     documents = getDocuments(
         session,
         {"filter[frDocNum]": fr_number},
@@ -377,25 +395,36 @@ def getComments(fr_doc_number: str) -> list[JsonDict]:
                 federal_register_documents,
             )
 
-            if federal_register_count > regulations_count:
+            logger.info(
+                "Found %d documents and %d comments through the Regulations.gov "
+                "FR-number route; found %d documents and %d comments through "
+                "the Federal Register docket route.",
+                len(regulations_documents),
+                regulations_count,
+                len(federal_register_documents),
+                federal_register_count,
+            )
+
+            if federal_register_documents and (
+                not regulations_documents
+                or federal_register_count > regulations_count
+            ):
                 source = "Federal Register docket route"
                 selected_documents = federal_register_documents
-            else:
+            elif regulations_documents:
                 source = "Regulations.gov FR-number route"
                 selected_documents = regulations_documents
-
-            if not selected_documents:
-                raise LookupError(
-                    f"No Regulations.gov documents found for {fr_number}."
+            else:
+                logger.warning(
+                    "No Regulations.gov documents were found for %s. This notice "
+                    "may not accept submissions through Regulations.gov, or its "
+                    "Regulations.gov mapping may be unavailable. If you know the "
+                    "docket ID, run collection with that docket ID instead.",
+                    fr_number,
                 )
+                return []
 
-            print(
-                f"Federal Register route: "
-                f"{federal_register_count} comments\n"
-                f"Regulations.gov route: "
-                f"{regulations_count} comments\n"
-                f"Using: {source}"
-            )
+            logger.info("Using the %s.", source)
 
             comments: dict[str, JsonDict] = {}
 
@@ -958,8 +987,20 @@ def processComments(
             header,
             renderPlainValue,
         )
+        rendered = renderer(value)
 
-        return protectFormula(renderer(value))
+        if header == "Full Text" and len(rendered) > MAX_SHEET_CELL_CHARS:
+            logger.warning(
+                "Truncating Full Text for Sheets to %d characters; the complete "
+                "comment remains in the local data artifact.",
+                MAX_SHEET_CELL_CHARS,
+            )
+            rendered = (
+                rendered[:MAX_SHEET_CELL_CHARS].rstrip()
+                + "\n\n[Full text truncated in Sheets; see the local data artifact.]"
+            )
+
+        return protectFormula(rendered)
 
     frNum = frNum.strip()
 
@@ -1076,10 +1117,11 @@ def processComments(
             continue
 
         if comment_id in existing_comment_ids:
-            logger.info(
-                "Skipping existing comment %s",
-                comment_id,
-            )
+            try:
+                getCommentText(comment_id, frNum)
+                logger.info("Skipping existing comment %s", comment_id)
+            except Exception:
+                logger.exception("Could not download existing comment %s", comment_id)
             continue
 
         try:
@@ -1100,7 +1142,7 @@ def processComments(
                 comment,
             )
 
-            bodyText = getCommentText(comment_id) or ""
+            bodyText = getCommentText(comment_id, frNum) or ""
             comment.comment_text = bodyText
 
             result = processCommentText(
