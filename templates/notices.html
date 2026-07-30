@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Notices{% endblock %}
+
+{% block content %}
+<header style="display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; margin-bottom: 24px;">
+    <div>
+</div>        <h1 style="margin-bottom: 8px; font-size: 2rem;">Federal Register Notices</h1>
+        <p class="muted" style="max-width: 680px; margin: 0; line-height: 1.6;">
+            Review the notice collection settings and search terms before running the collection.
+            Values are loaded from your notice configuration by default.
+        </p>
+    </div>
+    <span style="display: inline-flex; align-items: center; padding: 8px 12px; border-radius: 999px; background: #dbeafe; color: #1d4ed8; font-size: 0.85rem; font-weight: 700; white-space: nowrap;">
+        Notice Collection
+    </span>
+</header>
+
+<form method="post" action="{{ url_for('notices') }}">
+    <div class="grid two-column">
+        <section class="card">
+            <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #e5e7eb;">
+                <h2 style="margin-bottom: 6px; font-size: 1.25rem;">Collection Settings</h2>
+                <p class="muted" style="margin: 0; line-height: 1.5;">
+                    Control how many notices are collected and how the Federal Register API is queried.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+                <div class="field">
+                    <label for="max_notices">Max Notices</label>
+                    <input
+                        id="max_notices"
+                        name="max_notices"
+                        type="number"
+                        min="1"
+                        value="{{ notice_settings.get('max_notices', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="docket_type">Docket Type</label>
+                    <input
+                        id="docket_type"
+                        name="docket_type"
+                        type="text"
+                        value="{{ notice_settings.get('docket_type', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="order">Order</label>
+                    <input
+                        id="order"
+                        name="order"
+                        type="text"
+                        value="{{ notice_settings.get('order', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="start_date">Start Date</label>
+                    <input
+                        id="start_date"
+                        name="start_date"
+                        type="date"
+                        value="{{ notice_settings.get('start_date', '') }}"
+                        required
+                    >
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #e5e7eb;">
+                <h2 style="margin-bottom: 6px; font-size: 1.25rem;">Search Terms</h2>
+                <p class="muted" style="margin: 0; line-height: 1.5;">
+                    Enter one term per line. Default terms and search terms are combined when notices run.
+                </p>
+            </div>
+
+            <div class="field">
+                <label for="default_terms">Default Terms</label>
+                <textarea
+                    id="default_terms"
+                    name="default_terms"
+                    rows="10"
+                    style="min-height: 220px; resize: vertical; line-height: 1.45;"
+                >{{ notice_terms.get('default_terms', []) | join('\n') }}</textarea>
+            </div>
+
+            <div class="field">
+                <label for="search_terms">Search Terms</label>
+                <textarea
+                    id="search_terms"
+                    name="search_terms"
+                    rows="8"
+                    style="min-height: 180px; resize: vertical; line-height: 1.45;"
+                >{{ notice_terms.get('search_terms', []) | join('\n') }}</textarea>
+            </div>
+        </section>
+    </div>
+
+    <section class="card" style="display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-top: 24px;">
+        <div></div>
+            <h2 style="margin-bottom: 6px;">Ready to collect?</h2>
+            <p class="muted" style="margin: 0;">Run notice collection using the settings and terms shown above.</p>
+        </div>
+        <button
+            type="submit"
+            style="border: 0; border-radius: 10px; padding: 12px 18px; background: #2563eb; color: white; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25); white-space: nowrap;"
+        >
+            Run Notice Collection
+        </button>
+    </section>
+</form>
+
+{% if notice_log %}
+<section class="card" style="margin-top: 24px;">
+    <div style="margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #e5e7eb;">
+        <h2 style="margin-bottom: 6px; font-size: 1.25rem;">Run Log</h2>
+        {% if run_status %}
+            <p class="muted" style="margin: 0;">{{ run_status }}</p>
+        {% endif %}
+    </div>
+    <pre style="margin: 0; padding: 16px; border-radius: 10px; background: #111827; color: #e5e7eb; white-space: pre-wrap; overflow-x: auto; font-size: 0.9rem; line-height: 1.5;">{{ notice_log }}</pre>
+</section>
+{% endif %}
+{% endblock %}

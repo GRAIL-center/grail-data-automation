@@ -255,6 +255,39 @@ def scrapeNotices(
 
 # main function
 def collectNotices(user_settings=None, user_terms=None):
+    """
+    Collect Federal Register notices using configured or user-provided inputs.
+
+    This function loads the default Google Sheet and notice configuration, then
+    optionally replaces either configuration block with user-supplied values.
+
+    Parameters
+    ----------
+    user_settings : dict | None, optional
+        Full notice collection settings to use instead of the saved config.
+        If provided, this dictionary must include all of the following keys:
+
+        - ``max_notices``: int
+        - ``docket_type``: str
+        - ``order``: str
+        - ``start_date``: str
+
+        These values are passed directly into ``scrapeNotices``.
+    user_terms : dict | None, optional
+        Search-term configuration to use instead of the saved config. If
+        provided, this dictionary should include both of the following keys:
+
+        - ``default_terms``: list[str]
+        - ``search_terms``: list[str]
+
+        Both lists are flattened into a single search-term list before scraping.
+
+    Notes
+    -----
+    If ``user_settings`` or ``user_terms`` is provided, that value completely
+    replaces the corresponding loaded configuration. Missing required keys will
+    raise a ``KeyError`` when the function tries to use them.
+    """
     _, SHEET = setupGoogleSheets(loadNoticeSheetUrl())
     SETTINGS, SEARCH_TERMS_DATA = loadNoticeConfig()
 
