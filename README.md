@@ -1,1 +1,201 @@
-"" 
+# GRAIL Data Automation
+
+GRAIL collects Federal Register notices, retrieves public comments from
+Regulations.gov, enriches comment records with AI-assisted analysis, and writes
+results to Google Sheets.
+
+The project provides two local web interfaces:
+
+- **Flask** — the original interface in `src/main.py`
+- **Streamlit** — a newer workspace in `streamlit_app.py` with live run monitors,
+  logs, artifact browsing, and configuration editing
+
+## Features
+
+- Search Federal Register notices using configurable terms and query settings
+- Save notice rows, including AI summaries, to Google Sheets
+- Retrieve Regulations.gov comments by Federal Register number or docket ID
+- Download comment artifacts into `data/<FR number>/<comment ID>/`
+- Extract inline text and supported attachment content
+- Preserve comment processing when AI enrichment is unavailable
+- Save analyzed comments to a formatted Google Sheets tab
+- View collection progress through logs in the Streamlit and Flask interfaces
+
+## Requirements
+
+- Python 3.11 or newer
+- A Google service-account JSON file with access to the destination spreadsheets
+- A Regulations.gov API key for comment collection
+- An AI provider configuration in `config.yaml`
+
+Optional local tools improve attachment extraction:
+
+- [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) for scanned PDFs
+- `antiword` for legacy `.doc` files
+
+## Setup
+
+Create and activate a virtual environment, then install dependencies:
+
+```sh
+python -m venv venv
+```
+
+Windows PowerShell:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+Windows Command Prompt:
+
+```bat
+venv\Scripts\activate
+```
+
+Install packages:
+
+```sh
+python -m pip install -r requirements.txt
+```
+
+## Environment variables
+
+Create a local `.env` file. Do not commit it.
+
+```dotenv
+REGULATION_API_KEY=your_regulations_gov_api_key
+NOTICE_SHEET_URL=https://docs.google.com/spreadsheets/d/...
+COMMENT_SHEET_URL=https://docs.google.com/spreadsheets/d/...
+OPENROUTER_API_KEY=your_openrouter_key
+OLLAMA_API_KEY=optional_ollama_key
+```
+
+Place your Google service-account credentials at the project root:
+
+```text
+service_account.json
+```
+
+Share both Google Sheets with the service-account email address contained in
+that JSON file.
+
+## Configuration
+
+`config.yaml` controls:
+
+- AI provider, model, timeouts, retry behavior, and fallback provider
+- Notice search terms
+- Notice collection settings:
+  - `max_notices`
+  - `docket_type`
+  - `order`
+  - `start_date`
+
+The supported notice order values are:
+
+```yaml
+order: relevance
+# newest
+# oldest
+# executive_order_number
+```
+
+Both web interfaces include a configuration editor. Validate changes carefully:
+invalid YAML is rejected, but a valid configuration can still change runtime
+behavior.
+
+## Run the applications
+
+### Streamlit
+
+The Streamlit interface is recommended for interactive local use.
+
+```sh
+streamlit run streamlit_app.py
+```
+
+It includes:
+
+- Notice and comment collection forms
+- Page-specific live run monitors and downloadable logs
+- Downloaded-comment artifact browser
+- `config.yaml` editor
+
+See [`docs/streamlit.md`](docs/streamlit.md) for a focused Streamlit guide.
+
+### Flask
+
+Run the original Flask interface:
+
+```sh
+python src/main.py
+```
+
+Then open the local URL shown in the terminal, typically:
+
+```text
+http://127.0.0.1:5000
+```
+
+## Comment artifacts
+
+Each downloaded comment is stored locally under its collection identifier:
+
+```text
+data/
+  <FR number or docket ID>/
+    <comment ID>/
+      metadata.json
+      comment_body.txt
+      full_comment.txt
+      manifest.json
+      attachments/
+      extracted/
+```
+
+Completed artifacts are reused on later runs. The full comment remains on disk;
+when text is too large for Google Sheets, the Sheet contains a safe excerpt.
+
+## Operational notes
+
+- Run the web interfaces locally unless you add authentication and deployment
+  controls. The configuration editors can write `config.yaml`.
+- A comment run can take time because attachment extraction and AI enrichment
+  may involve network calls. Use the live run monitor rather than closing the
+  application during a run.
+- Notices without a Regulations.gov mapping may return zero comments. If known,
+  use the Regulations.gov docket ID instead of the Federal Register number.
+- The Regulations.gov API has a 5,000-result pagination limit per document.
+  The collector logs a warning and processes retrievable comments rather than
+  failing the entire run.
+
+## Tests and checks
+
+Run the existing test suite:
+
+```sh
+python -m pytest
+```
+
+Run static checks for a file:
+
+```sh
+ruff check src/collect_comments/fetch_comments.py
+```
+
+Compile key modules:
+
+```sh
+python -m py_compile streamlit_app.py src/main.py
+```
+
+## Security
+
+Keep these files private:
+
+- `.env`
+- `service_account.json`
+- downloaded comment artifacts in `data/`
+
+They are ignored by Git through `.gitignore`.
