@@ -3,8 +3,50 @@
 {% block title %}Comments{% endblock %}
 
 {% block content %}
-<div class="card">
-    <h1>Comments</h1>
-    <p class="muted">This page is ready for your comments UI.</p>
-</div>
+<section class="comment-heading">
+    <p class="comment-title">Public Comments</p>
+    <p class="muted">Collect and process public comments for one Federal Register document.</p>
+</section>
+
+<section class="comment-form">
+    <section class="card">
+        <section class="section-heading">
+            <p class="section-title">Comment collection</p>
+            <p class="muted">Use the Federal Register document number for the notice you want to process.</p>
+        </section>
+
+        <section class="field">
+            <label for="fr_number">Federal Register document number</label>
+            <input id="fr_number" name="fr_number" type="text" placeholder="Example: 2024-12345" required>
+        </section>
+
+        <section class="field">
+            <label for="spreadsheet_url">Spreadsheet URL <span class="muted">(optional)</span></label>
+            <input id="spreadsheet_url" name="spreadsheet_url" type="url" placeholder="Uses COMMENT_SHEET_URL when left blank">
+        </section>
+    </section>
+
+    <section class="card comment-actions">
+        <p class="run-title">Ready to process?</p>
+        <p class="muted">Logs will appear below while the run is in progress.</p>
+        <button
+            id="comment-run-button"
+            class="run-button"
+            type="button"
+            data-run-url="{{ url_for('startComments') }}"
+            data-stream-url="{{ url_for('streamCommentLogs', runId='RUN_ID') }}"
+            onclick="const runButton = this; const frNumber = document.getElementById('fr_number'); const spreadsheetUrl = document.getElementById('spreadsheet_url'); const logPanel = document.getElementById('comment-log-panel'); const logOutput = document.getElementById('comment-log-output'); const status = document.getElementById('comment-run-status'); if (!frNumber.value.trim()) {status.textContent = 'A Federal Register document number is required.'; logPanel.classList.remove('is-hidden'); frNumber.focus(); return;} runButton.disabled = true; logPanel.classList.remove('is-hidden'); logOutput.textContent = ''; status.textContent = 'Starting comment collection...'; fetch(runButton.dataset.runUrl, {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json'}, body: new URLSearchParams({fr_number: frNumber.value.trim(), spreadsheet_url: spreadsheetUrl.value.trim()})}).then(response => response.json().then(data => ({response: response, data: data}))).then(result => {if (!result.response.ok) {throw new Error(result.data.error || 'Unable to start comment collection.');} const source = new EventSource(runButton.dataset.streamUrl.replace('RUN_ID', encodeURIComponent(result.data.run_id))); let completed = false; source.onmessage = logEvent => {logOutput.textContent += JSON.parse(logEvent.data) + '\n'; logOutput.scrollTop = logOutput.scrollHeight;}; source.addEventListener('complete', completeEvent => {completed = true; status.textContent = JSON.parse(completeEvent.data).message; source.close(); runButton.disabled = false;}); source.onerror = () => {if (!completed) {status.textContent = 'The live log connection was interrupted.'; source.close(); runButton.disabled = false;}};}).catch(error => {status.textContent = error.message; runButton.disabled = false;});"
+        >
+            Process comments
+        </button>
+    </section>
+</section>
+
+<section id="comment-log-panel" class="card comment-log is-hidden">
+    <section class="section-heading">
+        <p class="section-title">Live run log</p>
+        <p id="comment-run-status" class="muted">Waiting to start.</p>
+    </section>
+    <pre id="comment-log-output" aria-live="polite"></pre>
+</section>
 {% endblock %}

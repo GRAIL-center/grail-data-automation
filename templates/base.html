@@ -211,9 +211,90 @@
             line-height: 1.5;
         }
 
+        .comment-heading {
+            margin-bottom: 28px;
+        }
+
+        .comment-title {
+            margin: 0 0 8px;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .comment-heading p:last-child {
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        .comment-form {
+            max-width: 680px;
+        }
+
+        .comment-actions {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 6px 20px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .comment-actions p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .comment-actions .run-title {
+            grid-column: 1;
+        }
+
+        .comment-actions .muted {
+            grid-column: 1;
+        }
+
+        .comment-actions .run-button {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+        }
+
+        .comment-log {
+            max-width: 920px;
+            margin-top: 20px;
+        }
+
+        .comment-log pre {
+            min-height: 220px;
+            max-height: 480px;
+            margin: 0;
+            padding: 14px;
+            border-radius: 6px;
+            background: #171717;
+            color: #e5e5e5;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .is-hidden {
+            display: none;
+        }
+
         @media (max-width: 720px) {
             .notice-heading, .run-panel {
                 flex-direction: column;
+                align-items: stretch;
+            }
+
+            .comment-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .comment-actions .run-button {
+                grid-column: 1;
+                grid-row: auto;
+                width: 100%;
+                margin-top: 10px;
             }
 
             .notice-layout, .settings-grid {
