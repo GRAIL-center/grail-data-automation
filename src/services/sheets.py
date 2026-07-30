@@ -15,8 +15,10 @@ def setupGoogleSheets(
     if not spreadsheet_url.strip():
         raise ValueError("spreadsheet_url is required")
 
+    logger.info("Opening Google spreadsheet")
     client = gs.service_account(filename="service_account.json")
     spreadsheet = client.open_by_url(spreadsheet_url)
+    logger.info("Opened Google spreadsheet %s", spreadsheet.title)
     return spreadsheet, spreadsheet.sheet1
 
 
@@ -45,6 +47,7 @@ def getExistingFRIDs(worksheet: gs.Worksheet) -> set[str]:
 
 
 def addRow(worksheet: gs.Worksheet, values: Sequence[Any]) -> None:
+    logger.info("Appending one row to worksheet %s", worksheet.title)
     worksheet.append_row(
         list(values),
         value_input_option=gs.utils.ValueInputOption.user_entered,
@@ -59,6 +62,7 @@ def addRows(
     if not rows:
         return
 
+    logger.info("Appending %d rows to worksheet %s", len(rows), worksheet.title)
     worksheet.append_rows(
         [list(row) for row in rows],
         value_input_option=gs.utils.ValueInputOption.user_entered,
@@ -92,7 +96,9 @@ def getTab(
         raise ValueError("tab_name is required")
 
     try:
-        return spreadsheet.worksheet(tab_name)
+        worksheet = spreadsheet.worksheet(tab_name)
+        logger.info("Using existing worksheet %s", tab_name)
+        return worksheet
     except gs.WorksheetNotFound:
         logger.info("Creating worksheet %s", tab_name)
         return createTab(spreadsheet, tab_name)
@@ -106,6 +112,7 @@ def ensureHeaders(
     current = worksheet.row_values(1)
 
     if not current:
+        logger.info("Creating headers in worksheet %s", worksheet.title)
         addRow(worksheet, expected)
         return
 

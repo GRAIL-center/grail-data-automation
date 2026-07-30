@@ -1063,6 +1063,7 @@ def getCommentText(comment_id: str, fr_number: str) -> str:
         raise ValueError("Federal Register number cannot be empty.")
 
     comment_folder = commentFolder(fr_number, comment_id)
+    logger.info("Preparing local artifact for comment %s under %s", comment_id, fr_number)
     cached_text = loadCompletedCommentText(comment_folder)
     if cached_text is not None:
         logger.info("Reusing downloaded comment %s from %s", comment_id, comment_folder)
@@ -1099,6 +1100,11 @@ def getCommentText(comment_id: str, fr_number: str) -> str:
 
         attachment_candidates = extractAttachmentCandidates(payload)
         attachment_results: list[dict[str, Any]] = []
+        logger.info(
+            "Found %d attachment candidate(s) for comment %s",
+            len(attachment_candidates),
+            comment_id,
+        )
 
         # Do not send the Regulations.gov API key to attachment hosts.
         with buildSession() as download_session:
@@ -1187,7 +1193,12 @@ def getCommentText(comment_id: str, fr_number: str) -> str:
             },
         )
         replaceCommentFolder(staging_folder, comment_folder)
-        logger.info("Downloaded comment %s to %s", comment_id, comment_folder)
+        logger.info(
+            "Saved comment %s with %d downloaded attachment(s) to %s",
+            comment_id,
+            sum(item["downloaded_file"] is not None for item in attachment_results),
+            comment_folder,
+        )
         return full_text
     except Exception:
         shutil.rmtree(staging_folder, ignore_errors=True)

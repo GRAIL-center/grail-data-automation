@@ -117,6 +117,8 @@ def processCommentText(
         raise ValueError("Comment text is empty")
 
     normalized_metadata = _normalize_metadata(metadata or {})
+    comment_id = normalized_metadata.get("Comment ID", "unknown")
+    logger.info("Analyzing comment text for %s", comment_id)
 
     analysis_prompt = f"""Analyze this public regulatory comment using only the
 supplied text. Do not use outside knowledge and do not guess missing identity
@@ -201,6 +203,7 @@ Comment text:
 
     # Never let a model rewrite or truncate the source text.
     result["Full Text"] = cleaned_text
+    logger.info("Completed comment text analysis for %s", comment_id)
     return result
 
 

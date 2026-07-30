@@ -1,11 +1,14 @@
 # ask ai to fill in blanks from metadata
 
+import logging
+
 from comment_schema import CommentSchema
 from src.services.ai_client import AIClient
 from src.collect_comments.retrieve_comment_body import getCommentText
 from src.collect_comments.process_comment_text import processCommentText
 
 client = AIClient()
+logger = logging.getLogger(__name__)
 
 import html
 import re
@@ -85,6 +88,7 @@ def analyzeMetadata(
     metadata: dict[str, Any],
     comment: CommentSchema,
 ):
+    logger.info("Enriching metadata for comment %s", metadata.get("id", "unknown"))
     emptyFields = comment.findEmptyFields()
     emptyFieldsDict = {emptyField: getattr(comment, emptyField) for emptyField in emptyFields}
 
@@ -103,6 +107,7 @@ def analyzeMetadata(
 
 
 def analyzeComment(metadata: dict):
+    logger.info("Analyzing standalone comment %s", metadata.get("id", "unknown"))
     comment = initComment()
 
     fillMetadata(metadata, comment)

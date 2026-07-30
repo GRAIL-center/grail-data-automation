@@ -6,9 +6,11 @@ import queue
 import threading
 import time
 import uuid
+from collections.abc import Callable
 from dataclasses import dataclass, field
+from datetime import date
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 import streamlit as st
 import yaml
@@ -27,6 +29,7 @@ class RunState:
     identifier: str
     label: str
     logger_name: str
+    started_at: float = field(default_factory=time.time)
     log_queue: queue.Queue[str | None] = field(default_factory=queue.Queue)
     logs: list[str] = field(default_factory=list)
     completed: bool = False
@@ -52,12 +55,18 @@ def start_run(
     logger_name: str,
     action: Callable[[], Any],
     success_message: Callable[[Any], str],
-) -> None:
+) -> bool:
+    active_run = st.session_state.get("active_run")
+    if active_run is not None and not getattr(active_run, "completed", True):
+        st.warning("Wait for the active collection run to finish before starting another.")
+        return False
+
     run = RunState(
         identifier=uuid.uuid4().hex,
         label=label,
         logger_name=logger_name,
     )
+    run.logs.append("INFO: Run queued. Waiting for the collection worker to start.")
     st.session_state.active_run = run
 
     def worker() -> None:
@@ -86,11 +95,13 @@ def start_run(
             run.log_queue.put(None)
 
     threading.Thread(target=worker, daemon=True, name=f"streamlit-{label}").start()
+    return True
 
 
 def drain_active_run() -> RunState | None:
     run = st.session_state.get("active_run")
-    if not isinstance(run, RunState):
+    required_attributes = ("log_queue", "logs", "label", "completed", "succeeded", "message")
+    if run is None or not all(hasattr(run, attribute) for attribute in required_attributes):
         return None
 
     while True:
@@ -105,25 +116,55 @@ def drain_active_run() -> RunState | None:
     return run
 
 
-def show_active_run() -> None:
+@st.fragment(run_every=1)
+def show_run_monitor(run_label: str) -> None:
     run = drain_active_run()
-    if run is None:
-        return
+    matching_run = run if run is not None and run.label == run_label else None
+    monitor_title = f"{run_label} monitor"
 
-    status = "complete" if run.completed else "running"
-    state = "complete" if run.completed and run.succeeded else "error" if run.completed else "running"
+    with st.container(border=True):
+        title_col, status_col = st.columns([4, 1])
+        with title_col:
+            st.subheader(monitor_title)
+        with status_col:
+            if matching_run is None:
+                st.metric("Status", "Ready")
+            elif matching_run.completed and matching_run.succeeded:
+                st.metric("Status", "Complete")
+            elif matching_run.completed:
+                st.metric("Status", "Failed")
+            else:
+                elapsed_seconds = int(time.time() - matching_run.started_at)
+                st.metric("Running", f"{elapsed_seconds}s")
 
-    with st.status(run.label, state=state, expanded=True) as status_panel:
-        status_panel.write(run.message)
-        st.code("\n".join(run.logs) or "Waiting for pipeline output...", language="text")
-        if run.completed:
-            status_panel.update(label=run.message, state=state, expanded=True)
+        if matching_run is None:
+            st.caption("Start a run below. Live logs will appear here immediately.")
+            st.code("No run has started yet.", language="text")
+            return
+
+        log_text = "\n".join(matching_run.logs) or "Waiting for pipeline output..."
+        if matching_run.completed and matching_run.succeeded:
+            st.success(matching_run.message)
+        elif matching_run.completed:
+            st.error(matching_run.message)
         else:
-            status_panel.update(label=f"{run.label} is running", state=status, expanded=True)
+            st.info("The pipeline is running. This monitor refreshes every second.")
 
-    if not run.completed:
-        time.sleep(1)
-        st.rerun()
+        st.code(log_text, language="text")
+
+        if matching_run.completed:
+            download_col, clear_col, _ = st.columns([1, 1, 4])
+            with download_col:
+                st.download_button(
+                    "Download log",
+                    data=log_text,
+                    file_name=f"{matching_run.identifier}.log",
+                    mime="text/plain",
+                )
+            with clear_col:
+                if st.button("Clear log", key=f"clear-run-{matching_run.identifier}"):
+                    st.session_state.active_run = None
+                    st.rerun()
 
 
 def show_dashboard() -> None:
@@ -164,6 +205,7 @@ def show_dashboard() -> None:
 def show_notices() -> None:
     st.title("Notices")
     st.caption("Configure and run the existing notice collection workflow.")
+    show_run_monitor("Notice collection")
 
     try:
         settings, terms = loadNoticeConfig()
@@ -185,6 +227,13 @@ def show_notices() -> None:
         "Relevance",
     )
 
+    try:
+        configured_start_date = date.fromisoformat(
+            str(settings.get("start_date", "2021-01-01"))
+        )
+    except ValueError:
+        configured_start_date = date(2021, 1, 1)
+
     with st.form("notice-collection-form", border=False):
         settings_col, terms_col = st.columns(2, gap="large")
 
@@ -205,10 +254,7 @@ def show_notices() -> None:
                 options=list(order_options),
                 index=list(order_options).index(selected_order_label),
             )
-            start_date = st.date_input(
-                "Start date",
-                value=str(settings.get("start_date", "2021-01-01")),
-            )
+            start_date = st.date_input("Start date", value=configured_start_date)
 
         with terms_col:
             st.subheader("Search terms")
@@ -237,18 +283,19 @@ def show_notices() -> None:
             "default_terms": split_terms(default_terms),
             "search_terms": split_terms(search_terms),
         }
-        start_run(
+        if start_run(
             "Notice collection",
             "src.collect_notices.collect",
             lambda: collectNotices(run_settings, run_terms),
             lambda _: "Notice collection finished.",
-        )
-        st.rerun()
+        ):
+            st.rerun()
 
 
 def show_comments() -> None:
     st.title("Public comments")
     st.caption("Process comments for a Federal Register document or Regulations.gov docket.")
+    show_run_monitor("Comment collection")
 
     with st.form("comment-collection-form", border=False):
         fr_number = st.text_input(
@@ -268,13 +315,13 @@ def show_comments() -> None:
             return
 
         override_url = spreadsheet_url.strip() or None
-        start_run(
+        if start_run(
             "Comment collection",
             "src.collect_comments",
             lambda: processComments(identifier, override_url),
             lambda count: f"Processed {count} comment(s).",
-        )
-        st.rerun()
+        ):
+            st.rerun()
 
     st.subheader("Downloaded artifacts")
     if not DATA_DIR.exists():
@@ -301,16 +348,23 @@ def show_comments() -> None:
     full_text_path = selected_comment / "full_comment.txt"
 
     if manifest_path.is_file():
-        st.json(json.loads(manifest_path.read_text(encoding="utf-8")))
+        try:
+            st.json(json.loads(manifest_path.read_text(encoding="utf-8")))
+        except (OSError, json.JSONDecodeError) as error:
+            st.warning(f"Unable to read the artifact manifest: {error}")
     if full_text_path.is_file():
-        full_text = full_text_path.read_text(encoding="utf-8")
-        st.text_area("Full comment text", value=full_text, height=320, disabled=True)
-        st.download_button(
-            "Download full comment text",
-            data=full_text,
-            file_name=f"{selected_fr.name}-{selected_comment.name}.txt",
-            mime="text/plain",
-        )
+        try:
+            full_text = full_text_path.read_text(encoding="utf-8")
+        except OSError as error:
+            st.warning(f"Unable to read the full comment text: {error}")
+        else:
+            st.text_area("Full comment text", value=full_text, height=320, disabled=True)
+            st.download_button(
+                "Download full comment text",
+                data=full_text,
+                file_name=f"{selected_fr.name}-{selected_comment.name}.txt",
+                mime="text/plain",
+            )
 
 
 def save_config(config_text: str) -> tuple[bool, str]:
@@ -374,18 +428,199 @@ def main() -> None:
     st.markdown(
         """
         <style>
-            .stApp { background: #fafafa; }
-            [data-testid="stSidebar"] { background: #ffffff; border-right: 1px solid #e5e5e5; }
-            [data-testid="stSidebar"] h1 { letter-spacing: -0.04em; }
+            :root {
+                color-scheme: light;
+                --grail-ink: #1c1c1c;
+                --grail-muted: #5f6368;
+                --grail-line: #dedede;
+                --grail-surface: #ffffff;
+                --grail-canvas: #f7f7f5;
+                --grail-accent: #1f4d3d;
+                --grail-accent-hover: #163a2e;
+                --grail-code: #202321;
+            }
+
+            html, body {
+                background: var(--grail-canvas);
+                color: var(--grail-ink);
+            }
+
+            [data-testid="stAppViewContainer"] {
+                background: var(--grail-canvas);
+                color: var(--grail-ink);
+            }
+
+            [data-testid="stHeader"] {
+                background: transparent;
+            }
+
+            [data-testid="stMainBlockContainer"] {
+                max-width: 1180px;
+                padding-top: 3.25rem;
+                padding-bottom: 3.5rem;
+            }
+
+            h1, h2, h3, p, label, [data-testid="stMarkdownContainer"],
+            [data-testid="stCaptionContainer"], [data-testid="stMetricLabel"],
+            [data-testid="stMetricValue"] {
+                color: var(--grail-ink);
+            }
+
+            [data-testid="stCaptionContainer"], .stCaption, small {
+                color: var(--grail-muted) !important;
+            }
+
+            h1 {
+                font-size: 2.15rem !important;
+                font-weight: 700 !important;
+                letter-spacing: -0.045em;
+                margin-bottom: 0.35rem !important;
+            }
+
+            h2, h3 {
+                letter-spacing: -0.025em;
+            }
+
+            [data-testid="stSidebar"] {
+                background: var(--grail-surface);
+                border-right: 1px solid var(--grail-line);
+            }
+
+            [data-testid="stSidebar"] [data-testid="stSidebarContent"] {
+                padding-top: 1.5rem;
+            }
+
+            [data-testid="stSidebar"] h1 {
+                letter-spacing: -0.05em;
+            }
+
+            [data-testid="stSidebar"] [role="radiogroup"] label {
+                border-radius: 7px;
+                color: var(--grail-ink) !important;
+                padding: 0.35rem 0.45rem;
+            }
+
+            [data-testid="stSidebar"] [role="radiogroup"] label:hover {
+                background: #f0f1ee;
+            }
+
+            [data-testid="stForm"] {
+                border: 1px solid var(--grail-line);
+                border-radius: 12px;
+                background: var(--grail-surface);
+                padding: 1.5rem;
+            }
+
+            [data-baseweb="input"] > div,
+            [data-baseweb="select"] > div,
+            [data-baseweb="textarea"] textarea {
+                border-color: #c9cbc7 !important;
+                border-radius: 7px !important;
+                background: #ffffff !important;
+                color: var(--grail-ink) !important;
+            }
+
+            [data-baseweb="input"] input,
+            [data-baseweb="textarea"] textarea,
+            [data-baseweb="select"] input {
+                color: var(--grail-ink) !important;
+                -webkit-text-fill-color: var(--grail-ink) !important;
+            }
+
+            [data-baseweb="input"] > div:focus-within,
+            [data-baseweb="select"] > div:focus-within,
+            [data-baseweb="textarea"] textarea:focus {
+                border-color: var(--grail-accent) !important;
+                box-shadow: 0 0 0 3px rgba(31, 77, 61, 0.14) !important;
+            }
+
+            [data-baseweb="textarea"] textarea {
+                font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace !important;
+                line-height: 1.5;
+            }
+
             .stButton > button, .stFormSubmitButton > button {
-                border: 0; border-radius: 6px; background: #171717; color: #ffffff;
-                font-weight: 600;
+                min-height: 2.5rem;
+                border: 0 !important;
+                border-radius: 7px !important;
+                background: var(--grail-accent) !important;
+                color: #ffffff !important;
+                font-weight: 650;
+                padding: 0.45rem 1rem;
+                transition: background 120ms ease, transform 120ms ease;
             }
+
             .stButton > button:hover, .stFormSubmitButton > button:hover {
-                background: #404040; color: #ffffff; border: 0;
+                background: var(--grail-accent-hover) !important;
+                color: #ffffff !important;
+                transform: translateY(-1px);
             }
-            [data-testid="stMetric"] { border: 1px solid #e5e5e5; border-radius: 10px; padding: 16px; background: #ffffff; }
-            textarea { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace !important; }
+
+            .stButton > button:disabled, .stFormSubmitButton > button:disabled {
+                background: #a8aaa6 !important;
+                color: #ffffff !important;
+            }
+
+            [data-testid="stMetric"] {
+                border: 1px solid var(--grail-line);
+                border-radius: 10px;
+                padding: 1.1rem 1.2rem;
+                background: var(--grail-surface);
+                box-shadow: 0 1px 2px rgba(19, 32, 26, 0.04);
+            }
+
+            [data-testid="stVerticalBlockBorderWrapper"] {
+                border: 1px solid var(--grail-line);
+                border-left: 3px solid var(--grail-accent);
+                border-radius: 10px;
+                background: var(--grail-surface);
+                box-shadow: 0 6px 18px rgba(19, 32, 26, 0.05);
+            }
+
+            [data-testid="stMetricLabel"] {
+                color: var(--grail-muted) !important;
+                font-size: 0.82rem;
+            }
+
+            [data-testid="stMetricValue"] {
+                color: var(--grail-ink) !important;
+                font-size: 1.55rem;
+            }
+
+            [data-testid="stStatusWidget"] {
+                border: 1px solid var(--grail-line);
+                border-radius: 10px;
+                background: var(--grail-surface);
+            }
+
+            [data-testid="stCodeBlock"] pre,
+            [data-testid="stCode"] pre {
+                border-radius: 7px;
+                background: var(--grail-code) !important;
+                color: #eff3ed !important;
+                border: 1px solid #363b37;
+            }
+
+            [data-testid="stCodeBlock"] pre *,
+            [data-testid="stCode"] pre * {
+                color: #eff3ed !important;
+            }
+
+            [data-testid="stAlert"] {
+                border-radius: 8px;
+            }
+
+            @media (max-width: 760px) {
+                [data-testid="stMainBlockContainer"] {
+                    padding-top: 2rem;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                }
+
+                h1 {
+                    font-size: 1.85rem !important;
+                }
+            }
         </style>
         """,
         unsafe_allow_html=True,
@@ -409,8 +644,6 @@ def main() -> None:
         show_comments()
     else:
         show_settings()
-
-    show_active_run()
 
 
 if __name__ == "__main__":

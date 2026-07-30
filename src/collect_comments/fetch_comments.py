@@ -1012,6 +1012,7 @@ def processComments(
     if not spreadsheet_url:
         raise RuntimeError("COMMENT_SHEET_URL is missing from .env")
 
+    logger.info("Starting comment collection for %s", frNum)
     comments = getComments(frNum)
 
     if not comments:
@@ -1021,6 +1022,7 @@ def processComments(
         )
         return 0
 
+    logger.info("Retrieved %d comment(s) for %s", len(comments), frNum)
     first_comment_id = str(comments[0].get("id") or "").strip()
 
     if not first_comment_id:
@@ -1052,6 +1054,7 @@ def processComments(
     )
     tab_name = " ".join(tab_name.split())[:100]
 
+    logger.info("Opening comment worksheet %s", tab_name)
     spreadsheet, _ = setupGoogleSheets(spreadsheet_url)
     worksheet = getTab(
         spreadsheet,
@@ -1183,10 +1186,13 @@ def processComments(
             )
 
     if rows:
+        logger.info("Writing %d new comment row(s) to %s", len(rows), tab_name)
         addRows(
             worksheet,
             rows,
         )
+    else:
+        logger.info("No new comment rows need to be written to %s", tab_name)
 
     column_count = len(headers)
     last_row = max(
@@ -1550,33 +1556,7 @@ def processComments(
                     "fields": "pixelSize",
                 }
             },
-            {
-                "updateBorders": {
-                    "range": {
-                        "sheetId": sheet_id,
-                        "startRowIndex": 0,
-                        "endRowIndex": last_row,
-                        "startColumnIndex": 0,
-                        "endColumnIndex": column_count,
-                    },
-                    "bottom": {
-                        "style": "SOLID",
-                        "color": {
-                            "red": 0.78,
-                            "green": 0.82,
-                            "blue": 0.87,
-                        },
-                    },
-                    "innerHorizontal": {
-                        "style": "SOLID",
-                        "color": {
-                            "red": 0.88,
-                            "green": 0.90,
-                            "blue": 0.93,
-                        },
-                    },
-                }
-            },
+
             {
                 "updateCells": {
                     "range": {
@@ -1623,6 +1603,7 @@ def processComments(
             }
         )
 
+    logger.info("Applying worksheet formatting to %s", tab_name)
     spreadsheet.batch_update({"requests": requests})
 
     logger.info(

@@ -213,6 +213,7 @@ def scrapeNotices(
         if addedCount >= maxNotices:
             break
 
+        logger.info("Searching Federal Register for term %r", term)
         url = (
             f"https://www.federalregister.gov/api/v1/documents.json?"
             f"per_page={maxNotices}&order={order}&conditions[term]={term}"
@@ -224,6 +225,7 @@ def scrapeNotices(
             res.raise_for_status()
             data = res.json()
             notices = data.get("results", [])
+            logger.info("Federal Register returned %d notices for term %r", len(notices), term)
 
             relevantNotices = [
                 n
@@ -292,6 +294,7 @@ def collectNotices(user_settings=None, user_terms=None):
     replaces the corresponding loaded configuration. Missing required keys will
     raise a ``KeyError`` when the function tries to use them.
     """
+    logger.info("Opening notice spreadsheet and loading configuration")
     _, SHEET = setupGoogleSheets(loadNoticeSheetUrl())
     SETTINGS, SEARCH_TERMS_DATA = loadNoticeConfig()
 
@@ -314,7 +317,15 @@ def collectNotices(user_settings=None, user_terms=None):
             if str(term).strip()
         )
 
-    logger.info("Starting notice collection with %d search terms", len(allTerms))
+    logger.info(
+        "Starting notice collection with %d search terms; max_notices=%s, "
+        "docket_type=%s, order=%s, start_date=%s",
+        len(allTerms),
+        SETTINGS["max_notices"],
+        SETTINGS["docket_type"],
+        SETTINGS["order"],
+        SETTINGS["start_date"],
+    )
 
     scrapeNotices(
         SHEET,
