@@ -1,18 +1,17 @@
 # ask ai to fill in blanks from metadata
 
+import html
 import logging
+import re
+from typing import Any
 
 from comment_schema import CommentSchema
-from src.services.ai_client import AIClient
-from src.collect_comments.retrieve_comment_body import getCommentText
 from src.collect_comments.process_comment_text import processCommentText
+from src.collect_comments.retrieve_comment_body import getCommentText
+from src.services.ai_client import AIClient
 
 client = AIClient()
 logger = logging.getLogger(__name__)
-
-import html
-import re
-from typing import Any
 
 def initComment() -> CommentSchema:
     return CommentSchema()
