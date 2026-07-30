@@ -39,16 +39,16 @@ def addRow(worksheet: gs.Worksheet, values: list) -> None:
     worksheet.append_row(list(values), value_input_option="USER_ENTERED")
 
 
-def createTab(spreadsheet: gs.Spreadsheet, tab_name: str) -> gs.Worksheet:
-    tab_name = tab_name.strip()
+# def createTab(spreadsheet: gs.Spreadsheet, tab_name: str) -> gs.Worksheet:
+#     tab_name = tab_name.strip()
 
-    if not tab_name:
-        raise ValueError("tab_name is required")
+#     if not tab_name:
+#         raise ValueError("tab_name is required")
 
-    return spreadsheet.add_worksheet(title=tab_name, rows=1000, cols=20)
+#     return spreadsheet.add_worksheet(title=tab_name, rows=1000, cols=20)
 
 
-def getOrCreateTab(spreadsheet: gs.Spreadsheet, tab_name: str) -> gs.Worksheet:
+def getTab(spreadsheet: gs.Spreadsheet, tab_name: str) -> gs.Worksheet:
     tab_name = tab_name.strip()
 
     if not tab_name:

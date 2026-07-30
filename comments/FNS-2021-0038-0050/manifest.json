@@ -1,0 +1,40 @@
+{
+  "comment_id": "FNS-2021-0038-0050",
+  "inline_comment_present": true,
+  "attachment_candidates_found": 1,
+  "attachments_downloaded": 1,
+  "attachments_extracted": 1,
+  "attachments": [
+    {
+      "number": 1,
+      "attachment_id": "0900006484eb166d",
+      "label": "ICIRR Comment for WIC Modernization and Delivery",
+      "url": "https://downloads.regulations.gov/FNS-2021-0038-0050/attachment_1.pdf",
+      "format": "pdf",
+      "downloaded_file": "attachments\\FNS-2021-0038-0050_attachment_1.pdf",
+      "extracted_text_file": "extracted\\FNS-2021-0038-0050_attachment_1.pdf.txt",
+      "download_error": null,
+      "extraction_error": null,
+      "extraction_details": {
+        "page_count": 4,
+        "ocr_attempted": true,
+        "ocr_attempted_pages": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ocr_used": true,
+        "ocr_pages": [
+          1
+        ],
+        "native_pages_used": [
+          2,
+          3,
+          4
+        ],
+        "ocr_errors": []
+      }
+    }
+  ]
+}

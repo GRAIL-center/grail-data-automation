@@ -1,0 +1,66 @@
+{
+  "data": {
+    "id": "FNS-2021-0038-0048",
+    "type": "comments",
+    "links": {
+      "self": "https://api.regulations.gov/v4/comments/FNS-2021-0038-0048"
+    },
+    "attributes": {
+      "commentOn": "0900006484e5f3cf",
+      "commentOnDocumentId": "FNS-2021-0038-0002",
+      "duplicateComments": 0,
+      "address1": null,
+      "address2": null,
+      "agencyId": "FNS",
+      "city": "Sewickley",
+      "category": "Advocacy-Local",
+      "comment": " I would like to see WIC have an employee ( Nutritionist or Health liaison) posted at all maternity hospitals to both meet with prenatal patients to sign them up and to process the newborn WIC paperwork/ provide vouchers on discharge while mothers are in the hospital so that new mothers don&#39;t have to take their babies out for a WIC appt in their first few weeks and also while mothers are still recovering from sometimes difficult births.  This is far more patient and family friendly and will result in better enrollment in WIC.",
+      "country": "United States",
+      "displayProperties": null,
+      "docAbstract": null,
+      "docketId": "FNS-2021-0038",
+      "documentType": "Public Submission",
+      "email": null,
+      "fax": null,
+      "field1": null,
+      "field2": null,
+      "fileFormats": null,
+      "firstName": "Kristin",
+      "govAgency": null,
+      "govAgencyType": null,
+      "objectId": "0900006484e7da21",
+      "lastName": "Hannibal",
+      "legacyId": null,
+      "modifyDate": "2021-12-10T20:36:20Z",
+      "organization": null,
+      "originalDocumentId": null,
+      "pageCount": 0,
+      "phone": null,
+      "postedDate": "2021-12-10T05:00:00Z",
+      "postmarkDate": null,
+      "reasonWithdrawn": null,
+      "receiveDate": "2021-11-24T05:00:00Z",
+      "restrictReason": null,
+      "restrictReasonType": null,
+      "stateProvinceRegion": "PA",
+      "submitterRep": null,
+      "submitterRepAddress": null,
+      "submitterRepCityState": null,
+      "subtype": "Public Comment",
+      "title": "Comment on FR Doc # 2021-25145",
+      "trackingNbr": "kwd-tlz6-ruig",
+      "withdrawn": false,
+      "zip": null,
+      "openForComment": false
+    },
+    "relationships": {
+      "attachments": {
+        "data": [],
+        "links": {
+          "self": "https://api.regulations.gov/v4/comments/FNS-2021-0038-0048/relationships/attachments",
+          "related": "https://api.regulations.gov/v4/comments/FNS-2021-0038-0048/attachments"
+        }
+      }
+    }
+  }
+}
