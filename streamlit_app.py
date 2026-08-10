@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+import io
 import json
 import logging
 import queue
 import threading
 import time
 import uuid
+import zipfile
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import date
@@ -48,6 +50,20 @@ class QueueLogHandler(logging.Handler):
 
 def split_terms(value: str) -> list[str]:
     return [term.strip() for term in value.splitlines() if term.strip()]
+
+
+def createArtifactArchive(fr_folder: Path) -> bytes:
+    """Package completed comment artifacts without re-downloading them."""
+    output = io.BytesIO()
+    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_STORED) as archive:
+        for path in sorted(fr_folder.rglob("*")):
+            if not path.is_file():
+                continue
+            relative_path = path.relative_to(fr_folder)
+            if any(part.startswith(".") for part in relative_path.parts):
+                continue
+            archive.write(path, arcname=str(Path(fr_folder.name) / relative_path))
+    return output.getvalue()
 
 
 def start_run(
@@ -334,6 +350,24 @@ def show_comments() -> None:
         return
 
     selected_fr = st.selectbox("FR number", options=fr_folders, format_func=lambda path: path.name)
+    archive_key = f"comment-artifact-archive-{selected_fr.name}"
+    if st.button("Prepare all comment artifacts download", key=f"prepare-{archive_key}"):
+        with st.spinner("Packaging existing comment artifacts..."):
+            try:
+                st.session_state[archive_key] = createArtifactArchive(selected_fr)
+            except OSError as error:
+                st.error(f"Unable to package comment artifacts: {error}")
+
+    archive = st.session_state.get(archive_key)
+    if isinstance(archive, bytes):
+        st.download_button(
+            "Download all comment artifacts",
+            data=archive,
+            file_name=f"{selected_fr.name}-comment-artifacts.zip",
+            mime="application/zip",
+        )
+    st.caption("Packages existing local artifacts only; it does not contact any API.")
+
     comment_folders = sorted(path for path in selected_fr.iterdir() if path.is_dir())
     if not comment_folders:
         st.info("No downloaded comments are available in this folder.")
