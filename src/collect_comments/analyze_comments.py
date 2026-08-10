@@ -9,7 +9,7 @@ from typing import Any
 from comment_schema import CommentSchema
 from src.collect_comments.process_comment_text import processCommentText
 from src.collect_comments.retrieve_comment_body import getCommentText
-from src.services.ai_client import PROVIDER_ERRORS, generate_json
+from src.services.ai_client import PROVIDER_ERRORS, generate_json, get_client
 
 logger = logging.getLogger(__name__)
 
@@ -92,6 +92,15 @@ def analyzeMetadata(
     emptyFieldsDict = {emptyField: getattr(comment, emptyField) for emptyField in emptyFields}
 
     prompt = f"Use the metadata to fill in the empty fields in the comment if possible. If not possible, leave the field empty.\nMetadata: {prettify(metadata)}\nEmpty Fields: {prettify(emptyFieldsDict)}"
+
+    blocked_reason = get_client().provider_block_reason()
+    if blocked_reason is not None:
+        logger.info(
+            "Skipping AI metadata enrichment for comment %s: %s",
+            metadata.get("id", "unknown"),
+            blocked_reason,
+        )
+        return comment
 
     try:
         result = generate_json(prompt, schema=emptyFieldsDict)

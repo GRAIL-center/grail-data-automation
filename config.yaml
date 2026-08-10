@@ -1,6 +1,6 @@
 ai:
-  provider: openrouter
-  model: openai/gpt-oss-20b:free
+  provider: ollama
+  model: qwen2.5-coder:7b
   timeout_seconds: 120
   max_tokens: 4096
   reasoning_effort: low

@@ -84,9 +84,10 @@ def buildSession(api_key: str | None = None) -> requests.Session:
     session = requests.Session()
 
     retry = Retry(
-        total=3,
-        connect=3,
-        read=3,
+        total=5,
+        connect=5,
+        read=5,
+        status=5,
         backoff_factor=0.75,
         status_forcelist=(429, 500, 502, 503, 504),
         allowed_methods=frozenset({"GET"}),

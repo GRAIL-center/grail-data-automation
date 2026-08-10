@@ -7,6 +7,7 @@ import json
 import logging
 import os
 import re
+import time
 from collections.abc import Callable, Generator, Mapping
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import deepcopy
@@ -27,7 +28,13 @@ load_dotenv()
 logger = logging.getLogger(__name__)
 
 ToolHandler = Callable[..., Any]
-PROVIDER_ERRORS = (APIError, RateLimitError, APIConnectionError)
+
+
+class ProviderQuotaError(RuntimeError):
+    pass
+
+
+PROVIDER_ERRORS = (APIError, RateLimitError, APIConnectionError, ProviderQuotaError)
 
 DEFAULT_COMMENT_RESEARCH_SCHEMA: dict[str, Any] = {
     "Submitted By": None,
@@ -70,6 +77,10 @@ class ResearchError(RuntimeError):
     pass
 
 
+class ResearchRateLimitError(ResearchError):
+    pass
+
+
 class ToolExecutionError(RuntimeError):
     pass
 
@@ -101,6 +112,8 @@ class AIClient:
         )
 
         self._clients: dict[tuple[str, str, str], OpenAI] = {}
+        self._provider_blocks: dict[str, tuple[float | None, str]] = {}
+        self._research_blocks: dict[str, tuple[float | None, str]] = {}
         self._validation_retries = max(0, int(self.config.get("validation_retries", 1)))
 
         research = self.config.get("research", {})
@@ -190,6 +203,73 @@ class AIClient:
             )
         return self._clients[key]
 
+    def provider_block_reason(self, provider: str | None = None) -> str | None:
+        provider_name = self.primary.provider if provider in {None, "primary"} else provider
+        blocked = self._provider_blocks.get(str(provider_name).lower())
+        if blocked is None:
+            return None
+        reset_at, reason = blocked
+        if reset_at is not None and time.time() >= reset_at:
+            self._provider_blocks.pop(str(provider_name).lower(), None)
+            return None
+        return reason
+
+    def _record_rate_limit(self, cfg: ProviderConfig, error: RateLimitError) -> None:
+        body = error.body if isinstance(error.body, dict) else {}
+        error_data = body.get("error", body)
+        error_data = error_data if isinstance(error_data, dict) else {}
+        metadata = error_data.get("metadata", {})
+        metadata = metadata if isinstance(metadata, dict) else {}
+        message = str(error_data.get("message") or error)
+        if (
+            metadata.get("limit_source") != "openrouter_free_tier_daily"
+            and "free-models-per-day" not in message
+        ):
+            return
+
+        headers = metadata.get("headers", {})
+        headers = headers if isinstance(headers, dict) else {}
+        try:
+            reset_at = float(headers["X-RateLimit-Reset"]) / 1000
+        except (KeyError, TypeError, ValueError):
+            reset_at = None
+
+        reason = "OpenRouter free-model daily quota is exhausted"
+        if reset_at is not None:
+            reset_text = time.strftime(
+                "%Y-%m-%d %H:%M:%S %Z",
+                time.localtime(reset_at),
+            )
+            reason += f" until {reset_text}"
+        self._provider_blocks[cfg.provider] = (reset_at, reason)
+        logger.warning("%s; further %s requests will be skipped", reason, cfg.provider)
+
+    def research_block_reason(self, provider: str | None = None) -> str | None:
+        provider_name = self.primary.provider if provider in {None, "primary"} else provider
+        blocked = self._research_blocks.get(str(provider_name).lower())
+        if blocked is None:
+            return None
+        reset_at, reason = blocked
+        if reset_at is not None and time.time() >= reset_at:
+            self._research_blocks.pop(str(provider_name).lower(), None)
+            return None
+        return reason
+
+    def _record_ollama_research_limit(self, response: requests.Response) -> str:
+        retry_after = response.headers.get("Retry-After")
+        try:
+            reset_at = time.time() + float(retry_after) if retry_after else None
+        except ValueError:
+            reset_at = None
+
+        reason = "Ollama web research is rate limited"
+        if reset_at is not None:
+            reset_text = time.strftime("%Y-%m-%d %H:%M:%S %Z", time.localtime(reset_at))
+            reason += f" until {reset_text}"
+        self._research_blocks["ollama"] = (reset_at, reason)
+        logger.warning("%s; further Ollama web research requests will be skipped", reason)
+        return reason
+
     def _providers(
         self,
         provider: str | None,
@@ -222,12 +302,17 @@ class AIClient:
         stream: bool = False,
         **kwargs: Any,
     ) -> Any:
+        blocked_reason = self.provider_block_reason(cfg.provider)
+        if blocked_reason is not None:
+            raise ProviderQuotaError(blocked_reason)
+
         request = dict(kwargs)
         request.setdefault("model", cfg.model)
         request.setdefault("temperature", cfg.temperature)
         if cfg.max_tokens is not None:
             request.setdefault("max_tokens", cfg.max_tokens)
-        if cfg.reasoning_effort is not None:
+        # Ollama's OpenAI-compatible endpoint rejects this OpenRouter option.
+        if cfg.provider == "openrouter" and cfg.reasoning_effort is not None:
             request.setdefault("reasoning_effort", cfg.reasoning_effort)
         request.update(messages=messages, stream=stream)
         if response_format is not None and cfg.provider == "openrouter":
@@ -244,7 +329,11 @@ class AIClient:
             stream,
             bool(tools),
         )
-        return self._get_client(cfg).chat.completions.create(**request)
+        try:
+            return self._get_client(cfg).chat.completions.create(**request)
+        except RateLimitError as error:
+            self._record_rate_limit(cfg, error)
+            raise
 
     def _generate(
         self,
@@ -351,6 +440,7 @@ class AIClient:
                 result = self._parse_json(text)
 
                 if schema is not None:
+                    result = self._coerce_template(result, schema)
                     self._validate_template(result, schema)
 
                 return result
@@ -746,6 +836,9 @@ class AIClient:
         search_query: str | None,
         **kwargs: Any,
     ) -> str:
+        blocked_reason = self.research_block_reason(cfg.provider)
+        if blocked_reason is not None:
+            raise ResearchRateLimitError(blocked_reason)
         self._ollama_web_key()
         conversation = deepcopy(messages)
         calls_used = 0
@@ -866,6 +959,10 @@ class AIClient:
                 json=payload,
                 timeout=self._research_timeout,
             )
+            if response.status_code == 429:
+                raise ResearchRateLimitError(
+                    self._record_ollama_research_limit(response)
+                )
             response.raise_for_status()
             result = response.json()
         except (requests.RequestException, ValueError) as error:
@@ -979,6 +1076,7 @@ Required JSON template:
                     raise TypeError("Expected non-streaming JSON")
                 result = self._parse_json(text)
                 if schema is not None:
+                    result = self._coerce_template(result, schema)
                     self._validate_template(result, schema)
                 return result
             except (json.JSONDecodeError, TypeError, ValueError) as error:
@@ -999,12 +1097,29 @@ Required JSON template:
         try:
             value = json.loads(cleaned)
         except json.JSONDecodeError:
-            start = cleaned.find("{")
-            if start == -1:
-                raise
-            value, _ = json.JSONDecoder().raw_decode(cleaned[start:])
+            try:
+                # Local models sometimes emit literal newlines inside strings.
+                value = json.loads(cleaned, strict=False)
+            except json.JSONDecodeError:
+                start = cleaned.find("{")
+                if start == -1:
+                    raise
+                value, _ = json.JSONDecoder(strict=False).raw_decode(cleaned[start:])
         if not isinstance(value, dict):
             raise TypeError("Expected a JSON object")
+        return value
+
+    @classmethod
+    def _coerce_template(cls, value: Any, template: Any) -> Any:
+        """Normalize common scalar-for-list model responses before validation."""
+        if isinstance(template, dict) and isinstance(value, dict):
+            normalized = dict(value)
+            for key, child in template.items():
+                if key in normalized:
+                    normalized[key] = cls._coerce_template(normalized[key], child)
+            return normalized
+        if isinstance(template, list) and not isinstance(value, list):
+            return [] if value is None else [value]
         return value
 
     @classmethod

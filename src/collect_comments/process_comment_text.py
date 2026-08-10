@@ -7,7 +7,7 @@ from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
-from src.services.ai_client import generate_json, research_comment_fields
+from src.services.ai_client import generate_json, get_client, research_comment_fields
 
 logger = logging.getLogger(__name__)
 
@@ -143,28 +143,47 @@ Comment text:
 """
 
     enrichment_notes: list[str] = []
+    blocked_reason = get_client().provider_block_reason(provider)
 
-    try:
-        analyzed = generate_json(
-            analysis_prompt,
-            schema=TEXT_ANALYSIS_SCHEMA,
-            provider=provider,
-            allow_fallback=allow_fallback,
-            temperature=0,
-        )
-        if not isinstance(analyzed, Mapping):
-            raise TypeError("AI text analysis must return an object")
-        analyzed = dict(analyzed)
-    except Exception as error:
-        logger.warning(
-            "AI text analysis failed; preserving source data for this comment: %s",
-            error,
-        )
+    if blocked_reason is not None:
         analyzed = {}
         enrichment_notes.append("AI text analysis was unavailable.")
+        logger.info("Skipping AI text analysis for %s: %s", comment_id, blocked_reason)
+    else:
+        try:
+            analyzed = generate_json(
+                analysis_prompt,
+                schema=TEXT_ANALYSIS_SCHEMA,
+                provider=provider,
+                allow_fallback=allow_fallback,
+                temperature=0,
+            )
+            if not isinstance(analyzed, Mapping):
+                raise TypeError("AI text analysis must return an object")
+            analyzed = dict(analyzed)
+        except Exception as error:
+            logger.warning(
+                "AI text analysis failed; preserving source data for this comment: %s",
+                error,
+            )
+            analyzed = {}
+            enrichment_notes.append("AI text analysis was unavailable.")
+
+    blocked_reason = get_client().provider_block_reason(provider)
+    research_block_reason = get_client().research_block_reason(provider)
 
     researched: dict[str, Any] = {}
-    if research:
+    if research and blocked_reason is not None:
+        enrichment_notes.append("AI research enrichment was unavailable.")
+        logger.info("Skipping AI research for %s: %s", comment_id, blocked_reason)
+    elif research and research_block_reason is not None:
+        enrichment_notes.append("AI research enrichment was unavailable.")
+        logger.info(
+            "Skipping AI research for %s: %s",
+            comment_id,
+            research_block_reason,
+        )
+    elif research:
         research_record = {
             **normalized_metadata,
             **analyzed,

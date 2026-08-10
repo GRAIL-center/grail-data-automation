@@ -17,7 +17,7 @@ from src.collect_comments.analyze_comments import (
     initComment,
 )
 from src.collect_comments.process_comment_text import processCommentText
-from src.collect_comments.retrieve_comment_body import getCommentText
+from src.collect_comments.retrieve_comment_body import buildSession, getCommentText
 from src.services.config import loadRegKey
 from src.services.sheets import (
     addRows,
@@ -366,13 +366,7 @@ def getComments(fr_doc_number: str) -> list[JsonDict]:
         raise ValueError("Federal Register number cannot be empty.")
 
     with requests.Session() as fr_session:
-        with requests.Session() as regulations_session:
-            regulations_session.headers.update(
-                {
-                    "X-Api-Key": loadRegKey(),
-                    "Accept": "application/json",
-                }
-            )
+        with buildSession(loadRegKey()) as regulations_session:
 
             regulations_documents = getRegulationsDocuments(
                 regulations_session,
@@ -449,14 +443,7 @@ def getMetadata(comment_id: str) -> JsonDict:
     if not comment_id:
         raise ValueError("Comment ID cannot be empty.")
 
-    with requests.Session() as session:
-        session.headers.update(
-            {
-                "X-Api-Key": loadRegKey(),
-                "Accept": "application/json",
-            }
-        )
-
+    with buildSession(loadRegKey()) as session:
         payload = requestJSON(
             session,
             f"{REGULATIONS_API_URL}/comments/{comment_id}",

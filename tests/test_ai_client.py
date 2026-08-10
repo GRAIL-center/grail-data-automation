@@ -7,10 +7,12 @@ from unittest.mock import MagicMock, patch
 
 import httpx
 import pytest
-from openai import APIError
+from openai import APIError, RateLimitError
 
 from src.services.ai_client import (
     AIClient,
+    ProviderQuotaError,
+    ResearchRateLimitError,
     generate_json,
     generate_text,
 )
@@ -131,6 +133,65 @@ def test_generate_text_raises_when_no_fallback(mock_openai):
 
 
 @patch("src.services.ai_client.OpenAI")
+def test_daily_quota_blocks_calls_until_reset(mock_openai, monkeypatch):
+    body = {
+        "error": {
+            "message": "Rate limit exceeded: free-models-per-day",
+            "metadata": {
+                "limit_source": "openrouter_free_tier_daily",
+                "headers": {"X-RateLimit-Reset": "2000000"},
+            },
+        }
+    }
+    response = httpx.Response(429, request=_mock_req)
+    mock_openai.return_value.chat.completions.create.side_effect = RateLimitError(
+        "quota exhausted",
+        response=response,
+        body=body,
+    )
+    monkeypatch.setattr("src.services.ai_client.time.time", lambda: 1000)
+    client = AIClient(OPENROUTER_SETTINGS)
+
+    with pytest.raises(RateLimitError):
+        client.generate_text("first", allow_fallback=False)
+    with pytest.raises(ProviderQuotaError, match="daily quota is exhausted"):
+        client.generate_text("second", allow_fallback=False)
+
+    assert mock_openai.return_value.chat.completions.create.call_count == 1
+
+    monkeypatch.setattr("src.services.ai_client.time.time", lambda: 2001)
+    assert client.provider_block_reason() is None
+
+
+@patch("src.services.ai_client.requests.post")
+@patch("src.services.ai_client.OpenAI")
+def test_ollama_research_rate_limit_blocks_further_searches(
+    mock_openai,
+    mock_post,
+    monkeypatch,
+):
+    response = MagicMock(status_code=429, headers={"Retry-After": "60"})
+    mock_post.return_value = response
+    monkeypatch.setattr("src.services.ai_client.time.time", lambda: 1000)
+    client = AIClient(
+        {
+            **OPENROUTER_SETTINGS,
+            "provider": "ollama",
+            "model": "qwen2.5-coder:7b",
+        }
+    )
+    monkeypatch.setattr(client, "_ollama_web_key", lambda: "test-key")
+
+    with pytest.raises(ResearchRateLimitError, match="rate limited"):
+        client._ollama_web_search("test query")
+    with pytest.raises(ResearchRateLimitError, match="rate limited"):
+        client._research_ollama(client.primary, [], "test query")
+
+    assert mock_post.call_count == 1
+    assert "rate limited" in (client.research_block_reason() or "")
+
+
+@patch("src.services.ai_client.OpenAI")
 def test_generate_json_success(mock_openai):
     mock_openai.return_value.chat.completions.create.return_value = _mock_completion(
         '{"key": "value"}'
@@ -149,6 +210,33 @@ def test_generate_json_with_schema(mock_openai):
     schema = {"name": None, "active": None}
     result = client.generate_json("extract json", schema=schema)
     assert result == {"name": "test", "active": True}
+
+
+@patch("src.services.ai_client.OpenAI")
+def test_generate_json_accepts_literal_newlines_in_strings(mock_openai):
+    mock_openai.return_value.chat.completions.create.return_value = _mock_completion(
+        '{"summary": "first line\nsecond line"}'
+    )
+    client = AIClient(OPENROUTER_SETTINGS)
+
+    result = client.generate_json("extract json", schema={"summary": None})
+
+    assert result == {"summary": "first line\nsecond line"}
+
+
+@patch("src.services.ai_client.OpenAI")
+def test_generate_json_coerces_scalar_to_schema_list(mock_openai):
+    mock_chat = mock_openai.return_value.chat.completions.create
+    mock_chat.return_value = _mock_completion('{"analysis_notes": "Single note"}')
+    client = AIClient(OPENROUTER_SETTINGS)
+
+    result = client.generate_json(
+        "extract json",
+        schema={"analysis_notes": []},
+    )
+
+    assert result == {"analysis_notes": ["Single note"]}
+    assert mock_chat.call_count == 1
 
 
 @patch("src.services.ai_client.OpenAI")
@@ -270,6 +358,24 @@ def test_ollama_skips_response_format(mock_openai):
     )
     call_kwargs = mock_chat.call_args.kwargs
     assert "response_format" not in call_kwargs
+
+
+@patch("src.services.ai_client.OpenAI")
+def test_ollama_skips_reasoning_effort(mock_openai):
+    mock_chat = mock_openai.return_value.chat.completions.create
+    mock_chat.return_value = _mock_completion('{"ok": true}')
+    ollama_settings = {
+        **OPENROUTER_SETTINGS,
+        "provider": "ollama",
+        "model": "gemma3:4b",
+    }
+    client = AIClient(ollama_settings)
+
+    client._generate(client.primary, '{"prompt": "test"}')
+
+    call_kwargs = mock_chat.call_args.kwargs
+    assert "reasoning_effort" not in call_kwargs
+    assert call_kwargs["max_tokens"] == 4096
 
 
 @patch("src.services.ai_client.OpenAI")
