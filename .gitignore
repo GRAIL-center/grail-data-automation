@@ -5,8 +5,7 @@ __pycache__/
 .ruff_cache/
 .pytest_cache/
 comments/
-data/
-docs/
 logs/
-tests/
 venv/
+docs/
+tests/

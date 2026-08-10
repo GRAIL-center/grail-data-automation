@@ -1,7 +1,9 @@
 ai:
   provider: openrouter
-  model: openai/gpt-4.1-mini
-  timeout_seconds: 60
+  model: openai/gpt-oss-20b:free
+  timeout_seconds: 120
+  max_tokens: 4096
+  reasoning_effort: low
   temperature: 0.2
   validation_retries: 1
 
@@ -13,8 +15,8 @@ ai:
   openrouter:
     api_key_env: OPENROUTER_API_KEY
     base_url: https://openrouter.ai/api/v1
-    # Cloud calls can safely run in parallel.
-    max_concurrent_calls: 8
+    # Keep bursts modest for OpenRouter's free-model rate limits.
+    max_concurrent_calls: 2
 
   ollama:
     base_url: http://localhost:11434

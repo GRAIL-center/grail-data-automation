@@ -81,6 +81,8 @@ class ProviderConfig:
     base_url: str
     api_key: str | None
     timeout: float
+    max_tokens: int | None
+    reasoning_effort: str | None
     temperature: float
     max_concurrent_calls: int
     default_headers: dict[str, str]
@@ -160,6 +162,16 @@ class AIClient:
             base_url=base_url,
             api_key=os.getenv(key_env),
             timeout=float(section.get("timeout_seconds", 60)),
+            max_tokens=(
+                int(section["max_tokens"])
+                if section.get("max_tokens") is not None
+                else None
+            ),
+            reasoning_effort=(
+                str(section["reasoning_effort"])
+                if section.get("reasoning_effort") is not None
+                else None
+            ),
             temperature=float(section.get("temperature", 0.2)),
             max_concurrent_calls=max(
                 1, int(provider_settings.get("max_concurrent_calls", 1))
@@ -213,8 +225,12 @@ class AIClient:
         request = dict(kwargs)
         request.setdefault("model", cfg.model)
         request.setdefault("temperature", cfg.temperature)
+        if cfg.max_tokens is not None:
+            request.setdefault("max_tokens", cfg.max_tokens)
+        if cfg.reasoning_effort is not None:
+            request.setdefault("reasoning_effort", cfg.reasoning_effort)
         request.update(messages=messages, stream=stream)
-        if response_format is not None:
+        if response_format is not None and cfg.provider == "openrouter":
             request["response_format"] = response_format
         if tools is not None:
             request["tools"] = tools

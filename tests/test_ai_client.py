@@ -19,6 +19,8 @@ OPENROUTER_SETTINGS = {
     "provider": "openrouter",
     "model": "openai/gpt-4.1-mini",
     "timeout_seconds": 60,
+    "max_tokens": 4096,
+    "reasoning_effort": "low",
     "temperature": 0.2,
     "validation_retries": 1,
     "fallback": {
@@ -68,6 +70,8 @@ def test_build_provider_config_openrouter(mock_openai):
     assert cfg.model == "openai/gpt-4.1-mini"
     assert cfg.base_url == "https://openrouter.ai/api/v1"
     assert cfg.temperature == 0.2
+    assert cfg.max_tokens == 4096
+    assert cfg.reasoning_effort == "low"
     assert cfg.max_concurrent_calls == 8
 
 
@@ -153,7 +157,7 @@ def test_generate_json_schema_validation_failure(mock_openai):
     )
     client = AIClient(OPENROUTER_SETTINGS)
     schema = {"required_key": None}
-    with pytest.raises(ValueError, match="Missing required key: required_key"):
+    with pytest.raises(ValueError, match=r"\$ missing keys: required_key"):
         client.generate_json("extract json", schema=schema)
 
 
@@ -279,6 +283,8 @@ def test_openrouter_passes_response_format(mock_openai):
     call_kwargs = mock_chat.call_args.kwargs
     assert "response_format" in call_kwargs
     assert call_kwargs["response_format"] == {"type": "json_object"}
+    assert call_kwargs["max_tokens"] == 4096
+    assert call_kwargs["reasoning_effort"] == "low"
 
 
 @patch("src.services.ai_client.OpenAI")
