@@ -297,8 +297,10 @@ class AIClient:
                 last_error = error
                 if index + 1 < len(providers):
                     logger.warning(
-                        "%s failed; falling back to %s",
+                        "%s failed (%s: %s); falling back to %s",
                         cfg.provider,
+                        error.__class__.__name__,
+                        error,
                         providers[index + 1].provider,
                     )
 
@@ -522,8 +524,10 @@ class AIClient:
                 last_error = error
                 if index + 1 < len(providers):
                     logger.warning(
-                        "%s tool loop failed; falling back to %s",
+                        "%s tool loop failed (%s: %s); falling back to %s",
                         cfg.provider,
+                        error.__class__.__name__,
+                        error,
                         providers[index + 1].provider,
                     )
         raise last_error or ToolExecutionError("Tool loop failed")
@@ -654,8 +658,10 @@ class AIClient:
                 last_error = error
                 if index + 1 < len(providers):
                     logger.warning(
-                        "%s research failed; falling back to %s",
+                        "%s research failed (%s: %s); falling back to %s",
                         cfg.provider,
+                        error.__class__.__name__,
+                        error,
                         providers[index + 1].provider,
                     )
         raise last_error or ResearchError("Research failed")
@@ -926,8 +932,10 @@ class AIClient:
                 last_error = error
                 if index + 1 < len(providers):
                     logger.warning(
-                        "%s researched JSON failed; falling back to %s",
+                        "%s researched JSON failed (%s: %s); falling back to %s",
                         cfg.provider,
+                        error.__class__.__name__,
+                        error,
                         providers[index + 1].provider,
                     )
         raise last_error or ResearchError("Researched JSON failed")

@@ -1,6 +1,7 @@
 # ask ai to fill in blanks from metadata
 
 import html
+import json
 import logging
 import re
 from typing import Any
@@ -8,9 +9,8 @@ from typing import Any
 from comment_schema import CommentSchema
 from src.collect_comments.process_comment_text import processCommentText
 from src.collect_comments.retrieve_comment_body import getCommentText
-from src.services.ai_client import AIClient
+from src.services.ai_client import PROVIDER_ERRORS, generate_json
 
-client = AIClient()
 logger = logging.getLogger(__name__)
 
 def initComment() -> CommentSchema:
@@ -93,7 +93,16 @@ def analyzeMetadata(
 
     prompt = f"Use the metadata to fill in the empty fields in the comment if possible. If not possible, leave the field empty.\nMetadata: {prettify(metadata)}\nEmpty Fields: {prettify(emptyFieldsDict)}"
 
-    result = client.generate_json(prompt, schema=emptyFieldsDict)
+    try:
+        result = generate_json(prompt, schema=emptyFieldsDict)
+    except (*PROVIDER_ERRORS, json.JSONDecodeError, TypeError, ValueError) as error:
+        logger.warning(
+            "AI metadata enrichment failed for comment %s; preserving source data: %s",
+            metadata.get("id", "unknown"),
+            error,
+        )
+        return comment
+
     for field, value in result.items():
         setattr(comment, field, value)
 

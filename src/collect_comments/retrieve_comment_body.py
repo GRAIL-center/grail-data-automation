@@ -42,6 +42,7 @@ import os
 import re
 import shutil
 import subprocess
+import time
 import uuid
 from email.message import Message
 from html.parser import HTMLParser
@@ -1041,8 +1042,21 @@ def replaceCommentFolder(staging_folder: Path, comment_folder: Path) -> None:
     if comment_folder.exists():
         comment_folder.replace(backup_folder)
 
+    retry_delays = (0.1, 0.2, 0.4, 0.8, 1.6)
+
     try:
-        staging_folder.replace(comment_folder)
+        for attempt in range(len(retry_delays) + 1):
+            try:
+                staging_folder.replace(comment_folder)
+                break
+            except PermissionError:
+                # Another run may have promoted the same comment first.
+                if loadCompletedCommentText(comment_folder) is not None:
+                    shutil.rmtree(staging_folder, ignore_errors=True)
+                    break
+                if attempt == len(retry_delays):
+                    raise
+                time.sleep(retry_delays[attempt])
     except Exception:
         if backup_folder.exists():
             backup_folder.replace(comment_folder)

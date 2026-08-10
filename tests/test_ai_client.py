@@ -96,7 +96,7 @@ def test_generate_text_success(mock_openai):
 
 
 @patch("src.services.ai_client.OpenAI")
-def test_generate_text_fallback(mock_openai):
+def test_generate_text_fallback(mock_openai, caplog):
     call_count = 0
 
     def side_effect(*args, **kwargs):
@@ -110,6 +110,7 @@ def test_generate_text_fallback(mock_openai):
     client = AIClient(OPENROUTER_SETTINGS)
     result = client.generate_text("test")
     assert result == "fallback response"
+    assert "APIError: primary failed" in caplog.text
 
 
 @patch("src.services.ai_client.OpenAI")
