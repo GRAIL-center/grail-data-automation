@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import io
 import json
 import logging
 import queue
@@ -24,6 +23,7 @@ from src.services.config import CONFIG_PATH, loadConfig, loadNoticeConfig
 
 ROOT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT_DIR / "data"
+ARCHIVE_DIR = DATA_DIR / ".archives"
 
 
 @dataclass
@@ -52,10 +52,11 @@ def split_terms(value: str) -> list[str]:
     return [term.strip() for term in value.splitlines() if term.strip()]
 
 
-def createArtifactArchive(fr_folder: Path) -> bytes:
-    """Package completed comment artifacts without re-downloading them."""
-    output = io.BytesIO()
-    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_STORED) as archive:
+def createArtifactArchive(fr_folder: Path, archive_dir: Path = ARCHIVE_DIR) -> Path:
+    """Package completed comment artifacts without loading them into memory."""
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    archive_path = archive_dir / f"{fr_folder.name}-{uuid.uuid4().hex}.zip"
+    with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_STORED) as archive:
         for path in sorted(fr_folder.rglob("*")):
             if not path.is_file():
                 continue
@@ -63,7 +64,7 @@ def createArtifactArchive(fr_folder: Path) -> bytes:
             if any(part.startswith(".") for part in relative_path.parts):
                 continue
             archive.write(path, arcname=str(Path(fr_folder.name) / relative_path))
-    return output.getvalue()
+    return archive_path
 
 
 def start_run(
@@ -237,11 +238,15 @@ def show_notices() -> None:
         "Oldest first": "oldest",
         "Executive order number": "executive_order_number",
     }
+    docket_type_options = ["RULE", "PRORULE", "NOTICE", "PRESDOCU"]
     selected_order = settings.get("order", "relevance")
     selected_order_label = next(
         (label for label, value in order_options.items() if value == selected_order),
         "Relevance",
     )
+    selected_docket_type = str(settings.get("docket_type", "NOTICE"))
+    if selected_docket_type not in docket_type_options:
+        selected_docket_type = "NOTICE"
 
     try:
         configured_start_date = date.fromisoformat(
@@ -261,9 +266,10 @@ def show_notices() -> None:
                 value=int(settings.get("max_notices", 5)),
                 step=1,
             )
-            docket_type = st.text_input(
-                "Docket type",
-                value=str(settings.get("docket_type", "NOTICE")),
+            docket_type_label = st.selectbox(
+                "Document type",
+                options=docket_type_options,
+                index=docket_type_options.index(selected_docket_type),
             )
             order_label = st.selectbox(
                 "Order",
@@ -291,7 +297,7 @@ def show_notices() -> None:
     if submitted:
         run_settings = {
             "max_notices": int(max_notices),
-            "docket_type": docket_type.strip(),
+            "docket_type": docket_type_label,
             "order": order_options[order_label],
             "start_date": start_date.isoformat(),
         }
@@ -344,7 +350,9 @@ def show_comments() -> None:
         st.info("No comment artifacts have been downloaded yet.")
         return
 
-    fr_folders = sorted(path for path in DATA_DIR.iterdir() if path.is_dir())
+    fr_folders = sorted(
+        path for path in DATA_DIR.iterdir() if path.is_dir() and not path.name.startswith(".")
+    )
     if not fr_folders:
         st.info("No comment artifacts have been downloaded yet.")
         return
@@ -354,21 +362,29 @@ def show_comments() -> None:
     if st.button("Prepare all comment artifacts download", key=f"prepare-{archive_key}"):
         with st.spinner("Packaging existing comment artifacts..."):
             try:
-                st.session_state[archive_key] = createArtifactArchive(selected_fr)
+                previous_archive = st.session_state.get(archive_key)
+                if isinstance(previous_archive, str):
+                    Path(previous_archive).unlink(missing_ok=True)
+                st.session_state[archive_key] = str(createArtifactArchive(selected_fr))
             except OSError as error:
                 st.error(f"Unable to package comment artifacts: {error}")
 
     archive = st.session_state.get(archive_key)
-    if isinstance(archive, bytes):
-        st.download_button(
-            "Download all comment artifacts",
-            data=archive,
-            file_name=f"{selected_fr.name}-comment-artifacts.zip",
-            mime="application/zip",
-        )
+    if isinstance(archive, str) and Path(archive).is_file():
+        with Path(archive).open("rb") as archive_file:
+            st.download_button(
+                "Download all comment artifacts",
+                data=archive_file,
+                file_name=f"{selected_fr.name}-comment-artifacts.zip",
+                mime="application/zip",
+            )
     st.caption("Packages existing local artifacts only; it does not contact any API.")
 
-    comment_folders = sorted(path for path in selected_fr.iterdir() if path.is_dir())
+    comment_folders = sorted(
+        path
+        for path in selected_fr.iterdir()
+        if path.is_dir() and not path.name.startswith(".")
+    )
     if not comment_folders:
         st.info("No downloaded comments are available in this folder.")
         return

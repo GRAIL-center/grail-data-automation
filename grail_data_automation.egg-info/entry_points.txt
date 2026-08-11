@@ -1,0 +1,2 @@
+[console_scripts]
+grail = src.main:main

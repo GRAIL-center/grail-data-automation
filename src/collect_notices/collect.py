@@ -5,12 +5,16 @@ from datetime import datetime
 import requests as req
 from bs4 import BeautifulSoup as bs
 
+from src.collect_comments.retrieve_comment_body import buildSession, requestJSON
 from src.services.ai_client import generate_text
-from src.services.config import loadNoticeConfig, loadNoticeSheetUrl
+from src.services.config import loadNoticeConfig, loadNoticeSheetUrl, loadRegKey
 from src.services.sheets import addRow, getExistingFRIDs, setupGoogleSheets
 
 logger = logging.getLogger(__name__)
 REQUEST_TIMEOUT = 30
+REGULATIONS_API_URL = "https://api.regulations.gov/v4"
+COMMENT_COUNT_COLUMN = 10
+COMMENT_COUNT_HEADER = "Comment Count"
 
 
 
@@ -67,7 +71,10 @@ def getBodyInfo(docId: str):
         Body text and agency name as a title-cased string if found,
         or (None, None) if extraction fails.
     """
-    url = f"https://www.federalregister.gov/api/v1/documents/{docId}.json?fields[]=body_html_url"
+    url = (
+        f"https://www.federalregister.gov/api/v1/documents/{docId}.json?"
+        "fields[]=body_html_url&fields[]=agencies"
+    )
     res = req.get(url, timeout=REQUEST_TIMEOUT)
     res.raise_for_status()
     res = res.json()
@@ -99,6 +106,17 @@ def getBodyInfo(docId: str):
         )
         return agency, bodyText
 
+    agencies = res.get("agencies", [])
+    agency_names = [
+        str(agency.get("name")).strip()
+        for agency in agencies
+        if isinstance(agency, dict) and agency.get("name")
+    ]
+    if agency_names:
+        agency = "; ".join(agency_names)
+        logger.info("Using Federal Register metadata agency for docId: %s", docId)
+        return agency, bodyText
+
     logger.error("No agency found for docId: %s", docId)
     return None, None
 
@@ -128,6 +146,39 @@ def formatDate(
     except (ValueError, TypeError) as e:
         logger.error("Failed to format date: %s", e)
         return None
+
+
+def countComments(frNumber: str) -> int:
+    """Return the number of Regulations.gov comments mapped to an FR number."""
+    with buildSession(loadRegKey()) as session:
+        documents = requestJSON(
+            session,
+            f"{REGULATIONS_API_URL}/documents",
+            {
+                "filter[frDocNum]": frNumber,
+                "page[size]": 250,
+            },
+        )
+
+        objectIds = {
+            str(document.get("attributes", {}).get("objectId"))
+            for document in documents.get("data", [])
+            if document.get("attributes", {}).get("objectId")
+        }
+
+        total = 0
+        for objectId in objectIds:
+            comments = requestJSON(
+                session,
+                f"{REGULATIONS_API_URL}/comments",
+                {
+                    "filter[commentOnId]": objectId,
+                    "page[size]": 5,
+                },
+            )
+            total += int(comments.get("meta", {}).get("totalElements", 0))
+
+    return total
 
 
 def processNotice(notice: dict):
@@ -183,6 +234,11 @@ def processNotice(notice: dict):
             summary = "Summary unavailable."
 
     commentEndDate = commentsCloseOn or extractCommentDate(bodyText or "") or "N/A"
+    try:
+        commentCount: int | str = countComments(docNum)
+    except Exception as e:
+        logger.error("Failed to count comments for docId: %s", docNum, exc_info=e)
+        commentCount = "N/A"
 
     return [
         notice.get("title", ""),
@@ -194,6 +250,7 @@ def processNotice(notice: dict):
         "Needs comment end date." if commentEndDate == "N/A" else "",
         notice.get("type", ""),
         docNum,
+        commentCount,
     ]
 
 
@@ -205,6 +262,12 @@ def scrapeNotices(
     order: str = "relevance",
     startDate: str = "2021-01-01",
 ) -> None:
+    headers = sheet.row_values(1)
+    if len(headers) < COMMENT_COUNT_COLUMN or not str(
+        headers[COMMENT_COUNT_COLUMN - 1]
+    ).strip():
+        sheet.update_cell(1, COMMENT_COUNT_COLUMN, COMMENT_COUNT_HEADER)
+
     existingIds = set(getExistingFRIDs(sheet))
     addedCount = 0
     rowsToAppend = []
